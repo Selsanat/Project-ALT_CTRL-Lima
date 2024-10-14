@@ -23,25 +23,15 @@ MonoBehaviour:
     lastFileHash: 
     label: 
     assetReference: {fileID: 0}
-  - m_ID: 13
-    m_Name: Google Docs Example
-    m_Depth: 0
-    enabled: 1
-    fileType: 0
-    url: https://docs.google.com/document/export?format=txt&id=16qV96pKt5sQp49fxx0Y_RHcSb2makAAOBHGxwa__0XU&includes_info_params=true
-    filePath: Assets/Example Files/Google Docs Example.txt
-    lastFileHash: dae43ea8eaca93008d00697cf8415ddc
-    label: 
-    assetReference: {fileID: 4900000, guid: 26ad90e5ff8d8ac4088204aa12f4c865, type: 3}
   - m_ID: 9
-    m_Name: Google Sheets Example
+    m_Name: Dialogues
     m_Depth: 0
     enabled: 1
     fileType: 1
-    url: https://docs.google.com/spreadsheets/export?format=csv&id=1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms
-    filePath: Assets/Example Files/Google Sheets Example.csv
-    lastFileHash: f6ec9d52e21cb67b8694f6e01006a084
+    url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo
+    filePath: Assets/Trash/Dialogues.csv
+    lastFileHash: b5fe406b854920e1bb7aae63d64c922a
     label: 
-    assetReference: {fileID: 4900000, guid: a89a5979c4d3f7445806c12eb49f8ce1, type: 3}
+    assetReference: {fileID: 4900000, guid: aca6e0a0fddc6a24eb6ca6bb6a60cc4f, type: 3}
   autoRefresh: 0
   refreshInterval: 120

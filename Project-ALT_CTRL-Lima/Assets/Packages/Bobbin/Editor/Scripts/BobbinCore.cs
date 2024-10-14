@@ -101,7 +101,7 @@ namespace Bobbin
                     yield return results[i].SendWebRequest();
 
                     // handle an unknown internet error
-                    if (results[i].isNetworkError || results[i].isHttpError)
+                    if (results[i].result == UnityWebRequest.Result.ConnectionError || results[i].result == UnityWebRequest.Result.ProtocolError)
                     {
                         Debug.LogWarningFormat("Bobbin couldn't retrieve file at <{0}> and error message was: {1}", results[i].url, results[i].error);
                         lastReport += string.Format("\n- [ERROR] {0}: {1}", currentPair.name, results[i].error);
