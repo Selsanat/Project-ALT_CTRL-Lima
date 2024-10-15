@@ -7,7 +7,7 @@ public class ChoiceBox : MonoBehaviour
     private TextMeshProUGUI _choiceA;
     public string choiceA {set {_choiceA.text = value;}}
     private int _redirectChoiceA;
-    public int redirectChoiceA {get => _redirectChoiceA; set {_redirectChoiceB = value;}}
+    public int redirectChoiceA {get => _redirectChoiceA; set {_redirectChoiceA = value;}}
 
     [SerializeField]
     private TextMeshProUGUI _choiceB;
