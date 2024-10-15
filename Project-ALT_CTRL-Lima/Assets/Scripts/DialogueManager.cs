@@ -44,7 +44,7 @@ public class DialogueManager : MonoBehaviour
             targetIndex = _currentData.redirectIndex;
         }
 
-        if( targetIndex == -1 )
+        if(targetIndex == -1)
         {
             return;
         }
