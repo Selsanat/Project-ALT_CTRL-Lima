@@ -1,53 +1,119 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ClockMovement : MonoBehaviour
 {
-
-    private Joycon joycon;
+    private Joycon _joycon;
 
     [SerializeField]
-    private float[] targetsPos = new float[3];
+    private float[] _targetsPos = new float[3] {40.0f, 0, -40.0f};
 
     [SerializeField]
     [Range(0.0f, 50.0f)]
-    private float floatTollerance = 0.1f;
+    private float _floatTollerance = 0.1f;
 
-    private int currentIndex = 0;
-    private int direction = 1;
+    private int _currentIndex = 0;
+    private int _direction = 1;
 
-    private void Start()
+    [SerializeField]
+    [Tooltip("Timer in seconds")]
+    private float _succeedMaxDuration = 2.5f;
+    private float _succeedTimer;
+
+    [SerializeField] private UnityEvent _onMovementSucceed;
+    [SerializeField] private UnityEvent _onMovementFailed;
+
+    private bool _bIsSuceeding = false;
+
+    [SerializeField]
+    [Tooltip("Timer in seconds")]
+    private float _resetDuration = 60.0f;
+    private float _recenterTimer;
+
+#if UNITY_EDITOR
+    [SerializeField]
+    private Transform _debugGameObject;
+#endif
+
+    private IEnumerator Start()
     {
-        joycon = JoyconManager.Instance.j[0];
+        if(JoyconManager.Instance.j.Count == 0)
+        {
+            yield break;
+        }
+
+        _joycon = JoyconManager.Instance.j[0];
+
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+        // recenter the joycon after 2 frames
+        _joycon.Recenter();
     }
 
     private void Update()
     {
-        if (joycon == null)
+        if (_joycon == null)
         {
             return;
         }
 
-        float currentZRotation = joycon.GetVector().eulerAngles.z;
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, currentZRotation);
+        _recenterTimer += Time.deltaTime;
 
-        while (currentZRotation > 180.0f)
+        if(_recenterTimer >= _resetDuration)
         {
-            currentZRotation -= 360.0f;
+            _joycon.Recenter();
+            _recenterTimer = 0;
         }
 
-        while (currentZRotation < -180.0f)
+        float rotationAngle = _joycon.GetVector().eulerAngles.y + 180.0f;
+#if UNITY_EDITOR
+        if(_debugGameObject != null)
         {
-            currentZRotation += 360.0f;
+            _debugGameObject.rotation = Quaternion.Euler(0.0f, 0.0f, rotationAngle);
+        }
+#endif
+
+        while (rotationAngle > 180.0f)
+        {
+            rotationAngle -= 360.0f;
         }
 
-        if(Mathf.Abs(currentZRotation - targetsPos[currentIndex]) <= floatTollerance)
+        while (rotationAngle < -180.0f)
         {
-            currentIndex += direction;
+            rotationAngle += 360.0f;
+        }
 
-            if (currentIndex == 0 || currentIndex == targetsPos.Length - 1)
+        if(Mathf.Abs(rotationAngle - _targetsPos[_currentIndex]) <= _floatTollerance)
+        {
+            _currentIndex += _direction;
+
+            if (!_bIsSuceeding)
             {
-                direction *= -1;
+                _bIsSuceeding = true;
+                _onMovementSucceed.Invoke();
             }
+
+            _succeedTimer = 0;
+
+            if (_currentIndex == 0 || _currentIndex == _targetsPos.Length - 1)
+            {
+                _direction *= -1;
+            }
+        }
+
+        if (!_bIsSuceeding)
+        {
+            return;
+        }
+
+        _succeedTimer += Time.deltaTime;
+
+        if(_succeedTimer >= _succeedMaxDuration)
+        {
+            _bIsSuceeding = false;
+            _onMovementFailed.Invoke();
         }
     }
 }
