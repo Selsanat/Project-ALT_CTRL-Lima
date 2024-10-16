@@ -12,23 +12,11 @@ public enum EyesState
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] private CharacterData _currentData;
+    private CharacterData _currentData;
     [SerializeField] private Image _body;
     [SerializeField] private Image _eyes;
 
-    private void Start()
-    {
-#if UNITY_EDITOR
-        if(_currentData == null)
-        {
-            Debug.LogWarning(name + " has null data.");
-            return;
-        }
-#endif
-
-        _body.sprite = _currentData.Character;
-        _eyes.sprite = _currentData.DefaultEyes;
-    }
+    public CharacterData Data {get => _currentData;}
 
     public void SetEyesState(int state)
     {
@@ -44,5 +32,12 @@ public class Character : MonoBehaviour
                 _eyes.sprite = _currentData.HypnotizedEyes;
                 break;
         }
+    }
+
+    public void SetData(CharacterData Data)
+    {
+        _currentData = Data;
+        _body.sprite = _currentData.Character;
+        _eyes.sprite = _currentData.DefaultEyes;
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,9 +32,12 @@ public class ClockMovement : MonoBehaviour
     private float _resetDuration = 60.0f;
     private float _recenterTimer;
 
+    private List<Quaternion> _joyconRotations = new List<Quaternion>();
+
 #if UNITY_EDITOR
     [SerializeField]
     private Transform _debugGameObject;
+    private float _debugRotation;
 #endif
 
     private IEnumerator Start()
@@ -67,9 +71,20 @@ public class ClockMovement : MonoBehaviour
             _recenterTimer = 0;
         }
 
-        float rotationAngle = _joycon.GetVector().eulerAngles.y + 180.0f;
+        Quaternion joyconRotation = _joycon.GetVector();
+
+        _joyconRotations.Add(joyconRotation);
+
+        if (_joyconRotations.Count > 10) {
+            _joyconRotations.RemoveAt(0);
+        }
+
+        float rotationAngle = joyconRotation.eulerAngles.y + 180.0f;
+
 #if UNITY_EDITOR
-        if(_debugGameObject != null)
+        _debugRotation = rotationAngle;
+
+        if (_debugGameObject != null)
         {
             _debugGameObject.rotation = Quaternion.Euler(0.0f, 0.0f, rotationAngle);
         }
@@ -85,7 +100,8 @@ public class ClockMovement : MonoBehaviour
             rotationAngle += 360.0f;
         }
 
-        if(Mathf.Abs(rotationAngle - _targetsPos[_currentIndex]) <= _floatTollerance)
+
+        if (MathFunc.EqualFloats(rotationAngle, _targetsPos[_currentIndex], _floatTollerance))
         {
             _currentIndex += _direction;
 
@@ -116,4 +132,23 @@ public class ClockMovement : MonoBehaviour
             _onMovementFailed.Invoke();
         }
     }
+
+    private bool IsJoyconMoving() {
+        for (int i = 0; i < _joyconRotations.Count; i++)
+        {
+            if (i + 1 == _joyconRotations.Count)
+            {
+                break;
+            }
+
+            if (!MathFunc.EqualQuaternions(_joyconRotations[i], _joyconRotations[i + 1], 0.1f))
+            {
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
 }

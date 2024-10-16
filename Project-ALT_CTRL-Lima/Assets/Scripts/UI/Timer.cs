@@ -46,7 +46,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void AddTimer(float timeToAdd)
+    public void AddTime(float timeToAdd)
     {
         _slider.value += timeToAdd;
         _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
@@ -55,6 +55,11 @@ public class Timer : MonoBehaviour
         {
             _onTimerGreaterThanHalf?.Invoke();
         }
+    }
+
+    public void AddTimeInPercent(float percentToAdd)
+    {
+        AddTime(percentToAdd * _timerDuration / 100.0f);
     }
 
     public void ToggleTimerFactor()

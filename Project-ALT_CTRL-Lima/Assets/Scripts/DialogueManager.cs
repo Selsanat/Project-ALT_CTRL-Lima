@@ -1,10 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField]
-    private TextAsset _csvFile;
+    private List<CharacterData> _characterDatas = new List<CharacterData>();
+    private int characterIndex = -1;
+
+    [SerializeField]
+    private Character _character;
 
     private List<DialogueData> _dialogueData;
     private DialogueData _currentData;
@@ -17,9 +22,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        _dialogueData = CSVReader.MakeDialogueData(_csvFile);
-
-        WriteDialogue(0);
+        ToNextCharacter();
     }
 
     private void Update()
@@ -79,5 +82,14 @@ public class DialogueManager : MonoBehaviour
 
         _dialogueBox.gameObject.SetActive(true);
         _choiceBox.gameObject.SetActive(false);
+    }
+
+    public void ToNextCharacter()
+    {
+        characterIndex++;
+        _character.SetData(_characterDatas[characterIndex]);
+        _dialogueData = CSVReader.MakeDialogueData(_characterDatas[characterIndex].Dialogues);
+
+        WriteDialogue(0);
     }
 }
