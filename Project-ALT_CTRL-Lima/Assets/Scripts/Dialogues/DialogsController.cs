@@ -4,17 +4,24 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class DialogsController : MonoBehaviour
 {
     [SerializeField] TMP_InputField dialogInput;
-    [SerializeField] int charactersPerSecond = 50;
+    [SerializeField] int charactersPerSecond = 1;
     [SerializeField] TMP_Text _dialogText;
     private float _readCharacterOffset = 0;
     private int _readMaxCharacters = 0;
     private TMP_TextInfo _textInfo;
     private bool isReadingText = false;
+    private ProcessedText _currentProcessedText;
 
+    private class ProcessedText
+    {
+        public string processedText = "";
+        public Dictionary<int, List<TextCommand>> commands = new Dictionary<int, List<TextCommand>>();
+    }
     private void Update()
     {
         _UpdateReadText();
@@ -27,18 +34,40 @@ public class DialogsController : MonoBehaviour
     private void _UpdateReadText()
     {
         if (!isReadingText) return;
+        int nextLetterCalcul = (int)(_readCharacterOffset + charactersPerSecond * Time.deltaTime);
+        bool hasSecondPassed = (int)_readCharacterOffset + 1 == nextLetterCalcul; // Check if a second has passed
+        if (hasSecondPassed)
+        {
+            _currentProcessedText.commands[nextLetterCalcul-1].ForEach(command => {
+                command.OnEnter();
+                });
+        }
         _readCharacterOffset += charactersPerSecond * Time.deltaTime;
         _dialogText.maxVisibleCharacters = (int)_readCharacterOffset;
         if (_readCharacterOffset >= _readMaxCharacters) GoToEnd();
     }
     public void ReadText()
     {
-        _dialogText.text = dialogInput.text;
+        _currentProcessedText = _GenerateCommands(dialogInput.text);
+        _dialogText.text = _currentProcessedText.processedText;
+        _textInfo = _dialogText.textInfo;
         _dialogText.ForceMeshUpdate();
         _readCharacterOffset = 0;
         _readMaxCharacters = _dialogText.GetParsedText().Length;
         _dialogText.maxVisibleCharacters = 0;
         isReadingText = true;
+        initText();
+    }
+
+    public void initText()
+    {
+        foreach (KeyValuePair<int, List<TextCommand>> command in _currentProcessedText.commands)
+        {
+            command.Value.ForEach(c =>
+            {
+                c.Init(_dialogText, command.Key);
+            });
+        }
     }
     public void showDialog()
     {
@@ -53,11 +82,7 @@ public class DialogsController : MonoBehaviour
             int vertexIndex = _dialogText.textInfo.characterInfo[i].vertexIndex;
 
             if (!char.IsWhiteSpace(_dialogText.textInfo.characterInfo[i].character)){
-                for (int j = 0; j < 4; ++j)
-                {
-                    _dialogText.textInfo.meshInfo[meshIndex].colors32[vertexIndex + j].a = 255;
-                    //MakeLetterJump(meshIndex, vertexIndex + j);
-                }
+
 
                 _dialogText.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
                 yield return new WaitForSeconds(0.25f);
@@ -65,61 +90,71 @@ public class DialogsController : MonoBehaviour
         }
     }
 
-    private void MakeLetterJump(int meshIndex,int vertexIndex)
+    private static ProcessedText _GenerateCommands(string text)
     {
-        Vector3 vertex = _dialogText.textInfo.meshInfo[meshIndex].vertices[vertexIndex];
-        DOTween.To(() => vertex, x => vertex = x, vertex + new Vector3(0, 5f, 0), 0.5f).OnUpdate(() =>
-        {
-            _dialogText.textInfo.meshInfo[meshIndex].vertices[vertexIndex] = vertex;
-            _dialogText.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
-        });
-    }
-
-
-    private static TextCommand[] _GenerateCommands(string text)
-    {
+        string modifiedText = text;
+        ProcessedText result = new ProcessedText();
         TextCommandsFactory factory = new TextCommandsFactory();
-        List<TextCommand> commands = new List<TextCommand>();
-        int startIndex = 0;
+        List<string> activeCommands = new List<string>();
         bool isInsideTag = false;
-        List<string> tags = new List<string>();
+        int tagOffset = 0;
+        string tag = "";
         for (int i = 0; i < text.Length; ++i)
         {
+            result.commands[i] = new List<TextCommand>();
             char character = text[i];
             switch (character)
             {
                 case '<':
-                {
-                    tags.Add("");
-                    isInsideTag = true;
-                    break;
-                }
-                case '>':
-                {
-                    if (isInsideTag)
                     {
-                        isInsideTag = false;
-                        i++;
-                    }
-                    break;
-                }
+                    isInsideTag = true;
+                        break;
+                    };
             }
             if (isInsideTag)
             {
-                if (character == '>') isInsideTag = false;
-                tags[startIndex] += character;
+                tagOffset++;
+                tag += character;
+                if (character == '>') 
+                {
+                    isInsideTag = false;
+                    string tagName = TagsUtils.ExtractTagName(tag);
+                    if (TagsUtils.IsCustomTag(tagName) && tagName != "")
+                    {
+                        TextCommand command = factory.CreateCommand(tagName);
+                        if (tag.Contains("/"))
+                        {
+                            activeCommands.Remove(tagName);
+                        }
+                        else
+                        {
+                            if (!command.OneShot)
+                            {
+                                activeCommands.Add(tagName);
+                                
+                            }
+                            else
+                            {
+                                result.commands[i- tagOffset].Add(command);
+                            }
+                        }
+                        modifiedText = modifiedText.Replace(tag, "");
+                    }
+                    tag = "";
+                    isInsideTag = false;
+                }
             }
-        }
-        foreach (string tag in tags)
-        {
-            string tagName = TagsUtils.ExtractTagName(tag);
-            if (TagsUtils.IsCustomTag(tagName) && tagName != "")
+            else
             {
-                commands.Add(factory.CreateCommand("textshake"));
-                print(factory.CreateCommand("textshake"));
+                foreach (string activeCommand in activeCommands)
+                {
+                    TextCommand command = factory.CreateCommand(activeCommand);
+                    result.commands[i-tagOffset].Add(command);
+                }
             }
         }
-        return commands.ToArray();
+        result.processedText = modifiedText;
+        return result;
     }
 
 }

@@ -9,7 +9,7 @@ public class CameraShake : TextCommand
     {
         private float _shakePower = 0f;
         private float _shakeDuration = 0f;
-
+        override public bool OneShot => true;
         public override void SetupData(string strCommandData)
         {
             string[] args = strCommandData.Split("|");

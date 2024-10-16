@@ -7,9 +7,8 @@ using UnityEngine;
 
 public class textJump : TextCommand
 {
-    private float _loops = 0f;
-    private float _duration = 0f;
-
+    private float _loops = 1f;
+    private float _duration = 1f;
     public override void SetupData(string strCommandData)
     {
         string[] args = strCommandData.Split("|");
@@ -25,14 +24,18 @@ public class textJump : TextCommand
 
     public override void OnEnter()
     {
-        Vector3 vertex = GetMeshInfo().vertices[_currentCharacter];
-        for (int j = 0; j < 4; ++j)
+        if (!char.IsWhiteSpace(_text.textInfo.characterInfo[_currentCharacter].character))
         {
-            DOTween.To(() => vertex, x => vertex = x, vertex + new Vector3(0, 5f, 0), 0.5f).OnUpdate(() =>
+            
+            for (int j = 0; j < 4; ++j)
             {
-                _text.textInfo.meshInfo[_meshIndex].vertices[_vertexIndex] = vertex;
-                _text.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
-            });
+                Vector3 vertex = _text.textInfo.meshInfo[_meshIndex].vertices[_vertexIndex + j];
+                DOTween.To(() => vertex, x => vertex = x, vertex + new Vector3(0, 5f, 0), 1).SetLoops(-1, LoopType.Yoyo).OnUpdate(() =>
+                {
+                    _text.textInfo.meshInfo[_meshIndex].vertices[_vertexIndex + j] = vertex;
+                    _text.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
+                });
+            }
         }
     }
 
