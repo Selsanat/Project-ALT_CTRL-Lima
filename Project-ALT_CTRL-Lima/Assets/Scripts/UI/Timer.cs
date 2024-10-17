@@ -15,11 +15,7 @@ public class Timer : MonoBehaviour
 
     private float _timerFactor;
 
-    [SerializeField] private UnityEvent _onTimerGreaterThanHalf;
-    [SerializeField] private UnityEvent _onTimerLessThanHalf;
     [SerializeField] private UnityEvent _onTimerFinished;
-
-    private bool _bReachHalf => (_slider.value > _timerDuration/2);
 
     private void Start()
     {
@@ -35,11 +31,6 @@ public class Timer : MonoBehaviour
         _slider.value -= Time.deltaTime * _timerFactor;
         _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
 
-        if (!_bReachHalf)
-        {
-            _onTimerLessThanHalf.Invoke();
-        }
-
         if (_slider.value == 0.0f)
         {
             _onTimerFinished?.Invoke();
@@ -50,11 +41,6 @@ public class Timer : MonoBehaviour
     {
         _slider.value += timeToAdd;
         _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
-
-        if (_bReachHalf)
-        {
-            _onTimerGreaterThanHalf?.Invoke();
-        }
     }
 
     public void AddTimeInPercent(float percentToAdd)

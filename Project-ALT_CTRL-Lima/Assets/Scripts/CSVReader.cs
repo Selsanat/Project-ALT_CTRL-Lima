@@ -79,13 +79,14 @@ public static class CSVReader
             data.dialogue = collumns[1];
             data.bIsChoice = collumns[2] != "";
 
-            index++;
 #if UNITY_EDITOR
             if(data.bIsChoice && collumns[3] == "")
             {
-                Debug.LogWarning((index + 1) + " is a choice but does not have a redirectIndex.");
+                Debug.LogWarning((index - lineOffset) + " is a choice but does not have a redirectIndex.");
             }
 #endif
+
+            index++;
             data.redirectIndex = collumns[3] != "" ? (int.Parse(collumns[3]) + lineOffset) : index;
 
             bool bFindEmotion = Enum.TryParse<Emotion>(collumns[4], out Emotion emotion);

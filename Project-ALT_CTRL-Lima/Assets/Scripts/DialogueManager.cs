@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private Character _character;
 
-    public List<DialogueData> _dialogueData;
+    private List<DialogueData> _dialogueData;
     private DialogueData _currentData;
 
     [SerializeField]
