@@ -5,11 +5,12 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using System;
 
 public class DialogsController : MonoBehaviour
 {
     [SerializeField] TMP_InputField dialogInput;
-    [SerializeField] int charactersPerSecond = 1;
+    [SerializeField] int charactersPerSecond = 50;
     [SerializeField] TMP_Text _dialogText;
     private float _readCharacterOffset = 0;
     private int _readMaxCharacters = 0;
@@ -33,30 +34,47 @@ public class DialogsController : MonoBehaviour
     }
     private void _UpdateReadText()
     {
+        _dialogText.ForceMeshUpdate();
         if (!isReadingText) return;
         int nextLetterCalcul = (int)(_readCharacterOffset + charactersPerSecond * Time.deltaTime);
         bool hasSecondPassed = (int)_readCharacterOffset + 1 == nextLetterCalcul; // Check if a second has passed
+        _readCharacterOffset += charactersPerSecond * Time.deltaTime;
         if (hasSecondPassed)
         {
-            _currentProcessedText.commands[nextLetterCalcul-1].ForEach(command => {
+            _currentProcessedText.commands[nextLetterCalcul - 1].ForEach(command => {
                 command.OnEnter();
-                });
+            });
         }
-        _readCharacterOffset += charactersPerSecond * Time.deltaTime;
-        _dialogText.maxVisibleCharacters = (int)_readCharacterOffset;
         if (_readCharacterOffset >= _readMaxCharacters) GoToEnd();
     }
+
     public void ReadText()
     {
         _currentProcessedText = _GenerateCommands(dialogInput.text);
         _dialogText.text = _currentProcessedText.processedText;
         _textInfo = _dialogText.textInfo;
-        _dialogText.ForceMeshUpdate();
-        _readCharacterOffset = 0;
-        _readMaxCharacters = _dialogText.GetParsedText().Length;
-        _dialogText.maxVisibleCharacters = 0;
-        isReadingText = true;
-        initText();
+        //_readCharacterOffset = 0;
+        //_readMaxCharacters = _currentProcessedText.processedText.Length;
+        //isReadingText = true;
+        //initText();
+
+
+        TMP_WordInfo info = _dialogText.textInfo.wordInfo[0];
+        for (int i = 0; i < info.characterCount; ++i)
+        {
+            _dialogText.ForceMeshUpdate();
+            int charIndex = info.firstCharacterIndex + i;
+            int meshIndex = _dialogText.textInfo.characterInfo[charIndex].materialReferenceIndex;
+            int vertexIndex = _dialogText.textInfo.characterInfo[charIndex].vertexIndex;
+
+            Color32[] vertexColors = _dialogText.textInfo.meshInfo[meshIndex].colors32;
+            vertexColors[vertexIndex + 0] = Color.green;
+            vertexColors[vertexIndex + 1] = Color.green;
+            vertexColors[vertexIndex + 2] = Color.green;
+            vertexColors[vertexIndex + 3] = Color.green;
+            _dialogText.textInfo.meshInfo[meshIndex].colors32 = vertexColors;
+            _dialogText.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
+        }
     }
 
     public void initText()
@@ -95,7 +113,7 @@ public class DialogsController : MonoBehaviour
         string modifiedText = text;
         ProcessedText result = new ProcessedText();
         TextCommandsFactory factory = new TextCommandsFactory();
-        List<string> activeCommands = new List<string>();
+        List<(string, string)> activeCommands = new List<(string,string)>();
         bool isInsideTag = false;
         int tagOffset = 0;
         string tag = "";
@@ -122,15 +140,16 @@ public class DialogsController : MonoBehaviour
                     if (TagsUtils.IsCustomTag(tagName) && tagName != "")
                     {
                         TextCommand command = factory.CreateCommand(tagName);
+                        command.SetupData(TagsUtils.ExtractTagArgs(tag));
                         if (tag.Contains("/"))
                         {
-                            activeCommands.Remove(tagName);
+                            activeCommands.RemoveAt(activeCommands.FindLastIndex(x => x.Item1 == tagName));
                         }
                         else
                         {
                             if (!command.OneShot)
                             {
-                                activeCommands.Add(tagName);
+                                activeCommands.Add((tagName, TagsUtils.ExtractTagArgs(tag)));
                                 
                             }
                             else
@@ -146,9 +165,10 @@ public class DialogsController : MonoBehaviour
             }
             else
             {
-                foreach (string activeCommand in activeCommands)
+                foreach ((string,string) activeCommand in activeCommands)
                 {
-                    TextCommand command = factory.CreateCommand(activeCommand);
+                    TextCommand command = factory.CreateCommand(activeCommand.Item1);
+                    command.SetupData(activeCommand.Item2);
                     result.commands[i-tagOffset].Add(command);
                 }
             }
