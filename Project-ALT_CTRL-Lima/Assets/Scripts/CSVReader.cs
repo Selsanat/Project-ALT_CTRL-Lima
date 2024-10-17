@@ -9,6 +9,7 @@ public struct DialogueData
     public string dialogue;
     public bool bIsChoice;
     public int redirectIndex;
+    public Emotion emotion;
 }
 
 public class CSVReader
@@ -71,6 +72,7 @@ public class CSVReader
             // collumn 1: text
             // collumn 2: choice
             // collumn 3: redirectTo
+            // collumn 4: emotion
             data.name = collumns[0] == "" ? lastName : collumns[0];
             lastName = data.name;
 
@@ -78,7 +80,19 @@ public class CSVReader
             data.bIsChoice = collumns[2] != "";
 
             index++;
+#if UNITY_EDITOR
+            if (data.bIsChoice && !int.TryParse(collumns[3], out int intResult))
+            {
+                Debug.LogWarning("redirectTo of " + (index + 1) + " is invalid.");
+                dialoguesData.Add(data);
+                continue;
+            }
+#endif
+
             data.redirectIndex = data.bIsChoice ? (int.Parse(collumns[3]) + lineOffset) : index;
+
+            bool bFindEmotion = Enum.TryParse<Emotion>(collumns[4], out Emotion emotion);
+            data.emotion = bFindEmotion ? emotion : Emotion.None;
 
             dialoguesData.Add(data);
         }

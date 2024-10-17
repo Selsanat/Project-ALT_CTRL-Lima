@@ -1,0 +1,45 @@
+characterName,text,choice,redirectTo,emotion
+Fluffles ,"Bonjour, si je viens vous voir aujourd’hui c’est parce que je ne suis plus capable de faire mon travail dans mon état actuel.",,,Neutral
+ ,"Pour commencer l’hypnose, faites vaciller votre pendule !",,,
+,Vous avez un temps imparti pour hypnotiser vos clients !,,,
+,"Si ce temps est entièrement écoulé, ils perdent confiance en vous et partent !",,,
+,Votre pendule permet de ralentir l’écoulement de ce temps.,,,
+,Discuter avec les clients pour garder leur confiance et trouver comment les hypnotiser !,,,
+player,Quel est le problème ?,TRUE,10,
+,Prenez un chewing gum. ,TRUE,10,
+Fluffles,Les gens viennent me voir pour me demander tout et n’importe quoi.,,,Sad
+,"Et à force, toute la journée, ça rend fou vous savez !",,,Neutral
+ ,Attention ! La plupart sont ““ et vous feront perdre du temps inutilement !,,,Livid
+,C’est à vous de choisir les meilleures réponses pour gagner du temps !,,,Neutral
+player,Quel genre de demandes ?,TRUE,16,
+,C’est ça qui vous pose problème ?,TRUE,16,
+Fluffles,Un chocolatier se plaint tout le temps ! Un père veut que je résolve ses problèmes familiaux ! Je dois organiser des sorties scolaires. Les opticiens me gavent avec leurs problèmes à la con. ,,,Neutral
+player,Ah oui ça à l’air bien relou.,TRUE,19,
+,Vous avez pensé à changer votre cercle de personnes proches ?,TRUE,19,
+Fluffles,"Je vous en prie, hypnotisez-moi pour que je puisse enfin le supporter ! Je veux être enfin libre de toute cette pression !",,,Neutral
+player,Ok commençons l’hypnose.,,,
+,Concentrez-vous sur ma montre.,,,
+,Pensez à quelque chose qui vous relaxe.,,,
+Fluffles,Quoi par exemple ?,,,Neutral
+player,Du miel.,TRUE,26,
+,Des papiers administratifs.,TRUE,27,
+Fluffles,Oh du miel ! C’est vrai que c’est bien le miel !,,29,Neutral
+Fluffles,Oh non tout sauf le travail pitié !,,28,Neutral
+,Je vais plutôt penser à du miel.,,29,Neutral
+player,Maintenant pensez à un endroit qui vous détend.,,,
+Fluffles,Oh je suis désolé je n’arrive pas à en trouver un vous auriez une idée ?,,,Neutral
+player,Dans une boulangerie ou chez un chocolatier.,TRUE,33,
+,Au pied d’un arbre.,TRUE,35,
+Fluffles,"Oh non pas ces histoires de chocolatier, pas encore pitié.",,34,Neutral
+,Dans une forêt avec des arbres ce sera très bien.,,36,Neutral
+Fluffles,Ah oui c’est vrai que ça me détend !,,36,Neutral
+player,Ok essayer de vous rappeler un souvenir heureux de votre enfance.,,,
+Fluffles,Comme quoi ?,,,Neutral
+player,Une sortie scolaire par exemple.,TRUE,40,
+,Au pied d’un arbre.,TRUE,42,
+Fluffles,Une sortie scolaire ?,,41,Neutral
+,Oh non ça me fait penser à ces histoires de CM2 en Angleterre.,,43,Neutral
+Fluffles,Oh ça fonctionne je me sent flotter.,,43,Neutral
+player,"A mon top, tous vos problèmes vous paraîtront futiles. Top !",,,
+ ,Bravo ! Vous êtes maintenant un vrai psycho-hypnotiseur !,,,
+,Faites tout pour rendre meilleure la vie de vos patients !,,,

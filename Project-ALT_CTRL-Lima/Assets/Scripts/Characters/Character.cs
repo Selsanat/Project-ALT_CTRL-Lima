@@ -1,14 +1,6 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-[Serializable]
-public enum EyesState
-{
-    Default,
-    Cyring,
-    Hypnotized,
-}
 
 public class Character : MonoBehaviour
 {
@@ -16,28 +8,33 @@ public class Character : MonoBehaviour
     [SerializeField] private Image _body;
     [SerializeField] private Image _eyes;
 
+    private Dictionary<Emotion, Sprite> _emotionData = new Dictionary<Emotion, Sprite>();
+
     public CharacterData Data {get => _currentData;}
 
-    public void SetEyesState(int state)
+    public void SetEmotion(Emotion emotion)
     {
-        switch ((EyesState)state)
+        if(_emotionData.TryGetValue(emotion, out Sprite sprite))
         {
-            case EyesState.Default:
-                _eyes.sprite = _currentData.DefaultEyes;
-                break;
-            case EyesState.Cyring:
-                _eyes.sprite = _currentData.CryingEyes;
-                break;
-            case EyesState.Hypnotized:
-                _eyes.sprite = _currentData.HypnotizedEyes;
-                break;
+            _eyes.sprite = sprite;
         }
+
+#if UNITY_EDITOR
+        else
+        {
+            Debug.LogWarning("This character does not have the emotion: " + emotion.ToString());
+        }
+#endif
     }
 
     public void SetData(CharacterData Data)
     {
         _currentData = Data;
         _body.sprite = _currentData.Character;
-        _eyes.sprite = _currentData.DefaultEyes;
+
+        foreach (EmotionStruct data in _currentData.Emotions)
+        {
+            _emotionData.Add(data.emotion, data.sprite);
+        }
     }
 }

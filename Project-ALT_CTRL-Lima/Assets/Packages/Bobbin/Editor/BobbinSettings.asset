@@ -26,16 +26,16 @@ MonoBehaviour:
     sheetId: 
     assetReference: {fileID: 0}
   - m_ID: 12
-    m_Name: Dialogues
+    m_Name: MrCostard
     m_Depth: 0
     enabled: 1
     fileType: 1
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=68672356#gid=68672356
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=68672356
-    filePath: Assets/Trash/Dialogues.csv
-    lastFileHash: d4ead7e08f593e8e2fe38b5f98de6f5d
+    filePath: Assets/Sprites/Characters/MrCostard/MrCostard.csv
+    lastFileHash: cb27e0b9d755324f4434d926ed753a49
     label: 
     sheetId: 68672356
-    assetReference: {fileID: 4900000, guid: aca6e0a0fddc6a24eb6ca6bb6a60cc4f, type: 3}
+    assetReference: {fileID: 4900000, guid: 6d52df8f13906a243b7aa7bfa03b31e2, type: 3}
   autoRefresh: 0
   refreshInterval: 120

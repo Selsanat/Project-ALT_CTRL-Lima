@@ -154,7 +154,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1179427902048092660}
   m_FillRect: {fileID: 7483537144062663840}
   m_HandleRect: {fileID: 6441607403931750389}
@@ -179,6 +179,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerDuration: 50
+  _succeedFactor: 0.5
+  _defaultFactor: 1
+  _onTimerGreaterThanHalf:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTimerLessThanHalf:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTimerFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2991445215954900889
 GameObject:
   m_ObjectHideFlags: 0

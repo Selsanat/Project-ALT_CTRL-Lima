@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: MrCostard
   m_EditorClassIdentifier: 
   _character: {fileID: 21300000, guid: 9a92f1422149168428a1356fd1a97451, type: 3}
-  _defaultEyes: {fileID: 21300000, guid: 30697aa74d10e8c45a75b7bcac8ed5b7, type: 3}
-  _cryingEyes: {fileID: 21300000, guid: 79f889d6cbcc6a044a2cfca92edb94f2, type: 3}
-  _hypnotizedEyes: {fileID: 21300000, guid: 38e93c92aa55f3042970d8e851a152c3, type: 3}
+  _emotions:
+  - emotion: 1
+    sprite: {fileID: 21300000, guid: 30697aa74d10e8c45a75b7bcac8ed5b7, type: 3}
+  - emotion: 4
+    sprite: {fileID: 21300000, guid: 79f889d6cbcc6a044a2cfca92edb94f2, type: 3}
+  - emotion: 3
+    sprite: {fileID: 21300000, guid: 38e93c92aa55f3042970d8e851a152c3, type: 3}
+  _dialogues: {fileID: 4900000, guid: 6d52df8f13906a243b7aa7bfa03b31e2, type: 3}
