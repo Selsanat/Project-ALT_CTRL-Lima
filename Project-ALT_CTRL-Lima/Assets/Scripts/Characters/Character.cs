@@ -14,6 +14,11 @@ public class Character : MonoBehaviour
 
     public void SetEmotion(Emotion emotion)
     {
+        if (emotion == Emotion.None)
+        {
+            return;
+        }
+
         if(_emotionData.TryGetValue(emotion, out Sprite sprite))
         {
             _eyes.sprite = sprite;
@@ -32,6 +37,7 @@ public class Character : MonoBehaviour
         _currentData = Data;
         _body.sprite = _currentData.Character;
 
+        _emotionData = new Dictionary<Emotion, Sprite>();
         foreach (EmotionStruct data in _currentData.Emotions)
         {
             _emotionData.Add(data.emotion, data.sprite);

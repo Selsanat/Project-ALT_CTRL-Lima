@@ -16,6 +16,8 @@ public enum Emotion
     Calm,
     Impatient,
     Decontenance,
+    Happy,
+    Outraged,
 }
 
 [Serializable]
@@ -30,9 +32,9 @@ public class CharacterData : ScriptableObject
 {
     [SerializeField] private Sprite _character;
     [SerializeField] private List<EmotionStruct> _emotions;
-    [SerializeField] private TextAsset _dialogues;
+    [SerializeField] private TextAsset _dialog;
 
     public Sprite Character { get => _character;}
     public List<EmotionStruct> Emotions {get => _emotions;}
-    public TextAsset Dialogues {get => _dialogues;}
+    public TextAsset Dialog {get => _dialog;}
 }

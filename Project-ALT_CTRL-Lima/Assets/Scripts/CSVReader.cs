@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct DialogueData
+public struct DialogData
 {
     public string name;
-    public string dialogue;
+    public string dialog;
     public bool bIsChoice;
     public int redirectIndex;
     public Emotion emotion;
+    public CharacterType type;
 }
 
 public static class CSVReader
@@ -17,9 +18,9 @@ public static class CSVReader
     // offset is -2
     private static int lineOffset = -2;
 
-    public static List<DialogueData> MakeDialogueData(TextAsset csv)
+    public static List<DialogData> MakeDialogData(TextAsset csv)
     {
-        List<DialogueData> dialoguesData = new List<DialogueData>();
+        List<DialogData> dialogsData = new List<DialogData>();
         string[] lines = csv.text.Split("\n");
         string lastName = "";
 
@@ -29,7 +30,7 @@ public static class CSVReader
         // the first line is text info only
         for(int i = 1; i < lines.Length; i++)
         {
-            DialogueData data = new DialogueData();
+            DialogData data = new DialogData();
             string[] collumns = new string[collumnCount];
 
             if (lines[i].Contains('"'))
@@ -76,7 +77,16 @@ public static class CSVReader
             data.name = collumns[0] == "" ? lastName : collumns[0];
             lastName = data.name;
 
-            data.dialogue = collumns[1];
+            if (Enum.TryParse<CharacterType>(data.name, out CharacterType type))
+            {
+                data.type = type;
+            }
+            else
+            {
+                data.type = CharacterType.Client;
+            }
+
+            data.dialog = collumns[1];
             data.bIsChoice = collumns[2] != "";
 
 #if UNITY_EDITOR
@@ -92,9 +102,9 @@ public static class CSVReader
             bool bFindEmotion = Enum.TryParse<Emotion>(collumns[4], out Emotion emotion);
             data.emotion = bFindEmotion ? emotion : Emotion.None;
 
-            dialoguesData.Add(data);
+            dialogsData.Add(data);
         }
 
-        return dialoguesData;
+        return dialogsData;
     }
 }

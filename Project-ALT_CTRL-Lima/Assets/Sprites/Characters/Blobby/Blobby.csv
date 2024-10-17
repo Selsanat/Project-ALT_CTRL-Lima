@@ -1,0 +1,10 @@
+characterName,text,choice,redirectTo,emotion
+Blobby,Bonjour monsieur. Je vous explique. Depuis quelque temps je me sens mal.,,,Livid
+,On m’a recommandé vos services alors me voilà !,,,Livid
+Player,Vous avez un couteau planté dans le ventre.,TRUE,6,
+,Prenez un chewing gum.,TRUE,7,
+Player,Vous avez…,,,
+Blobby,Ça fait maintenant plusieurs mois que je vis avec mon époux et tout est parfait !,,,Livid
+,"C’est le bonheur à deux, il me comprend, il me supporte et est toujours là pour m’écouter.",,,Livid
+,Aussi il a un énorme flan donc je suis satisfait à tous les niveaux.,,,Livid
+Player,Et ça c’était l’info de trop.,,,

@@ -25,6 +25,18 @@ MonoBehaviour:
     label: 
     sheetId: 
     assetReference: {fileID: 0}
+  - m_ID: 13
+    m_Name: Blobby
+    m_Depth: 0
+    enabled: 1
+    fileType: 1
+    initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=522392182#gid=522392182
+    url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=522392182
+    filePath: Assets/Sprites/Characters/Blobby/Blobby.csv
+    lastFileHash: ae23954d3cb794e3a6907ee0630e8268
+    label: 
+    sheetId: 522392182
+    assetReference: {fileID: 4900000, guid: 18637647c2f99bd49877ad7405c7249b, type: 3}
   - m_ID: 12
     m_Name: MrCostard
     m_Depth: 0
@@ -33,7 +45,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=68672356#gid=68672356
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=68672356
     filePath: Assets/Sprites/Characters/MrCostard/MrCostard.csv
-    lastFileHash: cb27e0b9d755324f4434d926ed753a49
+    lastFileHash: 095c128e50c9792c7d087da056ba952e
     label: 
     sheetId: 68672356
     assetReference: {fileID: 4900000, guid: 6d52df8f13906a243b7aa7bfa03b31e2, type: 3}
