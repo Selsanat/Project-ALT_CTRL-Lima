@@ -12,7 +12,7 @@ public struct DialogueData
     public Emotion emotion;
 }
 
-public class CSVReader
+public static class CSVReader
 {
     // offset is -2
     private static int lineOffset = -2;
@@ -81,15 +81,12 @@ public class CSVReader
 
             index++;
 #if UNITY_EDITOR
-            if (data.bIsChoice && !int.TryParse(collumns[3], out int intResult))
+            if(data.bIsChoice && collumns[3] == "")
             {
-                Debug.LogWarning("redirectTo of " + (index + 1) + " is invalid.");
-                dialoguesData.Add(data);
-                continue;
+                Debug.LogWarning((index + 1) + " is a choice but does not have a redirectIndex.");
             }
 #endif
-
-            data.redirectIndex = data.bIsChoice ? (int.Parse(collumns[3]) + lineOffset) : index;
+            data.redirectIndex = collumns[3] != "" ? (int.Parse(collumns[3]) + lineOffset) : index;
 
             bool bFindEmotion = Enum.TryParse<Emotion>(collumns[4], out Emotion emotion);
             data.emotion = bFindEmotion ? emotion : Emotion.None;

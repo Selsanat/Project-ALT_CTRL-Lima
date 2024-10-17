@@ -7,8 +7,8 @@ public enum Emotion
 {
     None,
     Neutral,
-    Passionate,
     Hypnotized,
+    Passionate,
     Sad,
     Exhausted,
     Livid,
