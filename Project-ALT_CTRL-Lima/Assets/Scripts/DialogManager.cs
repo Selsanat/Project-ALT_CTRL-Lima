@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,19 +31,25 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private UnityEvent _onDialogFinished;
     [SerializeField] private UnityEvent _onFinishedAllCharacters;
 
+    [SerializeField] private KeyCode _skipDialog = KeyCode.Space;
+    [SerializeField] private KeyCode _choiceAInput = KeyCode.LeftArrow;
+    [SerializeField] private KeyCode _choiceBInput = KeyCode.RightArrow;
+
 #if UNITY_EDITOR
     private int _lastDialogIndex;
 #endif
 
-    private void Start()
+    private IEnumerator Start()
     {
 
 #if UNITY_EDITOR
-        if (_characterBox == null) {Debug.LogError("_characterBox is missing in " + name); return;}
-        if (_choiceBox == null) {Debug.LogError("_choiceBox is missing in " + name); return;}
-        if (_playerBox == null) {Debug.LogError("_playerBox is missing in " + name); return;}
-        if (_timer == null) {Debug.LogError("_timer is missing in " + name); return;}
+        if (_characterBox == null) {Debug.LogError("_characterBox is missing in " + name); yield break;}
+        if (_choiceBox == null) {Debug.LogError("_choiceBox is missing in " + name); yield break;}
+        if (_playerBox == null) {Debug.LogError("_playerBox is missing in " + name); yield break;}
+        if (_timer == null) {Debug.LogError("_timer is missing in " + name); yield break;}
 #endif
+
+        yield return new WaitForEndOfFrame();
 
         ToNextCharacter();
     }
@@ -71,18 +78,18 @@ public class DialogManager : MonoBehaviour
 
         if (_currentData.bIsChoice)
         {
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            if (Input.GetKeyUp(_choiceAInput))
             {
                 targetIndex = _choiceBox.redirectChoiceA;
             }
 
-            else if (Input.GetKeyUp(KeyCode.Mouse1))
+            else if (Input.GetKeyUp(_choiceBInput))
             {
                 targetIndex = _choiceBox.redirectChoiceB;
             }
         }
 
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(_skipDialog))
         {
             targetIndex = _currentData.redirectIndex;
         }
@@ -111,10 +118,10 @@ public class DialogManager : MonoBehaviour
 
         if (_currentData.bIsChoice)
         {
-            _choiceBox.choiceA = _currentData.dialog;
+            DialogsController.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
             _choiceBox.redirectChoiceA = _currentData.redirectIndex;
 
-            _choiceBox.choiceB = _dialogData[dialogIndex + 1].dialog;
+            DialogsController.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
             _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
 
             _timer.PauseTimer(false);
