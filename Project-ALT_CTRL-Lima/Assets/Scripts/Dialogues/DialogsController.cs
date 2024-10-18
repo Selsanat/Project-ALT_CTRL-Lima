@@ -124,7 +124,7 @@ public class DialogsController : MonoBehaviour
     //Function for test purposes
     public void showDialog()
     {
-        ReadText(_dialogText.text);
+        ReadText(dialogInput.text);
     }
 
     public void playDialog(TMP_Text textBox, string text)
