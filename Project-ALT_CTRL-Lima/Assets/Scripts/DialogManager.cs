@@ -146,7 +146,7 @@ public class DialogManager : MonoBehaviour
         }
 
         _character.SetEmotion(_currentData.emotion);
-        targetBox.dialog = _currentData.dialog;
+        DialogsController.instance.playDialog(targetBox._dialogText, _currentData.dialog);
         _choiceBox.gameObject.SetActive(false);
     }
 
