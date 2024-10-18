@@ -134,7 +134,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -181,15 +181,21 @@ MonoBehaviour:
   _timerDuration: 50
   _succeedFactor: 0.5
   _defaultFactor: 1
-  _onTimerGreaterThanHalf:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTimerLessThanHalf:
-    m_PersistentCalls:
-      m_Calls: []
   _onTimerFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2426345684838379889}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: PauseTimer
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &2991445215954900889
 GameObject:
   m_ObjectHideFlags: 0

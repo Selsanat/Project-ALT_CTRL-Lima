@@ -25,6 +25,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private ChoiceBox _choiceBox;
     [SerializeField] private PlayerBox _playerBox;
 
+    [SerializeField] private Timer _timer;
+
     [SerializeField] private UnityEvent _onDialogFinished;
     [SerializeField] private UnityEvent _onFinishedAllCharacters;
 
@@ -34,6 +36,14 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
+
+#if UNITY_EDITOR
+        if (_characterBox == null) {Debug.LogError("_characterBox is missing in " + name); return;}
+        if (_choiceBox == null) {Debug.LogError("_choiceBox is missing in " + name); return;}
+        if (_playerBox == null) {Debug.LogError("_playerBox is missing in " + name); return;}
+        if (_timer == null) {Debug.LogError("_timer is missing in " + name); return;}
+#endif
+
         ToNextCharacter();
     }
 
@@ -89,7 +99,6 @@ public class DialogManager : MonoBehaviour
     {
         if (dialogIndex >= _dialogData.Count)
         {
-            ToNextCharacter();
             _onDialogFinished.Invoke();
             return;
         }
@@ -108,6 +117,7 @@ public class DialogManager : MonoBehaviour
             _choiceBox.choiceB = _dialogData[dialogIndex + 1].dialog;
             _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
 
+            _timer.PauseTimer(false);
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
             _choiceBox.gameObject.SetActive(true);
@@ -128,6 +138,8 @@ public class DialogManager : MonoBehaviour
         {
             targetBox = _playerBox;
             _playerBox.SetDialogBox(_currentData.type);
+
+            _timer.PauseTimer(_currentData.type == CharacterType.Narrator);
 
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(true);

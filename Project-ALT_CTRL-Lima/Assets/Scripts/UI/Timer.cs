@@ -17,6 +17,8 @@ public class Timer : MonoBehaviour
 
     [SerializeField] private UnityEvent _onTimerFinished;
 
+    private bool _bPauseTimer = false;
+
     private void Start()
     {
         _slider = GetComponent<Slider>();
@@ -28,6 +30,11 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
+        if (_bPauseTimer)
+        {
+            return;
+        }
+
         _slider.value -= Time.deltaTime * _timerFactor;
         _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
 
@@ -35,6 +42,11 @@ public class Timer : MonoBehaviour
         {
             _onTimerFinished?.Invoke();
         }
+    }
+
+    public void RestartTimer()
+    {
+        _slider.value = _timerDuration/2;
     }
 
     public void AddTime(float timeToAdd)
@@ -45,11 +57,21 @@ public class Timer : MonoBehaviour
 
     public void AddTimeInPercent(float percentToAdd)
     {
-        AddTime(percentToAdd * _timerDuration / 100.0f);
+        AddTime(percentToAdd * 100.0f / _timerDuration);
     }
 
     public void ToggleTimerFactor()
     {
         _timerFactor = _timerFactor == _defaultFactor ? _succeedFactor : _defaultFactor;
+    }
+
+    public void PauseTimer(bool bPause)
+    {
+        _bPauseTimer = bPause;
+    }
+
+    public float GetTimerValueInPercent()
+    {
+        return _slider.value * 100.0f / _timerDuration;
     }
 }

@@ -110,7 +110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15}
+  m_AnchoredPosition: {x: -26.8, y: -23.1}
   m_SizeDelta: {x: 86.4, y: 145.06667}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1649832482264739568
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 7014629073822064858}
   - component: {fileID: 5597175710796055696}
   m_Layer: 5
-  m_Name: Shelf
+  m_Name: BookShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
