@@ -151,4 +151,9 @@ public class ClockMovement : MonoBehaviour
         return false;
     }
 
+#if UNITY_EDITOR
+    private void OnGUI() {
+        GUILayout.TextArea("Succeed: " + _bIsSuceeding.ToString());
+    }
+#endif
 }
