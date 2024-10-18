@@ -1,42 +1,28 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     [Serializable]
-    private struct InputButton
+    private struct InputMenu
     {
         public Button Button;
         public KeyCode Input;
     }
 
     [SerializeField]
-    private List<InputButton> InputButtons = new List<InputButton>();
+    private List<InputMenu> InputMenus = new List<InputMenu>();
 
     private void Update()
     {
-        foreach (InputButton value in InputButtons)
+        foreach (InputMenu value in InputMenus)
         {
             if (Input.GetKeyDown(value.Input))
             {
                 value.Button.onClick.Invoke();
             }
         }
-    }
-
-    public static void OpenLevel(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public static void QuitGame()
-    {
-#if UNITY_EDITOR
-        print("Quit");
-#endif
-        Application.Quit();
     }
 }

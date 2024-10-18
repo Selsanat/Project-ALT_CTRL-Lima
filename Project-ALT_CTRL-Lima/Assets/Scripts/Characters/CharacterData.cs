@@ -33,8 +33,10 @@ public class CharacterData : ScriptableObject
     [SerializeField] private Sprite _character;
     [SerializeField] private List<EmotionStruct> _emotions;
     [SerializeField] private TextAsset _dialog;
+    [SerializeField] private float _characterTimerLenght = 50.0f;
 
-    public Sprite Character { get => _character;}
-    public List<EmotionStruct> Emotions {get => _emotions;}
-    public TextAsset Dialog {get => _dialog;}
+    public Sprite Character { get => _character; }
+    public List<EmotionStruct> Emotions { get => _emotions; }
+    public TextAsset Dialog { get => _dialog; }
+    public float CharacterTimerLenght { get => _characterTimerLenght; }
 }

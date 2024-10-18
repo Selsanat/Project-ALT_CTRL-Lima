@@ -6,9 +6,7 @@ public class Timer : MonoBehaviour
 {
     private Slider _slider;
 
-    [SerializeField]
-    [Tooltip("Timer in seconds")]
-    private float _timerDuration = 50f;
+    private float _timerDuration;
 
     [SerializeField] private float _succeedFactor = 0.5f;
     [SerializeField] private float _defaultFactor = 1.0f;
@@ -17,13 +15,12 @@ public class Timer : MonoBehaviour
 
     [SerializeField] private UnityEvent _onTimerFinished;
 
-    private bool _bPauseTimer = false;
+    private bool _bPauseTimer = true;
 
     private void Start()
     {
         _slider = GetComponent<Slider>();
-        _slider.maxValue = _timerDuration;
-        _slider.value = _timerDuration/2;
+        RestartTimer(false, _timerDuration);
 
         _timerFactor = _defaultFactor;
     }
@@ -44,9 +41,17 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void RestartTimer()
+    public void RestartTimer(bool playTimer)
     {
         _slider.value = _timerDuration/2;
+        PauseTimer(!playTimer);
+    }
+
+    public void RestartTimer(bool playTimer, float _timerLength)
+    {
+        _timerDuration = _timerLength;
+        _slider.maxValue = _timerDuration;
+        RestartTimer(playTimer);
     }
 
     public void AddTime(float timeToAdd)

@@ -20,6 +20,8 @@ public class DialogsController : MonoBehaviour
     public static DialogsController instance;
     private float pauseTime = 0;
 
+    public bool bIsReadingText { get => isReadingText; }
+
     private void Awake()
     {
         instance = this;
@@ -42,6 +44,13 @@ public class DialogsController : MonoBehaviour
     {
         _UpdateReadText();
     }
+
+    public void SkipAnimation()
+    {
+        _dialogText.ForceMeshUpdate();
+        GoToEnd();
+    }
+
     public void GoToEnd()
     {
         isReadingText = false;
