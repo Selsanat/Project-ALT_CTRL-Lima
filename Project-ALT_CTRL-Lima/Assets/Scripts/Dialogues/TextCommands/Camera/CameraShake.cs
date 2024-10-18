@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class CameraShake : TextCommand
 {
-    public class TextCommandCameraShake : TextCommand
-    {
-        private float _shakePower = 0f;
-        private float _shakeDuration = 0f;
-        override public bool OneShot => true;
+        public override bool isOneShot => true;
+        private float _shakePower = 1f;
+        private float _shakeDuration = 1f;
         public override void SetupData(string strCommandData)
         {
             string[] args = strCommandData.Split("|");
@@ -25,12 +23,10 @@ public class CameraShake : TextCommand
 
         public override void OnEnter()
         {
-            //Shaking Camera
+            CameraController.Instance.ShakeCamera(_shakePower, _shakeDuration);
         }
 
         public override void OnExit()
         {
-            //Exited Camera Shake
         }
-    }
 }

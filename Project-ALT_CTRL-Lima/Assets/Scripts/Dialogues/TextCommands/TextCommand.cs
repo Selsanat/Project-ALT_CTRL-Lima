@@ -13,7 +13,7 @@ public abstract class TextCommand
     public int _currentCharacter;
     protected int _meshIndex;
     protected int _vertexIndex;
-    public virtual bool OneShot => false;
+    public virtual bool isOneShot => false;
     public virtual void OnEnter() { }
 
     public virtual void OnExit() { }
@@ -25,8 +25,8 @@ public abstract class TextCommand
         _text = text;
         _textInfo = text.textInfo;
         _currentCharacter = currentCharacter;
-        _meshIndex = _textInfo.characterInfo[_currentCharacter].materialReferenceIndex;
-        _vertexIndex = _textInfo.characterInfo[_currentCharacter].vertexIndex;
+        _meshIndex = _textInfo.characterInfo[currentCharacter].materialReferenceIndex;
+        _vertexIndex = _textInfo.characterInfo[currentCharacter].vertexIndex;
     }
     protected TMP_MeshInfo GetMeshInfo()
     {

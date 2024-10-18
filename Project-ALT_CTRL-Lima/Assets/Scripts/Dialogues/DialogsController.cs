@@ -17,7 +17,22 @@ public class DialogsController : MonoBehaviour
     private TMP_TextInfo _textInfo;
     private bool isReadingText = false;
     private ProcessedText _currentProcessedText;
+    public static DialogsController instance;
+    private float pauseTime = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public void SetCharacterPerSeconds(int value)
+    {
+        charactersPerSecond = value;
+    }
+    public void SetPauseTime(float value)
+    {
+        pauseTime += value;
+    }
     private class ProcessedText
     {
         public string processedText = "";
@@ -29,18 +44,22 @@ public class DialogsController : MonoBehaviour
     }
     public void GoToEnd()
     {
-        _dialogText.maxVisibleCharacters = _readMaxCharacters;
         isReadingText = false;
     }
     private void _UpdateReadText()
     {
-        _dialogText.ForceMeshUpdate();
         if (!isReadingText) return;
+        if (pauseTime > 0)
+        {
+            pauseTime -= Time.deltaTime;
+            return;
+        }
         int nextLetterCalcul = (int)(_readCharacterOffset + charactersPerSecond * Time.deltaTime);
         bool hasSecondPassed = (int)_readCharacterOffset + 1 == nextLetterCalcul; // Check if a second has passed
         _readCharacterOffset += charactersPerSecond * Time.deltaTime;
         if (hasSecondPassed)
         {
+            ShowCharacter((int)_readCharacterOffset - 1);
             _currentProcessedText.commands[nextLetterCalcul - 1].ForEach(command => {
                 command.OnEnter();
             });
@@ -53,59 +72,57 @@ public class DialogsController : MonoBehaviour
         _currentProcessedText = _GenerateCommands(dialogInput.text);
         _dialogText.text = _currentProcessedText.processedText;
         _textInfo = _dialogText.textInfo;
-        //_readCharacterOffset = 0;
-        //_readMaxCharacters = _currentProcessedText.processedText.Length;
-        //isReadingText = true;
-        //initText();
+        _readCharacterOffset = 0;
+        _readMaxCharacters = _currentProcessedText.processedText.Length;
+        _dialogText.ForceMeshUpdate();
+        initText();
+        HideText();
+        isReadingText = true;
+    }
 
-
-        TMP_WordInfo info = _dialogText.textInfo.wordInfo[0];
-        for (int i = 0; i < info.characterCount; ++i)
+    public void ShowCharacter(int characterIndex)
+    {
+        int meshIndex = _dialogText.textInfo.characterInfo[characterIndex].materialReferenceIndex;
+        int vertexIndex = _dialogText.textInfo.characterInfo[characterIndex].vertexIndex;
+        if (!char.IsWhiteSpace(_dialogText.textInfo.characterInfo[characterIndex].character))
         {
-            _dialogText.ForceMeshUpdate();
-            int charIndex = info.firstCharacterIndex + i;
-            int meshIndex = _dialogText.textInfo.characterInfo[charIndex].materialReferenceIndex;
-            int vertexIndex = _dialogText.textInfo.characterInfo[charIndex].vertexIndex;
-
-            Color32[] vertexColors = _dialogText.textInfo.meshInfo[meshIndex].colors32;
-            vertexColors[vertexIndex + 0] = Color.green;
-            vertexColors[vertexIndex + 1] = Color.green;
-            vertexColors[vertexIndex + 2] = Color.green;
-            vertexColors[vertexIndex + 3] = Color.green;
-            _dialogText.textInfo.meshInfo[meshIndex].colors32 = vertexColors;
+            for (int j = 0; j < 4; ++j)
+            {
+                _dialogText.textInfo.meshInfo[meshIndex].colors32[vertexIndex + j].a = 255;
+            }
             _dialogText.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
         }
     }
-
+    public void HideText()
+    {
+        for (int i = 0; i < _textInfo.characterCount; i++)
+        {
+            int meshIndex = _dialogText.textInfo.characterInfo[i].materialReferenceIndex;
+            int vertexIndex = _dialogText.textInfo.characterInfo[i].vertexIndex;
+            if (!char.IsWhiteSpace(_dialogText.textInfo.characterInfo[i].character))
+            {
+                for (int j = 0; j < 4; ++j)
+                {
+                    _dialogText.textInfo.meshInfo[meshIndex].colors32[vertexIndex + j].a = 0;
+                }
+                _dialogText.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
+            }
+        }
+    }
     public void initText()
     {
         foreach (KeyValuePair<int, List<TextCommand>> command in _currentProcessedText.commands)
         {
             command.Value.ForEach(c =>
             {
-                c.Init(_dialogText, command.Key);
+                print(command.Key);
+                    c.Init(_dialogText, command.Key);
             });
         }
     }
     public void showDialog()
     {
         ReadText();
-    }
-    private IEnumerator ShowDialog()
-    {
-        _textInfo = _dialogText.textInfo;
-        for (int i = 0; i < _textInfo.characterCount; i++)
-        {
-            int meshIndex = _dialogText.textInfo.characterInfo[i].materialReferenceIndex;
-            int vertexIndex = _dialogText.textInfo.characterInfo[i].vertexIndex;
-
-            if (!char.IsWhiteSpace(_dialogText.textInfo.characterInfo[i].character)){
-
-
-                _dialogText.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
-                yield return new WaitForSeconds(0.25f);
-            }
-        }
     }
 
     private static ProcessedText _GenerateCommands(string text)
@@ -147,14 +164,14 @@ public class DialogsController : MonoBehaviour
                         }
                         else
                         {
-                            if (!command.OneShot)
+                            if (!command.isOneShot)
                             {
                                 activeCommands.Add((tagName, TagsUtils.ExtractTagArgs(tag)));
                                 
                             }
                             else
                             {
-                                result.commands[i- tagOffset].Add(command);
+                                result.commands[i- tagOffset+1].Add(command);
                             }
                         }
                         modifiedText = modifiedText.Replace(tag, "");
@@ -165,11 +182,11 @@ public class DialogsController : MonoBehaviour
             }
             else
             {
-                foreach ((string,string) activeCommand in activeCommands)
+                foreach ((string, string) activeCommand in activeCommands)
                 {
                     TextCommand command = factory.CreateCommand(activeCommand.Item1);
                     command.SetupData(activeCommand.Item2);
-                    result.commands[i-tagOffset].Add(command);
+                    result.commands[i - tagOffset].Add(command);
                 }
             }
         }
