@@ -67,9 +67,9 @@ public class DialogsController : MonoBehaviour
         if (_readCharacterOffset >= _readMaxCharacters) GoToEnd();
     }
 
-    public void ReadText()
+    public void ReadText(string text)
     {
-        _currentProcessedText = _GenerateCommands(dialogInput.text);
+        _currentProcessedText = _GenerateCommands(text);
         _dialogText.text = _currentProcessedText.processedText;
         _textInfo = _dialogText.textInfo;
         _readCharacterOffset = 0;
@@ -120,11 +120,18 @@ public class DialogsController : MonoBehaviour
             });
         }
     }
+
+    //Function for test purposes
     public void showDialog()
     {
-        ReadText();
+        ReadText(_dialogText.text);
     }
 
+    public void playDialog(TMP_Text textBox, string text)
+    {
+        _dialogText = textBox;
+        ReadText(text);
+    }
     private static ProcessedText _GenerateCommands(string text)
     {
         string modifiedText = text;
