@@ -5,12 +5,7 @@ public class PlayerBox : DialogBox
 {
     [SerializeField] private Sprite _playerDialogueBox;
     [SerializeField] private Sprite _narratorDialogueBox;
-    private Image _dialogueBoxImage;
-
-    private void Start()
-    {
-        _dialogueBoxImage = GetComponent<Image>();
-    }
+    [SerializeField] private Image _dialogueBoxImage;
 
     public void SetDialogBox(CharacterType type)
     {

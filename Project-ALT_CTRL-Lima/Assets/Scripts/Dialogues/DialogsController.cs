@@ -139,8 +139,17 @@ public class DialogsController : MonoBehaviour
     public void playDialog(TMP_Text textBox, string text)
     {
         _dialogText = textBox;
+
+#if UNITY_EDITOR
+        if (_dialogText.isTextOverflowing)
+        {
+            Debug.LogWarning(text + " is overflowing in " + textBox.name);
+        }
+#endif
+
         ReadText(text);
     }
+
     private static ProcessedText _GenerateCommands(string text)
     {
         string modifiedText = text;

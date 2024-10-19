@@ -15,7 +15,7 @@ public enum Emotion
     SurprisedButLivid,
     Calm,
     Impatient,
-    Decontenance,
+    TakenAback,
     Happy,
     Outraged,
 }
