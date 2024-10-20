@@ -20,6 +20,8 @@ public class DialogsController : MonoBehaviour
     public static DialogsController instance;
     private float pauseTime = 0;
 
+    public bool bIsReadingText { get => isReadingText; }
+
     private void Awake()
     {
         instance = this;
@@ -42,6 +44,13 @@ public class DialogsController : MonoBehaviour
     {
         _UpdateReadText();
     }
+
+    public void SkipAnimation()
+    {
+        _dialogText.ForceMeshUpdate();
+        GoToEnd();
+    }
+
     public void GoToEnd()
     {
         isReadingText = false;
@@ -130,8 +139,17 @@ public class DialogsController : MonoBehaviour
     public void playDialog(TMP_Text textBox, string text)
     {
         _dialogText = textBox;
+
+#if UNITY_EDITOR
+        if (_dialogText.isTextOverflowing)
+        {
+            Debug.LogWarning(text + " is overflowing in " + textBox.name);
+        }
+#endif
+
         ReadText(text);
     }
+
     private static ProcessedText _GenerateCommands(string text)
     {
         string modifiedText = text;
