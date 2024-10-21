@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
         if (_endingScreen.isActiveAndEnabled)
         {
             return;

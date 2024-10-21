@@ -20,5 +20,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ffda37cbfca6de74c9979a6c8211073d, type: 3}
   - emotion: 10
     sprite: {fileID: 21300000, guid: 34d6bbb27c33be742a1595a6b1ebefb2, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 243bc03dd0a5efc4491aa64b6db3289f, type: 3}
   _dialog: {fileID: 4900000, guid: abe24aa0d4918b04ebd1ed6289ca10d9, type: 3}
   _characterTimerLenght: 50
