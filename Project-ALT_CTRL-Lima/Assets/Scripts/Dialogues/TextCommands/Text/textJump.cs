@@ -55,6 +55,7 @@ public class textJump : TextCommand
 
     public override void OnExit()
     {
+        if (_tweens == null) return;
         foreach (Tween tween in _tweens)
         {
             tween.Kill();

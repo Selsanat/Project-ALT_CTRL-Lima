@@ -11,7 +11,15 @@ Flipper,"If that were all! They had already tried to disadvantage me in a compet
 Player,"A conspiracy, you say? But how are 'they' preventing you from competing?
 ",TRUE,13,
 ,Did someone forbid you from competing?,,,
-Flipper,"The law prohibits anyone blue from going into a pool because they wouldn’t be visible enough. As a result, I can no longer train or participate in tournaments! If you ask me, they do this to make me lose!",,,
+Flipper,"The law prohibits anyone blue from going into a pool because they wouldn’t be visible enough. As a result, I can no longer train or participate in tournaments! If you ask me, they do this to make me lose!",,,Outraged
 Player,"You feel like the world revolves around you, but maybe there’s a reason behind these actions that has nothing to do with you? What makes you think the world is against you?",TRUE,16,
 ,Peut-être y a-t-il eu des accidents impliquant des personnes bleues qui n'ont pas pu être secourues parce qu'elles n'étaient pas visibles ? Pourquoi est-ce si important pour vous ?,,17,
-Flipper,,,,
+Flipper,"Of course, I’m a star, so obviously these law targets me and no one else!",,18, haughty
+,"You think? In that case, maybe there’s a solution for me to compete again…",,,Neutral
+,"But you know, I... I could never fly... What a shame for a duck. That's why I became the fastest duck on the water! Even if it's not enough to make me blossom.",,,Neutral
+Player,"Well, I think I have what I need; let’s begin the hypnosis.
+Focus on my watch and imagine yourself racing across the ocean. You pass by a boat and hear the passengers calling out to you…",TRUE,,
+,The legend,,22,
+,The coyote of the seas,,23,
+Flipper,Uh… why not.,,,
+,What a lovely name to match my stature!,,,

@@ -5,9 +5,9 @@ Player,Take a chewing-gum Emile,TRUE,5,
 Emile,"Hum, I don't have arms...",,,Neutral
 Emile,Anyway ,,,Neutral
 Emile,I can't eat my Fa-vor-ite food anymore!,,,Outraged
-Player,What? What type of food?,TRUE,10,
+Player,What type of food?,TRUE,10,
 Player,Oh no that's horrible. And your favorite food is...,TRUE,10,
-Emile,"Chocolate, what else ! How could we think otherwise?!",,,Passionate
+Emile,"Chocolate, what else ! How could someone think otherwise?!",,,Passionate
 Player,What's stopping you from eating it?,TRUE,13,
 Player,Obviously how could anyone think of something else...,TRUE,13,
 Emile,It's Un-ac-cep-ta-ble! Yesterday I was walking with my precious chocolate and the police arrested me! You'll never know why!?,,,Outraged
