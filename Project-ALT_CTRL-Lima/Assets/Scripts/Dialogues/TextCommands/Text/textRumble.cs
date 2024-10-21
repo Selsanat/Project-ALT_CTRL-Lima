@@ -11,6 +11,7 @@ public class textRumble : TextCommand
     private int _loops = -1;
     private float _duration = 0.1f;
     private float _force = 15f;
+    private List<Tween> _tweens;
 
     public override void SetupData(string strCommandData)
     {
@@ -26,12 +27,13 @@ public class textRumble : TextCommand
         }
         if (args.Length >= 3)
         {
-            _force = float.Parse(args[1], CultureInfo.InvariantCulture);
+            _force = float.Parse(args[2], CultureInfo.InvariantCulture);
         }
     }
 
     public override void OnEnter()
     {
+        _tweens = new List<Tween>();
         if (!char.IsWhiteSpace(_text.textInfo.characterInfo[_currentCharacter].character))
         {
             for (int j = 0; j < 4; ++j)
@@ -43,15 +45,20 @@ public class textRumble : TextCommand
 
     private void MakeLetterJump(int meshIndex, int vertexIndex)
     {
+        MonoBehaviour.print(_force);
         Vector3 vertex = _text.textInfo.meshInfo[meshIndex].vertices[vertexIndex];
-        DOTween.To(() => vertex, x => vertex = x, vertex + new Vector3(_force, 0, 0), _duration).SetLoops(_loops, LoopType.Yoyo).OnUpdate(() =>
-        {
-            _text.textInfo.meshInfo[meshIndex].vertices[vertexIndex] = vertex;
-            _text.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
-        });
+        _tweens.Add(DOTween.To(() => vertex, x => vertex = x, vertex + new Vector3(_force, 0, 0), _duration)
+            .SetLoops(_loops, LoopType.Yoyo).OnUpdate(() =>
+            {
+                _text.textInfo.meshInfo[meshIndex].vertices[vertexIndex] = vertex;
+                _text.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
+            }));
     }
     public override void OnExit()
     {
-        //Exited Camera Shake
+        foreach (Tween tween in _tweens)
+        {
+            tween.Kill();
+        }
     }
 }

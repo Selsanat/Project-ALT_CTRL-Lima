@@ -78,6 +78,16 @@ public class DialogsController : MonoBehaviour
 
     public void ReadText(string text)
     {
+        if (_currentProcessedText != null)
+        {
+            foreach (KeyValuePair<int, List<TextCommand>> command in _currentProcessedText.commands)
+            {
+                command.Value.ForEach(c =>
+                {
+                    c.OnExit();
+                });
+            }
+        }
         _currentProcessedText = _GenerateCommands(text);
         _dialogText.text = _currentProcessedText.processedText;
         _textInfo = _dialogText.textInfo;

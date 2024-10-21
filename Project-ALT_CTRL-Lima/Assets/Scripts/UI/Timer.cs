@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -12,7 +13,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float _defaultFactor = 1.0f;
 
     private float _timerFactor;
-
+    private Volume _volume;
     [SerializeField] private UnityEvent _onTimerFinished;
 
     private bool _bPauseTimer = true;
@@ -22,6 +23,7 @@ public class Timer : MonoBehaviour
         _slider = GetComponent<Slider>();
         RestartTimer(false, _timerDuration);
 
+        _volume = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
         _timerFactor = _defaultFactor;
     }
 
@@ -34,6 +36,8 @@ public class Timer : MonoBehaviour
 
         _slider.value -= Time.deltaTime * _timerFactor;
         _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
+
+        _volume.weight = _slider.value / _slider.maxValue;
 
         if (_slider.value == 0.0f)
         {
