@@ -7,7 +7,7 @@ Narrator,Your <b><color=red>pendulum</b></color> can make this  <b><color=red>ti
 Narrator,Talk with your customers <b><color=red>to keep their trust</b></color> and <b><color=red>find how to hypnotise them !,,,
 Player,What's the matter ?,TRUE,10,Neutral
 Player,Take a chewing gum. ,TRUE,10,Neutral
-Player,<textjump=0.25|2|5>People keep coming to me asking <uppercase>for crap.,,,Exhausted
+Player,<textjump=0.25|2|5>People </textjump><textspeed=10>...<textspeed=20> keep<textpause=0.5> coming<textpause=0.5> to me<textpause=0.5> <textspeed=5>asking <uppercase><size=50><textspeed=50><textrumble=0.25|2|15>for crap,,,Exhausted
 Player,"<textjump=0.25|2|5>All day long, it's a real pain in the ass!",,,Exhausted
 Narrator,"Watch out! Most of your customers will talk to you about useless topics, try to avoid them as much as possible so you won't lose time!",,,
 Narrator,It's up to you to choose the best answers and questions to gain the maximum amount of time!,,,

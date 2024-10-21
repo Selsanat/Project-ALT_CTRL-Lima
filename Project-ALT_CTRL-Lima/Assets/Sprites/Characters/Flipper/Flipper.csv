@@ -1,36 +1,41 @@
 characterName,text,choice,redirectTo,emotion
 Flipper,"Hello, sir! They’re making a fool of me. I’m the butt of the joke, I’m at my wit's end QUACK!",,,Outraged
 Player,"Hello, what’s happening to you? Who is making a fool of you?",TRUE,5,
-,"Calm down, sir, and explain the situation to me clearly.",,,
+Player,"Calm down, sir, and explain the situation to me clearly.",TRUE,5,
 Flipper,"Well, here it is, you must know me, but I will introduce myself anyway. I am the illustrious Flipper, the coyote of the seas, the best Olympic swimmer for several years! And I am furious because everyone envies and admires me to the point of wanting to steal my spot at any cost!",,, haughty
 Player,"It’s natural to admire you to the point of wanting to surpass you; that’s the spirit of sports, right?",TRUE,8,
-,I don’t know you… But… What do you mean by stealing your spot?,,,
-Flipper,"If that were all! They had already tried to disadvantage me in a competition, but this is on a whole different level!",,10,
-,"But yes, they try stealing my spot as number one",,,
-,"They’re preventing me from competing; it’s cheating, it’s a conspiracy!",,,
+Player,I don’t know you… But… What do you mean by stealing your spot?,TRUE,9,
+Flipper,"If that were all! They had already tried to disadvantage me in a competition, but this is on a whole different level!",,10,Outraged
+Flipper,"But yes, they try stealing my spot as number one",,10, haughty
+Flipper,"They’re preventing me from competing; it’s cheating, it’s a conspiracy!",,,Outraged
 Player,"A conspiracy, you say? But how are 'they' preventing you from competing?
 ",TRUE,13,
-,Did someone forbid you from competing?,,,
-Flipper,"The law prohibits anyone blue from going into a pool because they wouldn’t be visible enough. As a result, I can no longer train or participate in tournaments! If you ask me, they do this to make me lose!",,,Outraged
+Player,Did someone forbid you from competing?,TRUE,13,
+Flipper,"The law prohibits anyone blue from going into a pool because they wouldn’t be visible enough. As a result, I can no longer train or participate in tournaments! If you ask me, they do this because they fear I'll win again!",,,Outraged
 Player,"You feel like the world revolves around you, but maybe there’s a reason behind these actions that has nothing to do with you? What makes you think the world is against you?",TRUE,16,
-,Peut-être y a-t-il eu des accidents impliquant des personnes bleues qui n'ont pas pu être secourues parce qu'elles n'étaient pas visibles ? Pourquoi est-ce si important pour vous ?,,17,
+Player,Perhaps there have been accidents involving blue people who couldn’t be rescued because they weren’t visible? Why is this so important to you?,TRUE,17,
 Flipper,"Of course, I’m a star, so obviously these law targets me and no one else!",,18, haughty
-,"You think? In that case, maybe there’s a solution for me to compete again…",,,Neutral
-,"But you know, I... I could never fly... What a shame for a duck. That's why I became the fastest duck on the water! Even if it's not enough to make me blossom.",,,Neutral
+Flipper,"You think? In that case, maybe there’s a solution for me to compete again…",,,Neutral
+Flipper,"But you know, I... I could never fly... What a shame for a duck. That's why I became the fastest duck on the water! Even if it's not enough to make me blossom.",,,Neutral
 Player,"Well, I think I have what I need; let’s begin the hypnosis.
-Focus on my watch and imagine yourself racing across the ocean. You pass by a boat and hear the passengers calling out to you…",TRUE,,
-,The legend,,22,
-,The coyote of the seas,,23,
-Flipper,Uh… why not.,,,
-,What a lovely name to match my stature!,,,
+Focus on my watch and imagine yourself racing across the ocean. You pass by a boat and hear the passengers calling out to you…",,,
+Player,The legend,TRUE,22,
+Player,The coyote of the seas,TRUE,23,
+Flipper,Uh… why not.,,,Hypnotised
+Flipper,What a lovely name to match my stature!,,,Hypnotised
 Player,Imagine your future life. Do you prefer to continue competing or learn to fly?,,,
-,Continue competing.,,27,
-,Learn to fly.,,28,
-Flipper,"It’s pointless to continue competing, they are meaningless to me now. But do you think I could… learn to fly?",,,
-,I would really love to be able to fly. Do you think it’s possible?,,,
-Player,You can do anything by listening to my voice.,,31,
-,"With training, anything is possible!",,32,
-Flipper,But of course… by listening to your voice…,,,
-,"In the meantime, I’ve never succeeded, I’ve tried my best…",,,
+Player,Continue competing.,TRUE,27,
+Player,Learn to fly.,TRUE,28,
+Flipper,"It’s pointless to continue competing, they are meaningless to me now. But do you think I could… learn to fly?",,,Hypnotised
+Flipper,I would really love to be able to fly. Do you think it’s possible?,,,Hypnotised
+Player,You can do anything by listening to my voice.,TRUE,31,
+Player,"With training, anything is possible!",TRUE,32,
+Flipper,But of course… by listening to your voice…,,,Hypnotised
+Flipper,"In the meantime, I’ve never succeeded, I’ve tried my best…",,,Hypnotised
 Player,Think of something that would bring you great happiness.,,,
-Flipper,,,,
+Flipper,Like what?,,,Hypnotised
+Player,"You, who are on the victory podium!",TRUE,37,
+Player,Flying among the clouds with your family.,TRUE,38,
+Flipper,"Yes… I should appreciate it, but these competitions are meaningless, and this sudden stop made me realize that. I’ve understood my problem, goodbye!",,, haughty
+Flipper,I would like… to have a family with children who love me… and be able to fly with them.,,39,Hypnotised
+Player,"On my count, you will learn to fly on your own wings! Go!",,,
