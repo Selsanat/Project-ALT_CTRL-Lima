@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogInput: {fileID: 2117087154}
-  charactersPerSecond: 15
+  BASE_CHAR_PER_SEC: 15
   _dialogText: {fileID: 1356846992}
 --- !u!1 &1746677076
 GameObject:

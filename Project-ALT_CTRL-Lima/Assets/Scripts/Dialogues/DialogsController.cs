@@ -10,7 +10,8 @@ using System;
 public class DialogsController : MonoBehaviour
 {
     [SerializeField] TMP_InputField dialogInput;
-    [SerializeField] int charactersPerSecond = 50;
+    [SerializeField] private int BASE_CHAR_PER_SEC = 15;
+    private int charactersPerSecond = 50;
     [SerializeField] TMP_Text _dialogText;
     private float _readCharacterOffset = 0;
     private int _readMaxCharacters = 0;
@@ -88,6 +89,8 @@ public class DialogsController : MonoBehaviour
                 });
             }
         }
+        charactersPerSecond = BASE_CHAR_PER_SEC;
+        pauseTime = 0;
         _currentProcessedText = _GenerateCommands(text);
         _dialogText.text = _currentProcessedText.processedText;
         _textInfo = _dialogText.textInfo;
