@@ -19,7 +19,7 @@ public class EndingScreen : MenuManager
     public void DisplayResults(bool bVictory, float currency)
     {
         _stateText.text = bVictory ? _victoryText : _failedText;
-        _currencyDisplay.text = currency.ToString();
+        _currencyDisplay.text = Mathf.CeilToInt(currency).ToString();
     }
 
     public void Continue()
