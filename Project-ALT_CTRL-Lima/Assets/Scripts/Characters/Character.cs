@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     private CharacterData _currentData;
-    [SerializeField] private Image _body;
     [SerializeField] private Image _eyes;
 
     private Dictionary<Emotion, Sprite> _emotionData = new Dictionary<Emotion, Sprite>();
@@ -35,7 +34,6 @@ public class Character : MonoBehaviour
     public void SetData(CharacterData Data)
     {
         _currentData = Data;
-        _body.sprite = _currentData.Character;
 
         _emotionData = new Dictionary<Emotion, Sprite>();
         foreach (EmotionStruct data in _currentData.Emotions)

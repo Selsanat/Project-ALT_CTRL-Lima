@@ -134,7 +134,7 @@ public class DialogsController : MonoBehaviour
         {
             command.Value.ForEach(c =>
             {
-                print(command.Key);
+                //print(command.Key);
                     c.Init(_dialogText, command.Key);
             });
         }

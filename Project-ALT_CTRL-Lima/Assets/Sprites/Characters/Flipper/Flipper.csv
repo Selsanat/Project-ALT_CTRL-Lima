@@ -1,0 +1,17 @@
+characterName,text,choice,redirectTo,emotion
+Flipper,"Hello, sir! They’re making a fool of me. I’m the butt of the joke, I’m at my wit's end QUACK!",,,Outraged
+Player,"Hello, what’s happening to you? Who is making a fool of you?",TRUE,5,
+,"Calm down, sir, and explain the situation to me clearly.",,,
+Flipper,"Well, here it is, you must know me, but I will introduce myself anyway. I am the illustrious Flipper, the coyote of the seas, the best Olympic swimmer for several years! And I am furious because everyone envies and admires me to the point of wanting to steal my spot at any cost!",,, haughty
+Player,"It’s natural to admire you to the point of wanting to surpass you; that’s the spirit of sports, right?",TRUE,8,
+,I don’t know you… But… What do you mean by stealing your spot?,,,
+Flipper,"If that were all! They had already tried to disadvantage me in a competition, but this is on a whole different level!",,10,
+,"But yes, they try stealing my spot as number one",,,
+,"They’re preventing me from competing; it’s cheating, it’s a conspiracy!",,,
+Player,"A conspiracy, you say? But how are 'they' preventing you from competing?
+",TRUE,13,
+,Did someone forbid you from competing?,,,
+Flipper,"The law prohibits anyone blue from going into a pool because they wouldn’t be visible enough. As a result, I can no longer train or participate in tournaments! If you ask me, they do this to make me lose!",,,
+Player,"You feel like the world revolves around you, but maybe there’s a reason behind these actions that has nothing to do with you? What makes you think the world is against you?",TRUE,16,
+,Peut-être y a-t-il eu des accidents impliquant des personnes bleues qui n'ont pas pu être secourues parce qu'elles n'étaient pas visibles ? Pourquoi est-ce si important pour vous ?,,17,
+Flipper,,,,

@@ -1,0 +1,39 @@
+characterName,text,choice,redirectTo,emotion
+Emile,"Hello, I'm coming to see you because I have a probblem, it's infuriating, I cannot even live that way!",,,Neutral
+Player,What is your problem?,TRUE,7,
+Player,Take a chewing-gum Emile,TRUE,5,
+Emile,"Hum, I don't have arms...",,,Neutral
+Emile,Anyway ,,,Neutral
+Emile,I can't eat my Fa-vor-ite food anymore!,,,Outraged
+Player,What? What type of food?,TRUE,10,
+Player,Oh no that's horrible. And your favorite food is...,TRUE,10,
+Emile,"Chocolate, what else ! How could we think otherwise?!",,,Passionate
+Player,What's stopping you from eating it?,TRUE,13,
+Player,Obviously how could anyone think of something else...,TRUE,13,
+Emile,It's Un-ac-cep-ta-ble! Yesterday I was walking with my precious chocolate and the police arrested me! You'll never know why!?,,,Outraged
+Player,Because of chocolate?,TRUE,16,
+Player,"It's not that serious, this is just chocolate Emile.",TRUE,17,
+Emile,But yes! How did you guess?,,18,Neutral
+Emile,What?! Not THAT serious? The chocolate? But my whole life IS chocolate!,,,Outraged
+Emile,When I was a kid my plushie was a chocolate bar!,,,Passionate
+Emile,"All my life I went to festivals where Chococo, the most cocoa-like mascot were and every time he offered me CHOCOLATE! ",,,Passionate
+Emile,Do you know what my life was covered in on the most magical evening of my life ? ,,,Passionate
+Player,I think I have it...,,,
+Player,Let's start hypnosis!,,,
+Player,Think about the chocolate you love and focus on my watch...,TRUE,25,
+Player,Think about the candy you love and focus on my watch...,TRUE,26,
+Emile,"Ohh, chocolate... you are gifted...",,27,Hypnotized
+Emile,Who do you take me for? I'm not a kid!,,,Outraged
+Player,"Now think about somebody you love, who relaxes you.",,,
+Emile,Who?,,,Neutral
+Player,Your parents that you love,TRUE,31,
+Player,The most cocoa-like mascot,TRUE,33,
+Emile,I hate my parents I don't want to talk about it!,,,Outraged
+Emile,"No, to appease me talk about the cocoa-like mascot, say his name.",,34,Passionate
+Emile,"Oh yes, say his name to appease me...",,,Passionate
+Player,Chococo,TRUE,36,
+Player,Wonka,TRUE,37,
+Emile,"I feel relaxed, I think I...",,39,Hypnotized
+Emile,"Whatever, you don't even listen to me!",,,Outraged
+Emile,"You are a charlatan, I'm leaving!",,,Outraged
+Player,"Your eyelids are heavy, you seem to fall and let go of all your problems.",,,

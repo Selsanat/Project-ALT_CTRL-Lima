@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641c19eb5cfde0a4c8dfaf236ba5e643, type: 3}
   m_Name: MrCostard
   m_EditorClassIdentifier: 
-  _character: {fileID: 21300000, guid: 9a92f1422149168428a1356fd1a97451, type: 3}
+  _character: {fileID: 5523580481739998711, guid: e52fc72016a81af4ca0a9fa5c34a79cc, type: 3}
   _emotions:
   - emotion: 1
     sprite: {fileID: 21300000, guid: 30697aa74d10e8c45a75b7bcac8ed5b7, type: 3}

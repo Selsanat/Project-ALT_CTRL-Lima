@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 641c19eb5cfde0a4c8dfaf236ba5e643, type: 3}
-  m_Name: Emile
+  m_Name: Golgot
   m_EditorClassIdentifier: 
-  _character: {fileID: 5523580481739998711, guid: 6b55f8532456b3845a9714a6709ce3ec, type: 3}
+  _character: {fileID: 5523580481739998711, guid: 5902c18c3e28bd74c9ca66069b6d15bc, type: 3}
   _emotions:
   - emotion: 1
-    sprite: {fileID: 21300000, guid: 5981ae4b6c655db4dad6ace81a3c62b8, type: 3}
-  - emotion: 12
-    sprite: {fileID: 21300000, guid: b2b17a848414ffb46bcb638e6c5c30f4, type: 3}
+    sprite: {fileID: 21300000, guid: db1dfec26fe68424386bdb9907ad9e4d, type: 3}
+  - emotion: 13
+    sprite: {fileID: 21300000, guid: 591b3abc7ecc6924fb2bcd88f086007b, type: 3}
   - emotion: 3
-    sprite: {fileID: 21300000, guid: bdaccae8cea525544b57e3cbb74bd4eb, type: 3}
-  _dialog: {fileID: 4900000, guid: 7c15fe27303278c42bce884d728af6bf, type: 3}
+    sprite: {fileID: 21300000, guid: cf360848a97f08d42b81e06dad187d08, type: 3}
+  _dialog: {fileID: 4900000, guid: 410a0f4fd685e0442a4e6f647d77db1c, type: 3}
   _characterTimerLenght: 50

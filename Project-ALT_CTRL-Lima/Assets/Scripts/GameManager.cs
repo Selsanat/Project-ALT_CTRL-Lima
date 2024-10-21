@@ -17,7 +17,12 @@ public class GameManager : MonoBehaviour
     private int _characterIndex = -1;
 
     [SerializeField]
-    private Character _character;
+    private GameObject _worldUI;
+
+    [SerializeField]
+    private int _characterHierachyIndex = 1;
+
+    private Character _currentCharacter;
 
     private List<DialogData> _dialogData;
     private DialogData _currentData;
@@ -40,6 +45,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private KeyCode _choiceBInput = KeyCode.RightArrow;
 
 #if UNITY_EDITOR
+    [SerializeField] private int _startCharacterIndex = 0;
+
     private int _lastDialogIndex;
 #endif
 
@@ -55,11 +62,20 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
-        ToNextCharacter();
+#if UNITY_EDITOR
+        GoToCharacter(_startCharacterIndex);
+#else
+        GoToCharacter(0);
+#endif
     }
 
     private void Update()
     {
+
+        if (_endingScreen.isActiveAndEnabled)
+        {
+            return;
+        }
 
 #if UNITY_EDITOR
         if(Input.mouseScrollDelta.y != 0)
@@ -72,7 +88,7 @@ public class GameManager : MonoBehaviour
                 _characterIndex -= 1;
                 _characterIndex = Mathf.Clamp(_characterIndex, 0, _characterDatas.Count - 1);
 
-                _character.SetData(_characterDatas[_characterIndex]);
+                _currentCharacter.SetData(_characterDatas[_characterIndex]);
                 _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
                 debugIndex = bIsAtStart ? 0 : (_dialogData.Count - 1);
             }
@@ -170,7 +186,7 @@ public class GameManager : MonoBehaviour
             _playerBox.gameObject.SetActive(true);
         }
 
-        _character.SetEmotion(_currentData.emotion);
+        _currentCharacter.SetEmotion(_currentData.emotion);
         DialogsController.instance.playDialog(targetBox._dialogText, _currentData.dialog);
         _choiceBox.gameObject.SetActive(false);
     }
@@ -184,7 +200,14 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        _character.SetData(_characterDatas[_characterIndex]);
+        if (_currentCharacter != null)
+        {
+            Destroy(_currentCharacter.gameObject);
+        }
+
+        _currentCharacter = Instantiate(_characterDatas[_characterIndex].Character, _worldUI.transform);
+        _currentCharacter.transform.SetSiblingIndex(_characterHierachyIndex);
+        _currentCharacter.SetData(_characterDatas[_characterIndex]);
 
 #if UNITY_EDITOR
         _lastDialogIndex = 0;
