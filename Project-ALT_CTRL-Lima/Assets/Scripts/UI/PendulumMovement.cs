@@ -10,17 +10,24 @@ public class PendulumMovement : MonoBehaviour
     private float _maxRotation = 45.0f;
 
     [SerializeField]
-    private float _rotationSpeed = 100.0f;
+    private float _rotationSpeed = 1.0f;
     private int _rotationDirection = 1;
 
-    private float _currentZ;
+    [SerializeField]
+    private AnimationCurve _rotationCurve;
+
+    private float _alpha;
 
     private void Update()
     {
-        _currentZ += (Time.deltaTime * _rotationDirection * _rotationSpeed);
-        _pendulum.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, _currentZ);
+        _alpha += (Time.deltaTime * _rotationSpeed * _rotationDirection);
+        _alpha = Mathf.Clamp(_alpha, 0.0f, 1.0f);
 
-        if ((_currentZ >= _maxRotation && _rotationDirection == 1) || (_currentZ <= -_maxRotation && _rotationDirection == -1))
+        float targetZRotation = Mathf.Lerp(-_maxRotation, _maxRotation, _rotationCurve.Evaluate(_alpha));
+
+        _pendulum.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, targetZRotation);
+
+        if(_alpha == 0.0f || _alpha == 1.0f)
         {
             _rotationDirection *= -1;
         }
