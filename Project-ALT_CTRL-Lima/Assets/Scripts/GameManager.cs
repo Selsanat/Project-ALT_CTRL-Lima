@@ -154,10 +154,10 @@ public class GameManager : MonoBehaviour
         {
             _choiceBox.gameObject.SetActive(true);
 
-            DialogsController.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
+            DialogsController1.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
             _choiceBox.redirectChoiceA = _currentData.redirectIndex;
 
-            DialogsController.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
+            DialogsController2.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
             _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
 
             _timer.PauseTimer(false);

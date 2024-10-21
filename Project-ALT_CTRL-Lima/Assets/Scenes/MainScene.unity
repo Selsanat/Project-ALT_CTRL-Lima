@@ -932,6 +932,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1343480013}
   - component: {fileID: 1343480014}
+  - component: {fileID: 1343480016}
+  - component: {fileID: 1343480015}
   m_Layer: 0
   m_Name: DialogController
   m_TagString: Untagged
@@ -967,7 +969,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogInput: {fileID: 0}
-  charactersPerSecond: 25
+  BASE_CHAR_PER_SEC: 15
+  _dialogText: {fileID: 0}
+--- !u!114 &1343480015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343480012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fa56043bad2324fa758952ba835cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogInput: {fileID: 0}
+  BASE_CHAR_PER_SEC: 30
+  _dialogText: {fileID: 0}
+--- !u!114 &1343480016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343480012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdb659f3045df3488e0bb583e701d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogInput: {fileID: 0}
+  BASE_CHAR_PER_SEC: 30
   _dialogText: {fileID: 0}
 --- !u!224 &1406808234 stripped
 RectTransform:

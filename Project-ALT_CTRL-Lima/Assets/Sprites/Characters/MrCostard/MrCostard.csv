@@ -1,45 +1,45 @@
 characterName,text,choice,redirectTo,emotion
-Fluffles ,<textjump=0.25|2|5>Hello! Today I'm here with you because <color=red><b>I cannot do my work anymore</b></color>in my current state.</textjump>,,,Neutral
-Narrator,"To start hypnosis, sing your <b><color=red> pendulum !",,,
-,You have a<b><color=red>limited ammount of time</b></color> to hypnotise your customers !,,,
-,"If this <b><color=red>time is up</b></color>, ils <b><color=red>customers will lose their trust in you and go without paying!</b></color>",,,
-,Your <b><color=red>pendulum</b></color> can make this  <b><color=red>time go slower.</b></color>.,,,
-,Talk with your customers <b><color=red>to keep their trust</b></color> and <b><color=red>find how to hypnotise them !,,,
-Player,What's the matter ?,TRUE,10,
-,Take a chewing gum. ,TRUE,10,
-Fluffles,<textjump=0.25|2|5>People keep coming to me asking <uppercaps>for crap.,,,Exhausted
-,"<textjump=0.25|2|5>All day long, it's a real pain in the ass!",,,Exhausted
+Fluffles,<textjump=0.25|2|5>Hello! Today I'm here with you because <color=red><b>I cannot do my work anymore</b></color>in my current state.</textjump>,,,Neutral
+Narrator,"To start hypnosis, swing your <b><color=red> pendulum !",,,
+Narrator,You have a<b><color=red>limited ammount of time</b></color> to hypnotise your customers !,,,
+Narrator,"If this <b><color=red>time is up</b></color>, ils <b><color=red>customers will lose their trust in you and go without paying!</b></color>",,,
+Narrator,Your <b><color=red>pendulum</b></color> can make this  <b><color=red>time go slower.</b></color>.,,,
+Narrator,Talk with your customers <b><color=red>to keep their trust</b></color> and <b><color=red>find how to hypnotise them !,,,
+Player,What's the matter ?,TRUE,10,Neutral
+Player,Take a chewing gum. ,TRUE,10,Neutral
+Player,<textjump=0.25|2|5>People keep coming to me asking <uppercase>for crap.,,,Exhausted
+Player,"<textjump=0.25|2|5>All day long, it's a real pain in the ass!",,,Exhausted
 Narrator,"Watch out! Most of your customers will talk to you about useless topics, try to avoid them as much as possible so you won't lose time!",,,
-,It's up to you to choose the best answers and questions to gain the maximum amount of time!,,,
+Narrator,It's up to you to choose the best answers and questions to gain the maximum amount of time!,,,
 Player,What kind of requests ?,TRUE,16,
-,And that's the problem here ?,TRUE,16,
+Player,And that's the problem here ?,TRUE,16,
 Fluffles,A chocolatier complains all the time! A father wants me to solve his family problems! I have to organize school trips. Opticians won't stop bothering me with their stupid problems.,,,Exhausted
-Player,yeah in fact it sounds bothering.,TRUE,19,
-,Did you consider moving to a different place ?,TRUE,19,
+Player,Yeah in fact it sounds bothering.,TRUE,19,
+Player,Did you consider moving to a different place ?,TRUE,19,
 Fluffles,"I beg you please, hypnotise me so I can finally deal with it! I want to break free!",,,Sad
 Player,Ok let's start.,,,
-,Focus on my watch.,,,
-,Think about something chill.,,,
+Player,Focus on my watch.,,,
+Player,Think about something chill.,,,
 Fluffles,Like what ?,,,Neutral
 Player,Honey.,TRUE,26,
-,Administrative papers.,TRUE,27,
+Player,Administrative papers.,TRUE,27,
 Fluffles,Oh honey! I love honey!,,29,Neutral
 Fluffles,NO! Anything but work please!,,28,Sad
-,I'll think about honey instead.,,29,Sad
+Fluffles,I'll think about honey instead.,,29,Sad
 Player,Now think about somewhere you can relax to.,,,
 Fluffles,I'm sorry I can't think of anything. Any idea?,,,Neutral
 Player,Like in a bakery or at a chocolatier.,TRUE,33,
-,Under a tree.,TRUE,35,
+Player,Under a tree.,TRUE,35,
 Fluffles,NO PLEASE! Not those chocolatier's stories again.,,34,Sad
-,"In the woods, under a tree will be perfect.",,36,Sad
+Fluffles,"In the woods, under a tree, away from my problems.",,36,Sad
 Fluffles,"Oh yeah, i feel relaxed now.",,36,Neutral
 Player,"Finally, try to remember a good memory from your childhood.",,,
 Fluffles,As what ?,,,Neutral
 Player,A school trip!,TRUE,40,
-,A birthday party!,TRUE,42,
-Fluffles,A school trip? No It's making me think of my work.,,41,Sad
-,You don't listen to me and you don't understand me at all. You are nothing but a scammer!,,43,Sad
+Player,A birthday party!,TRUE,42,
+Fluffles,A school trip? With all its organisation? No It's making me think about work.,,41,Sad
+Fluffles,You don't listen to me and you don't understand me at all. You are nothing but a scammer!,,43,Sad
 Fluffles,"Oh! It works, I feel floating!.",,43,Hypnotized
 Player,"At my signal, all your problems will appear insignificant to you. NOW!",,,
 Narrator,Congratulations ! You are now a real psycho-hypnotist!,,,
-,Do anything in your power to make the world a better place! ,,,
+Narrator,Do anything in your power to make the world a better place! ,,,
