@@ -152,6 +152,8 @@ public class GameManager : MonoBehaviour
 
         if (_currentData.bIsChoice)
         {
+            _choiceBox.gameObject.SetActive(true);
+
             DialogsController.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
             _choiceBox.redirectChoiceA = _currentData.redirectIndex;
 
@@ -161,7 +163,6 @@ public class GameManager : MonoBehaviour
             _timer.PauseTimer(false);
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
-            _choiceBox.gameObject.SetActive(true);
             return;
         }
 
