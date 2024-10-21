@@ -1,10 +1,12 @@
 characterName,text,choice,redirectTo,emotion
-Blobby,Bonjour monsieur. Je vous explique. Depuis quelque temps je me sens mal.,,,Livid
-,On m’a recommandé vos services alors me voilà !,,,Livid
-Player,Vous avez un couteau planté dans le ventre.,TRUE,6,
-,Prenez un chewing gum.,TRUE,7,
-Player,Vous avez…,,,
-Blobby,Ça fait maintenant plusieurs mois que je vis avec mon époux et tout est parfait !,,,Livid
-,"C’est le bonheur à deux, il me comprend, il me supporte et est toujours là pour m’écouter.",,,Livid
-,Aussi il a un énorme flan donc je suis satisfait à tous les niveaux.,,,Livid
-Player,Et ça c’était l’info de trop.,,,
+Blobby,"Hello, I'll explain, since a while I feel bad.",,,Livid
+Blobby,I was recommended your services so here I am !,,,Livid
+Player,You have a...,TRUE,6,
+Player,Take a chewing-gum.,TRUE,7,
+Blobby,It's been months that I live with my husband and everything is perfect !,,,
+Blobby,"It's happiness, he understands me, he suppots me and he's always there to listen to me.",,,Livid
+Blobby,"However, it's been hell since ma step-mother came to live at our place.",,,Livid
+Blobby,I suspect she doesn't see our relation as a good thing.,,,Livid
+Player,What makes you believe that ?,TRUE,,
+Player,"I think you catch something, please continue",TRUE,,
+Blobby,,,,

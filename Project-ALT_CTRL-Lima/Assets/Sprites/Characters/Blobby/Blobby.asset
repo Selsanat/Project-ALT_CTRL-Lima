@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641c19eb5cfde0a4c8dfaf236ba5e643, type: 3}
   m_Name: Blobby
   m_EditorClassIdentifier: 
-  _character: {fileID: 21300000, guid: 60c81e32af7ade948b6eb26f98030300, type: 3}
+  _character: {fileID: 5523580481739998711, guid: dcee2fa771dabce4382e1364a6a6fae5, type: 3}
   _emotions:
   - emotion: 11
     sprite: {fileID: 21300000, guid: ff94c9f84b71e3d4bbdbce501a65b0d6, type: 3}
