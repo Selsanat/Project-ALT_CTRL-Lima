@@ -156,6 +156,7 @@ Transform:
   - {fileID: 1423841579}
   - {fileID: 1343480013}
   - {fileID: 1772893742}
+  - {fileID: 499086668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217798134
@@ -351,6 +352,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29a3d4961c4b6941be37b590298e5c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &499086667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 499086668}
+  - component: {fileID: 499086669}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &499086668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499086667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 91891935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &499086669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499086667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a1f4df3f18eb44286e5f239dc9c484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixerGroup: {fileID: 0}
+  audioMixer: {fileID: 0}
+  sounds:
+  - name: Boop
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  bgMusics: []
 --- !u!1 &656678282
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1062,7 @@ MonoBehaviour:
   dialogInput: {fileID: 0}
   BASE_CHAR_PER_SEC: 15
   _dialogText: {fileID: 0}
+  characterSoundDelay: 0.15
 --- !u!114 &1343480015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1077,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogInput: {fileID: 0}
   BASE_CHAR_PER_SEC: 30
+  charactersPerSecond: 50
   _dialogText: {fileID: 0}
+  _readCharacterOffset: 0
+  _readMaxCharacters: 0
+  _textInfo: {textComponent: {fileID: 0}, characterCount: 0, spriteCount: 0, spaceCount: 0, wordCount: 0, linkCount: 0, lineCount: 0, pageCount: 0, materialCount: 0}
+  isReadingText: 0
+  pauseTime: 0
 --- !u!114 &1343480016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,7 +1098,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogInput: {fileID: 0}
   BASE_CHAR_PER_SEC: 30
+  charactersPerSecond: 50
   _dialogText: {fileID: 0}
+  _readCharacterOffset: 0
+  _readMaxCharacters: 0
+  _textInfo: {textComponent: {fileID: 0}, characterCount: 0, spriteCount: 0, spaceCount: 0, wordCount: 0, linkCount: 0, lineCount: 0, pageCount: 0, materialCount: 0}
+  isReadingText: 0
+  pauseTime: 0
 --- !u!224 &1406808234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4378660489982589970, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}

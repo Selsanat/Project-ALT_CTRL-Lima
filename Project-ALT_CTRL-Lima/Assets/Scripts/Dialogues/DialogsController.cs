@@ -6,26 +6,33 @@ using DG.Tweening;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
 using System;
+using System.Text.RegularExpressions;
+using UnityEngine.Windows;
 
 public class DialogsController : MonoBehaviour
 {
     [SerializeField] TMP_InputField dialogInput;
     [SerializeField] private int BASE_CHAR_PER_SEC = 15;
-    private int charactersPerSecond = 50;
+    public int charactersPerSecond = 50;
     [SerializeField] TMP_Text _dialogText;
     private float _readCharacterOffset = 0;
     private int _readMaxCharacters = 0;
     private TMP_TextInfo _textInfo;
-    private bool isReadingText = false;
+    public bool isReadingText = false;
     private ProcessedText _currentProcessedText;
     public static DialogsController instance;
+    public static DialogsController subTextboxInstance1;
+    public static DialogsController subTextboxInstance2;
     private float pauseTime = 0;
+    private float time = 0;
+    [SerializeField] private float characterSoundDelay = 0.15f;
 
     public bool bIsReadingText { get => isReadingText; }
 
     private void Awake()
     {
         instance = this;
+        time = Time.time;
     }
 
     public void SetCharacterPerSeconds(int value)
@@ -38,12 +45,27 @@ public class DialogsController : MonoBehaviour
     }
     private class ProcessedText
     {
+        public int offset = 0;
         public string processedText = "";
         public Dictionary<int, List<TextCommand>> commands = new Dictionary<int, List<TextCommand>>();
     }
     private void Update()
     {
+        if (isReadingText)
+        {
+            
+            if (Time.time- time> characterSoundDelay)
+            {
+                time = Time.time;
+                StartCoroutine(PlayTextSound());
+            }
+        }
         _UpdateReadText();
+    }
+    private IEnumerator PlayTextSound()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.0f, characterSoundDelay/3));
+        SoundManager.instance.PlayClip("Boop");
     }
 
     public void SkipAnimation()
@@ -67,7 +89,7 @@ public class DialogsController : MonoBehaviour
         int nextLetterCalcul = (int)(_readCharacterOffset + charactersPerSecond * Time.deltaTime);
         bool hasSecondPassed = (int)_readCharacterOffset + 1 == nextLetterCalcul; // Check if a second has passed
         _readCharacterOffset += charactersPerSecond * Time.deltaTime;
-        if (hasSecondPassed)
+        if (hasSecondPassed && _readCharacterOffset < _readMaxCharacters )
         {
             ShowCharacter((int)_readCharacterOffset - 1);
             _currentProcessedText.commands[nextLetterCalcul - 1].ForEach(command => {
@@ -79,6 +101,7 @@ public class DialogsController : MonoBehaviour
 
     public void ReadText(string text)
     {
+        _dialogText.text = "";
         if (_currentProcessedText != null)
         {
             foreach (KeyValuePair<int, List<TextCommand>> command in _currentProcessedText.commands)
@@ -95,7 +118,7 @@ public class DialogsController : MonoBehaviour
         _dialogText.text = _currentProcessedText.processedText;
         _textInfo = _dialogText.textInfo;
         _readCharacterOffset = 0;
-        _readMaxCharacters = _currentProcessedText.processedText.Length;
+        _readMaxCharacters = _currentProcessedText.processedText.Length - _currentProcessedText.offset;
         _dialogText.ForceMeshUpdate();
         initText();
         HideText();
@@ -107,7 +130,7 @@ public class DialogsController : MonoBehaviour
         int meshIndex = _dialogText.textInfo.characterInfo[characterIndex].materialReferenceIndex;
         int vertexIndex = _dialogText.textInfo.characterInfo[characterIndex].vertexIndex;
         if (!char.IsWhiteSpace(_dialogText.textInfo.characterInfo[characterIndex].character))
-        {
+        {   
             for (int j = 0; j < 4; ++j)
             {
                 _dialogText.textInfo.meshInfo[meshIndex].colors32[vertexIndex + j].a = 255;
@@ -196,7 +219,7 @@ public class DialogsController : MonoBehaviour
                     {
                         TextCommand command = factory.CreateCommand(tagName);
                         command.SetupData(TagsUtils.ExtractTagArgs(tag));
-                        if (tag.Contains("/"))
+                        if (tag.Contains("/"))  
                         {
                             activeCommands.RemoveAt(activeCommands.FindLastIndex(x => x.Item1 == tagName));
                         }
@@ -212,7 +235,11 @@ public class DialogsController : MonoBehaviour
                                 result.commands[i- tagOffset+1].Add(command);
                             }
                         }
-                        modifiedText = modifiedText.Replace(tag, "");
+                        modifiedText = modifiedText.Replace(tag, string.Empty);
+                    }
+                    else
+                    {
+                        result.offset += tag.Length;
                     }
                     tag = "";
                     isInsideTag = false;

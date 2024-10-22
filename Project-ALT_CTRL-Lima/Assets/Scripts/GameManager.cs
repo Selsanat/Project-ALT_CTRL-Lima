@@ -136,6 +136,12 @@ public class GameManager : MonoBehaviour
         WriteDialog(targetIndex);
     }
 
+    public IEnumerator playSecondDialog(int dialogIndex)
+    {
+        yield return new WaitUntil(() => !DialogsController.instance.isReadingText);
+        DialogsController.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
+        _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
+    }
     public void WriteDialog(int dialogIndex)
     {
         if (dialogIndex >= _dialogData.Count)
@@ -153,13 +159,12 @@ public class GameManager : MonoBehaviour
         if (_currentData.bIsChoice)
         {
             _choiceBox.gameObject.SetActive(true);
-
-            DialogsController1.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
+            _choiceBox._choiceA.text = "";
+            _choiceBox._choiceB.text = "";
+            DialogsController.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
             _choiceBox.redirectChoiceA = _currentData.redirectIndex;
 
-            DialogsController2.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
-            _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
-
+            StartCoroutine(playSecondDialog(dialogIndex));
             _timer.PauseTimer(false);
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);

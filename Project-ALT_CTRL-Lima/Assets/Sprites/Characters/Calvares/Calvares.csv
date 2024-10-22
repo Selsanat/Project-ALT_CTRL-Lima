@@ -1,30 +1,31 @@
 characterName,text,choice,redirectTo,emotion
-Calvares,"Hem Hem, hellooo I'm seeing you because I can't take it anymore, my work is killing me!",,,Impatient
+Calvares,"Hem Hem,<textrumble=0.1|-1|2>hellooo</textrumble=0.1|-1|2> I'm seeing you because I can't take it anymore, my work is killing me!",,,Impatient
 Player,What job do you do?,TRUE,5,
 Player,What is your problem?,TRUE,5,
-Calvares,"I am a school teacher, I teach english and its values! And there you have it, the problem is that Mister mayor judged good to make foreign trips for my fourth grade class and its teachers mandatory. What a pain! ",,,Calm
-Player,What's the problem ? You don't like travelling?,TRUE,8,
-Player,What kind of trip?,TRUE,8,
-Calvares,The problem is that it is a trip to France and I don't speak any word of French!,,,Impatient
-Calvares,"In addition, my students will be confronted against their will with a hostile environnment filled with... French",,,Impatient
+Calvares,"I am a school teacher, I teach english and its values!",,6,Calm
+Calvares," And there you have it, the problem is that Mister <textspeed=2><textjump=0.5|2|5>mayor</textjump><textspeed=15> judged good to make foreign trips for my fourth grade class and its teachers mandatory. What a pain! ",,,Calm
+Player,What's the problem ? You don't like travelling?,TRUE,9,Impatient
+Player,What kind of trip?,TRUE,9,
+Calvares,The problem is that it is a trip to <textrumble=0.1|-1|2>France</textrumble=0.1|-1|2> and I don't speak any word of French!,,10,Impatient
+Calvares,"In addition, my students will be confronted against their will with a hostile environment filled with... <textspeed=2><textrumble=0.1|-1|2>french people.</textrumble=0.1|-1|2><textspeed=15>",,,Impatient
 Player,"Good, very good, I see that you are rather annoyed, let's start. Think about something that you enjoy, your favorite dish such as ...",,,
-Player,Fish & Chips,TRUE,15,
-Player,Frog legs,TRUE,13,
+Player,Fish & Chips,TRUE,16,
+Player,Frog legs,TRUE,15,
 Calvares,The? What I like?,,,TakenAback
-Calvares,"Definetly not frog legs, just thinking about it makes me want to puke!",,16,Impatient
+Calvares,"<textpause=0.5>Definetly <textpause=0.5>not <textpause=0.5>frog <textpause=0.5>legs<textpause=0.5>, just thinking about it makes me want to puke!",,,Impatient
 Calvares,Yes it's true I pretty like the Fish & Chips.,,,Calm
 Player,"Now I want you to think about an animal, you see...",,,
-Player,A lion,TRUE,20,
-Player,A Rooster,TRUE,19,
-Calvares,"No, I was thinking about a lion a symbol of our good England !",,21,Neutral
+Player,A lion,TRUE,21,
+Player,A Rooster,TRUE,20,
+Calvares,"No, I was thinking about a lion a symbol of our good England !",,,Neutral
 Calvares,"Yes it is, how did you guess?",,,TakenAback
 Player,Stare deeply at my watch.,,,
-Player,"Think about your high school students that you help everyday, surely they will be happy to make a trip like that.",TRUE,24,
-Player,You are eager to be at the side of your students in this trial.,TRUE,25,
-Calvares,"High school ? I'm an elementary school teacher ! I do not think they will be happy, they are way to young for that.",,26,TakenAback
+Player,"Think about your high school students that you help everyday, surely they will be happy to make a trip like that.",TRUE,25,
+Player,You are eager to be at the side of your students in this trial.,TRUE,26,
+Calvares,"High school ? I'm an <b>elementary</b> school teacher ! I do not think they will be happy, they are way to young for that.",,,TakenAback
 Calvares,Yes... Of course I want to go with them to protect them...,,,Calm
 Player,"A trip will do you good, you will meet new people to discuss with.",TRUE,28,
 Player,You will introduce these young peoples to other cultures.,TRUE,29,
-Calvares,"I wont discuss any further, I told you I don't speak french!",,30,Impatient
+Calvares,"I wont discuss any further, I told you I don't speak french!",,,Impatient
 Calvares,Ye... Yes yes you are right.,,,Hypnosis
 Player,At my top you will no longer see any disadvantages in going to France and will even be glad to go there!  TOP!,,,
