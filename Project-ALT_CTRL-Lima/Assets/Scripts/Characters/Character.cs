@@ -9,6 +9,10 @@ public class Character : MonoBehaviour
 
     private Dictionary<Emotion, Sprite> _emotionData = new Dictionary<Emotion, Sprite>();
 
+#if UNITY_EDITOR
+    public Dictionary<Emotion, Sprite> EmotionData => _emotionData;
+#endif
+
     public CharacterData Data {get => _currentData;}
 
     public void SetEmotion(Emotion emotion)

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private Character _currentCharacter;
 
-    public List<DialogData> _dialogData;
+    private List<DialogData> _dialogData;
     private DialogData _currentData;
 
     [SerializeField] private CharacterBox _characterBox;
@@ -46,10 +46,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerController _playerController;
 
+    private int _lastDialogIndex;
+
 #if UNITY_EDITOR
     [SerializeField] private int _startCharacterIndex = 0;
-
-    private int _lastDialogIndex;
 #endif
 
     private IEnumerator Start()
@@ -110,22 +110,26 @@ public class GameManager : MonoBehaviour
         }
 
         int targetIndex = -1;
+        int addIndex = -1;
 
         if (_currentData.bIsChoice)
         {
             if (Input.GetKeyDown(_choiceAInput))
             {
+                addIndex = _lastDialogIndex;
                 targetIndex = _choiceBox.redirectChoiceA;
             }
 
             else if (Input.GetKeyDown(_choiceBInput))
             {
+                addIndex = _lastDialogIndex + 1;
                 targetIndex = _choiceBox.redirectChoiceB;
             }
         }
 
         else if (Input.GetKeyDown(_skipDialog))
         {
+            addIndex = _lastDialogIndex;
             targetIndex = _currentData.redirectIndex;
         }
 
@@ -134,6 +138,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        _timer.AddTime(_dialogData[addIndex].addedTimerValue);
         WriteDialog(targetIndex);
     }
 
@@ -145,10 +150,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-#if UNITY_EDITOR
         _lastDialogIndex = dialogIndex;
-#endif
-
         _currentData = _dialogData[dialogIndex];
 
         if (_currentData.bToggleTimer)
@@ -166,7 +168,6 @@ public class GameManager : MonoBehaviour
             DialogsController2.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
             _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
 
-            //_timer.PauseTimer(false);
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
             return;
@@ -249,6 +250,10 @@ public class GameManager : MonoBehaviour
         {
             _currency += _timer.GetTimerValueInPercent();
         }
+
+        _characterBox.gameObject.SetActive(false);
+        _playerBox.gameObject.SetActive(false);
+        _choiceBox.gameObject.SetActive(false);
 
         _endingScreen.gameObject.SetActive(true);
         _endingScreen.DisplayResults(bVictory, _currency);

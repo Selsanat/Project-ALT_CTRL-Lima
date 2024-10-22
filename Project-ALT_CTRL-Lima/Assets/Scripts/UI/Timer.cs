@@ -15,6 +15,11 @@ public class Timer : MonoBehaviour
 
     private bool _bPauseTimer = true;
 
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    [Tooltip("Percentage")]
+    private float _startValue = 0.5f;
+
     public float _value;
 
     [SerializeField]
@@ -54,7 +59,7 @@ public class Timer : MonoBehaviour
 
     public void RestartTimer(bool playTimer)
     {
-        _value = _timerDuration/2;
+        _value = _startValue * _timerDuration;
         UpdateMaskPos(_value);
         PauseTimer(!playTimer);
     }

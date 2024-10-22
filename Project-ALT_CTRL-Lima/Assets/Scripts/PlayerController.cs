@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
 
         if (_joycon.GetButtonDown(Joycon.Button.SHOULDER_1))
         {
-            _timer.AddTimeInPercent(_addedTimerInPercent);
+            // disable for now
+            //_timer.AddTimeInPercent(_addedTimerInPercent);
         }
     }
 

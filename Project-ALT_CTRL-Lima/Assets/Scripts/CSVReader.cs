@@ -12,6 +12,7 @@ public struct DialogData
     public Emotion emotion;
     public CharacterType type;
     public bool bToggleTimer;
+    public float addedTimerValue;
 }
 
 public static class CSVReader
@@ -74,8 +75,9 @@ public static class CSVReader
             // collumn 1: text
             // collumn 2: choice
             // collumn 3: redirectTo
-            // collumn 4: bToggleTimer
-            // collumn 5: emotion
+            // collumn 4: addedTimerValue
+            // collumn 5: bToggleTimer
+            // collumn 6: emotion
             data.name = collumns[0] == "" ? lastName : collumns[0];
             lastName = data.name;
 
@@ -101,9 +103,12 @@ public static class CSVReader
             index++;
             data.redirectIndex = collumns[3] != "" ? (int.Parse(collumns[3]) + lineOffset) : index;
 
-            data.bToggleTimer = collumns[4] != "";
+            float.TryParse(collumns[4], out float floatRes);
+            data.addedTimerValue = floatRes;
 
-            bool bFindEmotion = Enum.TryParse<Emotion>(collumns[5], out Emotion emotion);
+            data.bToggleTimer = collumns[5] != "";
+
+            bool bFindEmotion = Enum.TryParse<Emotion>(collumns[6], out Emotion emotion);
             data.emotion = bFindEmotion ? emotion : Emotion.None;
 
             dialogsData.Add(data);
