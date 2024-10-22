@@ -27,11 +27,17 @@ public class Timer : MonoBehaviour
 
     private float MaxSize;
 
+    [SerializeField]
+    private UnityEvent<float> _onValueUpdate;
+
     private void Start()
     {
-        RestartTimer(false, _timerDuration);
-
         _volume = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
+
+        _onValueUpdate.AddListener(UpdateMaskPos);
+        _onValueUpdate.AddListener(UpdateVolume);
+
+        RestartTimer(false, _timerDuration);
         _timerFactor = _defaultFactor;
 
         MaxSize = GetComponent<RectTransform>().sizeDelta.y;
@@ -47,7 +53,7 @@ public class Timer : MonoBehaviour
         _value -= Time.deltaTime * _timerFactor;
         _value = Mathf.Clamp(_value, 0.0f, _timerDuration);
 
-        UpdateMaskPos(_value);
+        _onValueUpdate.Invoke(_value);
 
         _volume.weight = _value / _timerDuration;
 
@@ -60,7 +66,7 @@ public class Timer : MonoBehaviour
     public void RestartTimer(bool playTimer)
     {
         _value = _startValue * _timerDuration;
-        UpdateMaskPos(_value);
+        _onValueUpdate.Invoke(_value);
         PauseTimer(!playTimer);
     }
 
@@ -74,7 +80,12 @@ public class Timer : MonoBehaviour
     {
         _value += timeToAdd;
         _value = Mathf.Clamp(_value, 0.0f, _timerDuration);
-        UpdateMaskPos(_value);
+        _onValueUpdate.Invoke(_value);
+
+        if (_value == 0.0f)
+        {
+            _onTimerFinished?.Invoke();
+        }
     }
 
     public void AddTimeInPercent(float percentToAdd)
@@ -108,5 +119,10 @@ public class Timer : MonoBehaviour
         float TargetPos = Mathf.Lerp(0.0f, MaxSize, alpha);
 
         _maskTransform.anchoredPosition = new Vector2(_maskTransform.anchoredPosition.x, TargetPos);
+    }
+
+    private void UpdateVolume(float alpha)
+    {
+        _volume.weight = alpha / _timerDuration;
     }
 }

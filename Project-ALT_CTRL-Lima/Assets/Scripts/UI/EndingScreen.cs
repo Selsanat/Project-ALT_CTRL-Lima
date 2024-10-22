@@ -42,8 +42,10 @@ public class EndingScreen : MenuManager
         _spriteHeight = _charlatanSprite.rectTransform.sizeDelta.y;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (_bVictory)
         {
             float rotation = _hypnotizedSprite.transform.eulerAngles.z;

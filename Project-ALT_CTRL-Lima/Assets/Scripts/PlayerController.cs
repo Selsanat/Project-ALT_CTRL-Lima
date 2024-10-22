@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
     private bool _bCanAddTime = true;
 
+    [SerializeField]
+    private string _titleScreenSceneName = "TitleScreen";
+
     private void Start()
     {
         if (JoyconManager.Instance.j.Count == 0)
@@ -25,6 +28,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneFunctions.OpenLevel(_titleScreenSceneName);
+            return;
+        }
+
         if(_joycon == null)
         {
             return;

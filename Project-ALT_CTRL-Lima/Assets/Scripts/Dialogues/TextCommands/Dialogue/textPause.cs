@@ -19,6 +19,8 @@ public class textPause : TextCommand
     public override void OnEnter()
     {
         DialogsController.instance.SetPauseTime(_wait);
+        //DialogsController1.instance.SetPauseTime((int)_wait);
+        //DialogsController2.instance.SetPauseTime((int)_wait);
     }
 
     public override void OnExit()

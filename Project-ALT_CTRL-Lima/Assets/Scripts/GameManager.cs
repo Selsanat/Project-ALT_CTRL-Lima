@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private CharacterBox _characterBox;
     [SerializeField] private ChoiceBox _choiceBox;
-    [SerializeField] private PlayerBox _playerBox;
+    [SerializeField] private DialogBox _playerBox;
+    [SerializeField] private DialogBox _narratorBox;
 
     [SerializeField] private Timer _timer;
 
@@ -138,8 +139,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        _timer.AddTime(_dialogData[addIndex].addedTimerValue);
         WriteDialog(targetIndex);
+        _timer.AddTime(_dialogData[addIndex].addedTimerValue);
     }
 
     public void WriteDialog(int dialogIndex)
@@ -168,6 +169,7 @@ public class GameManager : MonoBehaviour
             DialogsController2.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
             _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
 
+            _narratorBox.gameObject.SetActive(false);
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
             return;
@@ -182,14 +184,24 @@ public class GameManager : MonoBehaviour
 
             _characterBox.gameObject.SetActive(true);
             _playerBox.gameObject.SetActive(false);
+            _narratorBox.gameObject.SetActive(false);
         }
         else
         {
-            targetBox = _playerBox;
-            _playerBox.SetDialogBox(_currentData.type);
-
             _characterBox.gameObject.SetActive(false);
-            _playerBox.gameObject.SetActive(true);
+
+            if(_currentData.type == CharacterType.Narrator)
+            {
+                _playerBox.gameObject.SetActive(false);
+                _narratorBox.gameObject.SetActive(true);
+                targetBox = _narratorBox;
+            }
+            else
+            {
+                _playerBox.gameObject.SetActive(true);
+                _narratorBox.gameObject.SetActive(false);
+                targetBox = _playerBox;
+            }
         }
 
         _currentCharacter.SetEmotion(_currentData.emotion);
@@ -207,6 +219,7 @@ public class GameManager : MonoBehaviour
         }
 
         _playerController.ResetClock();
+        _timer.gameObject.SetActive(true);
 
         if (_currentCharacter != null)
         {
@@ -254,6 +267,8 @@ public class GameManager : MonoBehaviour
         _characterBox.gameObject.SetActive(false);
         _playerBox.gameObject.SetActive(false);
         _choiceBox.gameObject.SetActive(false);
+        _timer.gameObject.SetActive(false);
+        _narratorBox.gameObject.SetActive(false);
 
         _endingScreen.gameObject.SetActive(true);
         _endingScreen.DisplayResults(bVictory, _currency);

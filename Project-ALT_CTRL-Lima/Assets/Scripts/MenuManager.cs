@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private List<InputMenu> InputMenus = new List<InputMenu>();
 
-    private void Update()
+    protected virtual void Update()
     {
         foreach (InputMenu value in InputMenus)
         {
