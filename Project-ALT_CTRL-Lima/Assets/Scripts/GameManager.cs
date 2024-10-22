@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private Character _currentCharacter;
 
-    private List<DialogData> _dialogData;
+    public List<DialogData> _dialogData;
     private DialogData _currentData;
 
     [SerializeField] private CharacterBox _characterBox;
@@ -151,6 +151,11 @@ public class GameManager : MonoBehaviour
 
         _currentData = _dialogData[dialogIndex];
 
+        if (_currentData.bToggleTimer)
+        {
+            _timer.TogglePause();
+        }
+
         if (_currentData.bIsChoice)
         {
             _choiceBox.gameObject.SetActive(true);
@@ -161,7 +166,7 @@ public class GameManager : MonoBehaviour
             DialogsController2.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
             _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
 
-            _timer.PauseTimer(false);
+            //_timer.PauseTimer(false);
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
             return;
@@ -181,8 +186,6 @@ public class GameManager : MonoBehaviour
         {
             targetBox = _playerBox;
             _playerBox.SetDialogBox(_currentData.type);
-
-            _timer.PauseTimer(_currentData.type == CharacterType.Narrator);
 
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(true);
@@ -224,7 +227,7 @@ public class GameManager : MonoBehaviour
 #endif
 
         _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
-        _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
+        _timer.RestartTimer(false, _characterDatas[_characterIndex].CharacterTimerLenght);
 
         _endingScreen.gameObject.SetActive(false);
         WriteDialog(0);

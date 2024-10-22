@@ -87,6 +87,11 @@ public class Timer : MonoBehaviour
         _bPauseTimer = bPause;
     }
 
+    public void TogglePause()
+    {
+        _bPauseTimer = !_bPauseTimer;
+    }
+
     public float GetTimerValueInPercent()
     {
         return _value * 100.0f / _timerDuration;
