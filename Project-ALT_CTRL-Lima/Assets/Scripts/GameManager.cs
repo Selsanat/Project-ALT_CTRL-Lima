@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public enum CharacterType
 {
@@ -210,26 +211,23 @@ public class GameManager : MonoBehaviour
         {
             Destroy(_currentCharacter.gameObject);
         }
-
         _currentCharacter = Instantiate(_characterDatas[_characterIndex].Character, _worldUI.transform);
         _currentCharacter.transform.SetSiblingIndex(_characterHierachyIndex);
         _currentCharacter.SetData(_characterDatas[_characterIndex]);
-
-#if UNITY_EDITOR
-        _lastDialogIndex = 0;
-
-        if (_characterDatas[_characterIndex].Dialog == null)
+        Vector3 pos = _currentCharacter.transform.position;
+        _characterBox.gameObject.SetActive(false);
+        _playerBox.gameObject.SetActive(false);
+        _choiceBox.gameObject.SetActive(false);
+        _currentCharacter.transform.position = new Vector3(pos.x+20, pos.y, pos.z);
+        _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() => 
         {
-            Debug.LogWarning(_characterDatas[_characterIndex].name + " has null dialog data");
-            return;
-        }
-#endif
+            _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
+            _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
 
-        _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
-        _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
+            _endingScreen.gameObject.SetActive(false);
+            WriteDialog(0);
+        });
 
-        _endingScreen.gameObject.SetActive(false);
-        WriteDialog(0);
     }
 
     public void ResetCurrentCharacter()

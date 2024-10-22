@@ -29,13 +29,13 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
+        _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
         if (_bPauseTimer)
         {
             return;
         }
 
         _slider.value -= Time.deltaTime * _timerFactor;
-        _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
 
         _volume.weight = _slider.value / _slider.maxValue;
 

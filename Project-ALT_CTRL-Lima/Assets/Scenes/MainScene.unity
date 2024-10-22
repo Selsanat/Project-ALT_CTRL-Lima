@@ -583,7 +583,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0
+  weight: 0.5
   sharedProfile: {fileID: 11400000, guid: e1a7679cc14891641b7c2e38e06ff1f3, type: 2}
 --- !u!4 &660020798
 Transform:
@@ -1061,7 +1061,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogInput: {fileID: 0}
   BASE_CHAR_PER_SEC: 15
+  charactersPerSecond: 50
   _dialogText: {fileID: 0}
+  isReadingText: 0
   characterSoundDelay: 0.15
 --- !u!114 &1343480015
 MonoBehaviour:
@@ -1075,15 +1077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fa56043bad2324fa758952ba835cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogInput: {fileID: 0}
-  BASE_CHAR_PER_SEC: 30
-  charactersPerSecond: 50
-  _dialogText: {fileID: 0}
-  _readCharacterOffset: 0
-  _readMaxCharacters: 0
-  _textInfo: {textComponent: {fileID: 0}, characterCount: 0, spriteCount: 0, spaceCount: 0, wordCount: 0, linkCount: 0, lineCount: 0, pageCount: 0, materialCount: 0}
-  isReadingText: 0
-  pauseTime: 0
 --- !u!114 &1343480016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,15 +1089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdb659f3045df3488e0bb583e701d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogInput: {fileID: 0}
-  BASE_CHAR_PER_SEC: 30
-  charactersPerSecond: 50
-  _dialogText: {fileID: 0}
-  _readCharacterOffset: 0
-  _readMaxCharacters: 0
-  _textInfo: {textComponent: {fileID: 0}, characterCount: 0, spriteCount: 0, spaceCount: 0, wordCount: 0, linkCount: 0, lineCount: 0, pageCount: 0, materialCount: 0}
-  isReadingText: 0
-  pauseTime: 0
 --- !u!224 &1406808234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4378660489982589970, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}
