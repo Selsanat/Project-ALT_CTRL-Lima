@@ -10,7 +10,8 @@ using System;
 public class DialogsController : MonoBehaviour
 {
     [SerializeField] TMP_InputField dialogInput;
-    [SerializeField] int charactersPerSecond = 50;
+    [SerializeField] private int BASE_CHAR_PER_SEC = 15;
+    private int charactersPerSecond = 50;
     [SerializeField] TMP_Text _dialogText;
     private float _readCharacterOffset = 0;
     private int _readMaxCharacters = 0;
@@ -19,6 +20,8 @@ public class DialogsController : MonoBehaviour
     private ProcessedText _currentProcessedText;
     public static DialogsController instance;
     private float pauseTime = 0;
+
+    public bool bIsReadingText { get => isReadingText; }
 
     private void Awake()
     {
@@ -42,6 +45,13 @@ public class DialogsController : MonoBehaviour
     {
         _UpdateReadText();
     }
+
+    public void SkipAnimation()
+    {
+        _dialogText.ForceMeshUpdate();
+        GoToEnd();
+    }
+
     public void GoToEnd()
     {
         isReadingText = false;
@@ -69,12 +79,32 @@ public class DialogsController : MonoBehaviour
 
     public void ReadText(string text)
     {
+        if (_currentProcessedText != null)
+        {
+            foreach (KeyValuePair<int, List<TextCommand>> command in _currentProcessedText.commands)
+            {
+                command.Value.ForEach(c =>
+                {
+                    c.OnExit();
+                });
+            }
+        }
+        charactersPerSecond = BASE_CHAR_PER_SEC;
+        pauseTime = 0;
         _currentProcessedText = _GenerateCommands(text);
         _dialogText.text = _currentProcessedText.processedText;
         _textInfo = _dialogText.textInfo;
         _readCharacterOffset = 0;
         _readMaxCharacters = _currentProcessedText.processedText.Length;
         _dialogText.ForceMeshUpdate();
+
+#if UNITY_EDITOR
+        if (_dialogText.isTextOverflowing)
+        {
+            Debug.LogWarning(_currentProcessedText.processedText + " is overflowing in " + _dialogText.name);
+        }
+#endif
+
         initText();
         HideText();
         isReadingText = true;
@@ -115,7 +145,7 @@ public class DialogsController : MonoBehaviour
         {
             command.Value.ForEach(c =>
             {
-                print(command.Key);
+                //print(command.Key);
                     c.Init(_dialogText, command.Key);
             });
         }
@@ -132,6 +162,7 @@ public class DialogsController : MonoBehaviour
         _dialogText = textBox;
         ReadText(text);
     }
+
     private static ProcessedText _GenerateCommands(string text)
     {
         string modifiedText = text;

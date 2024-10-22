@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 100.0f)]
     private float _addedTimerInPercent = 50.0f;
 
+    private bool _bCanAddTime = true;
+
     private void Start()
     {
         if (JoyconManager.Instance.j.Count == 0)
@@ -28,9 +30,19 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (!_bCanAddTime)
+        {
+            return;
+        }
+
         if (_joycon.GetButtonDown(Joycon.Button.SHOULDER_1))
         {
             _timer.AddTimeInPercent(_addedTimerInPercent);
         }
+    }
+
+    public void ResetClock()
+    {
+        _bCanAddTime = true;
     }
 }

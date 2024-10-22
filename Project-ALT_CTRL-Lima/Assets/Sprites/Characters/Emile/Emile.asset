@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641c19eb5cfde0a4c8dfaf236ba5e643, type: 3}
   m_Name: Emile
   m_EditorClassIdentifier: 
-  _character: {fileID: 21300000, guid: ba3bc8310dbf210459742ec8a8e67b91, type: 3}
+  _character: {fileID: 5523580481739998711, guid: 6b55f8532456b3845a9714a6709ce3ec, type: 3}
   _emotions:
   - emotion: 1
     sprite: {fileID: 21300000, guid: 5981ae4b6c655db4dad6ace81a3c62b8, type: 3}
@@ -20,4 +20,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b2b17a848414ffb46bcb638e6c5c30f4, type: 3}
   - emotion: 3
     sprite: {fileID: 21300000, guid: bdaccae8cea525544b57e3cbb74bd4eb, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 0099f151f798b3a4b86f6c39ca2818bb, type: 3}
   _dialog: {fileID: 4900000, guid: 7c15fe27303278c42bce884d728af6bf, type: 3}
+  _characterTimerLenght: 50

@@ -1,10 +1,57 @@
 characterName,text,choice,redirectTo,emotion
-Blobby,Bonjour monsieur. Je vous explique. Depuis quelque temps je me sens mal.,,,Livid
-,On m’a recommandé vos services alors me voilà !,,,Livid
-Player,Vous avez un couteau planté dans le ventre.,TRUE,6,
-,Prenez un chewing gum.,TRUE,7,
-Player,Vous avez…,,,
-Blobby,Ça fait maintenant plusieurs mois que je vis avec mon époux et tout est parfait !,,,Livid
-,"C’est le bonheur à deux, il me comprend, il me supporte et est toujours là pour m’écouter.",,,Livid
-,Aussi il a un énorme flan donc je suis satisfait à tous les niveaux.,,,Livid
-Player,Et ça c’était l’info de trop.,,,
+Blobby,"Hello, I'll explain, since a while I feel bad.",,,Livid
+Blobby,I was recommended your services so here I am !,,,Livid
+Player,You have a...,TRUE,6,
+Player,Take a chewing-gum.,TRUE,7,
+Blobby,It's been months that I live with my husband and everything is perfect !,,,Livid
+Blobby,"It's happiness, he understands me, he suppots me and he's always there to listen to me.",,,Livid
+Blobby,"However, it's been hell since ma step-mother came to live at our place.",,,Livid
+Blobby,I suspect she doesn't see our relation as a good thing.,,,Livid
+Player,What makes you believe that?,TRUE,12,
+Player,"I think you catch something, please continue",TRUE,13,
+Blobby,"Yes, she keeps throwing some dark looks at me, it's hard for me.",,,Livid
+Blobby,She criticizes my every move. She won't stop saying I'm slack.,,,Livid
+Blobby,"I don't find my words, she's the snake in my boot, the fox in the chicken coop, the iceberg in my Titanic.",,,Livid
+Player,"Just asking but, did you lost a knife recently?",,,
+Blobby,Yes but how do you know?,,,Surprised but livid
+Player,An intuition,TRUE,19,
+Player,After 15 years of work make you feel those things.,TRUE,19,
+Blobby,It's crazy what you are capable of!,,,Surprised but livid
+Blobby,You think there's a link between my step-mother and the knife?,,,Surprised but livid
+Player,I'll just sugest you to hide your knife while she stays at your home.,,,
+Blobby,"She’s a thief as well as a pain in the ass, you think?",,,Surprised but livid
+Player,Not exactly what I was thinking but let's get back to you!,,,
+Player,Anything else recently bothering you?,,,
+Player,Why do you wanna get hypnotise?,,,
+Blobby,I don't think so.,,,Livid
+Blobby,"Please, make me confident so I can finally stood up to her and make her go!",,,Livid
+Player,Ok let's start!,,,
+Player,Focus on my watch.,,,
+Player,Try remembering a good memory.,,,
+Blobby,Like watching a movie?,,,Livid
+Blobby,Oh yes a good movie!,,,Livid
+Blobby,But which one?,,,Livid
+Player,The Lion King.,TRUE,36,
+Player,Titanic.,TRUE,38,
+Blobby,Oh yes that was my favorite movie as a child!,,,Happy
+Blobby,Thanks for making me remember it!,,,Happy
+Blobby,"Oh no! not Titanic, the iceberg is as cold as my step-mother and it's crushing our relationship like the boat!",,,Surprised but livid
+Blobby,I'll think of the Lion King instead my favorite movie as a child!,,,Livid
+Player,Now think of a place you can relax to.,,,
+Blobby,Somewhere that makes me feel good?,,,Livid
+Blobby,Like at home?,,,Livid
+Player,Like the kitchen!,TRUE,45,
+Player,Like your bathroom!,TRUE,46,
+Blobby,"Not the kitchen, step-mother always criticize my food and she even stole our knifes!",,,Surprised but livid
+Blobby,Oh yes! A warm bath is perfect!,,,Happy
+Blobby,You are great at this!,,,Happy
+Player,"Finally, think of something or someone making you feel good!",,,
+Blobby,"I don't really feel good lately, any idea  ?",,,Livid
+Player,Your husband.,TRUE,52,
+Player,Your step-mother.,TRUE,53,
+Blobby,"My husband yes, thinking of him feels good!",,55,Happy
+Blobby,Not my step-mother she is the opposite of a good thing!,,,Surprised but livid
+Blobby,You ain't listening to what I'm saying. You're a fraud I'm leaving!,,,Livid
+Blobby,"Yes, i'm feeling floating!",,,Hypnotized
+Player,At my signal you will now be capable to stand up to your step-mother!,,,
+Player,NOW!,,,

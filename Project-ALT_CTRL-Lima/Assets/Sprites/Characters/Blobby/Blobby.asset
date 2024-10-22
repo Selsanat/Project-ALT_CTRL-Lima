@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641c19eb5cfde0a4c8dfaf236ba5e643, type: 3}
   m_Name: Blobby
   m_EditorClassIdentifier: 
-  _character: {fileID: 21300000, guid: 60c81e32af7ade948b6eb26f98030300, type: 3}
+  _character: {fileID: 5523580481739998711, guid: dcee2fa771dabce4382e1364a6a6fae5, type: 3}
   _emotions:
   - emotion: 11
     sprite: {fileID: 21300000, guid: ff94c9f84b71e3d4bbdbce501a65b0d6, type: 3}
@@ -20,4 +20,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f8cda75c815a94a49bf7d9be1a2cd075, type: 3}
   - emotion: 7
     sprite: {fileID: 21300000, guid: 2d850d81dc317194694f1b03a3d92025, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 50aec42d959b8d54682b6d01947aa0db, type: 3}
   _dialog: {fileID: 4900000, guid: 18637647c2f99bd49877ad7405c7249b, type: 3}
+  _characterTimerLenght: 50

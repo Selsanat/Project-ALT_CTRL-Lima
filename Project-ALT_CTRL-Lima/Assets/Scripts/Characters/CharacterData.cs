@@ -15,9 +15,11 @@ public enum Emotion
     SurprisedButLivid,
     Calm,
     Impatient,
-    Decontenance,
+    TakenAback,
     Happy,
     Outraged,
+    Irritated,
+    Haughty,
 }
 
 [Serializable]
@@ -30,11 +32,13 @@ public struct EmotionStruct
 [CreateAssetMenu(fileName = "New CharacterData", menuName = "CharacterData")]
 public class CharacterData : ScriptableObject
 {
-    [SerializeField] private Sprite _character;
+    [SerializeField] private Character _character;
     [SerializeField] private List<EmotionStruct> _emotions;
     [SerializeField] private TextAsset _dialog;
+    [SerializeField] private float _characterTimerLenght = 50.0f;
 
-    public Sprite Character { get => _character;}
-    public List<EmotionStruct> Emotions {get => _emotions;}
-    public TextAsset Dialog {get => _dialog;}
+    public Character Character { get => _character; }
+    public List<EmotionStruct> Emotions { get => _emotions; }
+    public TextAsset Dialog { get => _dialog; }
+    public float CharacterTimerLenght { get => _characterTimerLenght; }
 }

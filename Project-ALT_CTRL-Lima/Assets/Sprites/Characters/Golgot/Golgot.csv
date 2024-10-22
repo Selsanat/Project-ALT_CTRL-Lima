@@ -1,0 +1,31 @@
+characterName,text,choice,redirectTo,emotion
+Golgot,"Hello, I come to see you, well so to speak since I don't see a thing anymore.",,,Neutral
+Player,What do you mean you can't see a thing? What is going on ?,TRUE,5,
+Player,Shouldn't you be able to see better than the average person?,TRUE,5,
+Golgot,"Well no, i don't see a thing anymore, you see I am myopic, recently I have not been able to find glasses that fit my body shape!",,,Irritated
+Golgot,There is some poeple who says to simply close my third eye but my species cannot.,,,Irritated
+Player,"But why this, the triclope glasses have become widespread these last years?",TRUE,9,
+Player,Standard glasses can't do the trick ?,TRUE,9,
+Golgot,"You see I'm an optician, glasses are my buisiness and triclope glasses were very present on the market yesterday...",,,Neutral
+Player,How could they disapear so easily from the market ?,,,
+Player,I feel like ther have been a lot of changes in our city recently.,,,
+Golgot,"Yes I've heard of stupid laws ""No arms, no chocolates"", ""Blue people forbidden to go to the pool""..., our world goes crazy!",,,Neutral
+Golgot,You know how difficult it is to see with only two eyes aligned?,,,Irritated
+Player,"Indeed it doesn't sound easy, let's start the hypnosis shall we ?",,,
+Player,Stare at my watch carefully.,TRUE,17,
+Player,Concentrate on my voice,TRUE,18,
+Golgot,I can't see anything... You remember?,,19,Irritated
+Golgot,"Ok, let's focus.",,,Neutral
+Player,Close your third eye and you will see.,TRUE,21,
+Player,Use a monocle in addition to your glasses.,TRUE,22,
+Golgot,I can't close it I told you! In my species the young ones are insomniac up to 12.,,24,Irritated
+Golgot,"Yes its a good idea, but its still a shame toget at this kind of situation.",,,Passionnate
+Golgot,And its useful for me but how do I sell two object separately at my clients rather than one? They'll never accept it!,,,Neutral
+Player,"Then let's try another way, another job.",,,
+Player,"Think about the job of your dreams, when you were a child you desired...",,,
+Player,to be an ophtalmologist.,TRUE,28,
+Player,to be an astronaut.,TRUE,30,
+Golgot,I'm not and do not desire to be an ophtalmologist!,,,Irritated
+Golgot,"You don't even listen to me, I'm leaving!",,,Irritated
+Golgot,I'd like to be one yes. Since my childhood I'm dreaming of watching the stars more closely.,,,Hypnotized
+Player,At my top you will have a strong desire to become an astronaut and will do anything to become one! TOP!,,,

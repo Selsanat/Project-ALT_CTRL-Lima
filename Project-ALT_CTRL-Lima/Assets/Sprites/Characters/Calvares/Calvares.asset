@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641c19eb5cfde0a4c8dfaf236ba5e643, type: 3}
+  m_Name: Calvares
+  m_EditorClassIdentifier: 
+  _character: {fileID: 5523580481739998711, guid: 8c71b869fe3a1cf4b99f1892e56dc887, type: 3}
+  _emotions:
+  - emotion: 1
+    sprite: {fileID: 21300000, guid: 65d45756db36a884e9055f035e13db98, type: 3}
+  - emotion: 9
+    sprite: {fileID: 21300000, guid: ffda37cbfca6de74c9979a6c8211073d, type: 3}
+  - emotion: 10
+    sprite: {fileID: 21300000, guid: 34d6bbb27c33be742a1595a6b1ebefb2, type: 3}
+  - emotion: 2
+    sprite: {fileID: 21300000, guid: 243bc03dd0a5efc4491aa64b6db3289f, type: 3}
+  _dialog: {fileID: 4900000, guid: abe24aa0d4918b04ebd1ed6289ca10d9, type: 3}
+  _characterTimerLenght: 50
