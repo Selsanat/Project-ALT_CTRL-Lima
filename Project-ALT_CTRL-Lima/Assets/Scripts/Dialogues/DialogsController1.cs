@@ -97,6 +97,14 @@ public class DialogsController1: MonoBehaviour
         _readCharacterOffset = 0;
         _readMaxCharacters = _currentProcessedText.processedText.Length;
         _dialogText.ForceMeshUpdate();
+
+#if UNITY_EDITOR
+        if (_dialogText.isTextOverflowing)
+        {
+            Debug.LogWarning(_currentProcessedText.processedText + " is overflowing in " + _dialogText.name);
+        }
+#endif
+
         initText();
         HideText();
         isReadingText = true;
@@ -152,14 +160,6 @@ public class DialogsController1: MonoBehaviour
     public void playDialog(TMP_Text textBox, string text)
     {
         _dialogText = textBox;
-
-#if UNITY_EDITOR
-        if (_dialogText.isTextOverflowing)
-        {
-            Debug.LogWarning(text + " is overflowing in " + textBox.name);
-        }
-#endif
-
         ReadText(text);
     }
 

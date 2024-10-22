@@ -1,12 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private Slider _slider;
-
     private float _timerDuration;
 
     [SerializeField] private float _succeedFactor = 0.5f;
@@ -18,13 +15,21 @@ public class Timer : MonoBehaviour
 
     private bool _bPauseTimer = true;
 
+    public float _value;
+
+    [SerializeField]
+    private RectTransform _maskTransform;
+
+    private float MaxSize;
+
     private void Start()
     {
-        _slider = GetComponent<Slider>();
         RestartTimer(false, _timerDuration);
 
         _volume = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
         _timerFactor = _defaultFactor;
+
+        MaxSize = GetComponent<RectTransform>().sizeDelta.y;
     }
 
     private void Update()
@@ -34,12 +39,14 @@ public class Timer : MonoBehaviour
             return;
         }
 
-        _slider.value -= Time.deltaTime * _timerFactor;
-        _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
+        _value -= Time.deltaTime * _timerFactor;
+        _value = Mathf.Clamp(_value, 0.0f, _timerDuration);
 
-        _volume.weight = _slider.value / _slider.maxValue;
+        UpdateMaskPos(_value);
 
-        if (_slider.value == 0.0f)
+        _volume.weight = _value / _timerDuration;
+
+        if (_value == 0.0f)
         {
             _onTimerFinished?.Invoke();
         }
@@ -47,21 +54,22 @@ public class Timer : MonoBehaviour
 
     public void RestartTimer(bool playTimer)
     {
-        _slider.value = _timerDuration/2;
+        _value = _timerDuration/2;
+        UpdateMaskPos(_value);
         PauseTimer(!playTimer);
     }
 
     public void RestartTimer(bool playTimer, float _timerLength)
     {
         _timerDuration = _timerLength;
-        _slider.maxValue = _timerDuration;
         RestartTimer(playTimer);
     }
 
     public void AddTime(float timeToAdd)
     {
-        _slider.value += timeToAdd;
-        _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
+        _value += timeToAdd;
+        _value = Mathf.Clamp(_value, 0.0f, _timerDuration);
+        UpdateMaskPos(_value);
     }
 
     public void AddTimeInPercent(float percentToAdd)
@@ -81,6 +89,14 @@ public class Timer : MonoBehaviour
 
     public float GetTimerValueInPercent()
     {
-        return _slider.value * 100.0f / _timerDuration;
+        return _value * 100.0f / _timerDuration;
+    }
+
+    private void UpdateMaskPos(float alpha)
+    {
+        alpha = Mathf.InverseLerp(0.0f, _timerDuration, alpha);
+        float TargetPos = Mathf.Lerp(0.0f, MaxSize, alpha);
+
+        _maskTransform.anchoredPosition = new Vector2(_maskTransform.anchoredPosition.x, TargetPos);
     }
 }

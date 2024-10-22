@@ -569,6 +569,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970b41af44bcd404380de4f3658fc9ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &813033727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5946065444566101825, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}
+  m_PrefabInstance: {fileID: 8813420487655153812}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &841973406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -950,6 +961,7 @@ MonoBehaviour:
   _skipDialog: 32
   _choiceAInput: 276
   _choiceBInput: 275
+  _playerController: {fileID: 1423841581}
   _startCharacterIndex: 0
 --- !u!4 &1194646318
 Transform:
@@ -1192,14 +1204,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6441607403931750389, guid: ce807b41356a75647aed202bf3057355, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483537144062663840, guid: ce807b41356a75647aed202bf3057355, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483537144062663840, guid: ce807b41356a75647aed202bf3057355, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1611,6 +1615,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+--- !u!114 &1805363832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5077240693006878641, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}
+  m_PrefabInstance: {fileID: 8813420487655153812}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1864483956 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 249348290482847189, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}
@@ -2194,6 +2209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1126649520}
     m_Modifications:
+    - target: {fileID: 1422783011474073597, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1805363832}
     - target: {fileID: 4533423798660723429, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2274,6 +2293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8082052851403675067, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 813033727}
     - target: {fileID: 8129366353236248452, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}
       propertyPath: _gameManager
       value: 

@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private KeyCode _choiceAInput = KeyCode.LeftArrow;
     [SerializeField] private KeyCode _choiceBInput = KeyCode.RightArrow;
 
+    [SerializeField] private PlayerController _playerController;
+
 #if UNITY_EDITOR
     [SerializeField] private int _startCharacterIndex = 0;
 
@@ -199,6 +201,8 @@ public class GameManager : MonoBehaviour
             _onFinishedAllCharacters.Invoke();
             return;
         }
+
+        _playerController.ResetClock();
 
         if (_currentCharacter != null)
         {
