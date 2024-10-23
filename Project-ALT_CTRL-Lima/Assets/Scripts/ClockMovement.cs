@@ -50,6 +50,8 @@ public class ClockMovement : MonoBehaviour
 
     private IEnumerator Start()
     {
+        PlayerController playerController = gameObject.GetComponent<PlayerController>();
+        GameManager.instance._playerController = playerController;
         if(JoyconManager.Instance.j.Count == 0)
         {
             yield break;

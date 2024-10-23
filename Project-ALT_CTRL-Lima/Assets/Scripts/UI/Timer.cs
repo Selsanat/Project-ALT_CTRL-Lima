@@ -45,7 +45,6 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
         if (_bPauseTimer)
         {
             return;
@@ -124,6 +123,6 @@ public class Timer : MonoBehaviour
 
     private void UpdateVolume(float alpha)
     {
-        _volume.weight = alpha / _timerDuration;
+        _volume.weight = Mathf.Clamp(alpha / _timerDuration-0.5f,0,1);
     }
 }

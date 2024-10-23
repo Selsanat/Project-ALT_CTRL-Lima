@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     private List<DialogData> _dialogData;
     private DialogData _currentData;
+    public static GameManager instance;
 
     [SerializeField] private CharacterBox _characterBox;
     [SerializeField] private ChoiceBox _choiceBox;
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private KeyCode _choiceAInput = KeyCode.LeftArrow;
     [SerializeField] private KeyCode _choiceBInput = KeyCode.RightArrow;
 
-    [SerializeField] private PlayerController _playerController;
+    [SerializeField] public PlayerController _playerController;
 
     private int _lastDialogIndex;
 
@@ -54,6 +55,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _startCharacterIndex = 0;
 #endif
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private IEnumerator Start()
     {
 
@@ -232,6 +237,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(_currentCharacter.gameObject);
         }
+
         _currentCharacter = Instantiate(_characterDatas[_characterIndex].Character, _worldUI.transform);
         _currentCharacter.transform.SetSiblingIndex(_characterHierachyIndex);
         _currentCharacter.SetData(_characterDatas[_characterIndex]);
@@ -239,8 +245,8 @@ public class GameManager : MonoBehaviour
         _characterBox.gameObject.SetActive(false);
         _playerBox.gameObject.SetActive(false);
         _choiceBox.gameObject.SetActive(false);
-        _currentCharacter.transform.position = new Vector3(pos.x+20, pos.y, pos.z);
-        _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() => 
+        _currentCharacter.transform.position = new Vector3(pos.x + 20, pos.y, pos.z);
+        _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() =>
         {
             _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
             _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
@@ -248,6 +254,7 @@ public class GameManager : MonoBehaviour
             WriteDialog(0);
             _endingScreen.gameObject.SetActive(false);
 
+        });
     }
 
     public void ResetCurrentCharacter()

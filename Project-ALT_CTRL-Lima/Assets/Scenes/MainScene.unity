@@ -156,7 +156,6 @@ Transform:
   - {fileID: 1423841579}
   - {fileID: 1343480013}
   - {fileID: 1772893742}
-  - {fileID: 499086668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217798134
@@ -926,7 +925,7 @@ MonoBehaviour:
   _skipDialog: 32
   _choiceAInput: 276
   _choiceBInput: 275
-  _playerController: {fileID: 1423841581}
+  _playerController: {fileID: 0}
   _startCharacterIndex: 0
 --- !u!4 &1194646318
 Transform:
@@ -1258,8 +1257,8 @@ MonoBehaviour:
         m_CallState: 2
   _resetDuration: 5
   _accelerationDelay: 1
-  _pendulum: {fileID: 1864483956}
-  _maxDistance: 50
+  _pendulum: {fileID: 0}
+  _maxDistance: 5
   _targetAcceleration: 1.5
   _debugGameObject: {fileID: 0}
 --- !u!4 &1423841579
@@ -1582,17 +1581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
---- !u!114 &1864483956 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 249348290482847189, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}
-  m_PrefabInstance: {fileID: 7198591517189701943}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366a2afdb7f78c848a90a9fbb67eaeee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1935333954 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4533423798660723429, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}
