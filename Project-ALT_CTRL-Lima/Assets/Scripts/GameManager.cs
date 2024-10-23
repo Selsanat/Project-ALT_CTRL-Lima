@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using static UnityEditor.PlayerSettings;
 
 public enum CharacterType
 {
@@ -28,6 +29,9 @@ public class GameManager : MonoBehaviour
     private List<DialogData> _dialogData;
     private DialogData _currentData;
     public static GameManager instance;
+    private bool wasChoice = false;
+    private Vector3 originalPos1;
+    private Vector3 originalPos2;
 
     [SerializeField] private CharacterBox _characterBox;
     [SerializeField] private ChoiceBox _choiceBox;
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        originalPos1 = _choiceBox._choiceA.transform.parent.transform.position;
+        originalPos2 = _choiceBox._choiceB.transform.parent.transform.position;
         instance = this;
     }
     private IEnumerator Start()
@@ -115,12 +121,23 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(_choiceAInput))
             {
+                CanvasGroup cg =   _choiceBox._choiceB.transform.parent.GetComponent<CanvasGroup>();
+                cg.DOFade(0, 0.5f).OnComplete(() =>
+                {
+                    Vector3 pos = _choiceBox._choiceA.transform.parent.transform.position;
+                    _choiceBox._choiceA.transform.parent.transform.DOMove(new Vector3(Screen.width / 2, pos.y, pos.z), 0.5f);
+                });
                 addIndex = _lastDialogIndex;
                 targetIndex = _choiceBox.redirectChoiceA;
             }
 
             else if (Input.GetKeyDown(_choiceBInput))
             {
+                CanvasGroup cg = _choiceBox._choiceA.transform.parent.GetComponent<CanvasGroup>();
+                cg.DOFade(0, 0.5f).OnComplete(() => {
+                    Vector3 pos = _choiceBox._choiceB.transform.parent.transform.position;
+                    _choiceBox._choiceB.transform.parent.transform.DOMove(new Vector3(Screen.width / 2, pos.y, pos.z), 0.5f);
+                });
                 addIndex = _lastDialogIndex + 1;
                 targetIndex = _choiceBox.redirectChoiceB;
             }
@@ -147,6 +164,17 @@ public class GameManager : MonoBehaviour
         DialogsController.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
         _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
     }
+
+    public void ResetTextbox()
+    {
+
+        CanvasGroup cg1 = _choiceBox._choiceA.transform.parent.GetComponent<CanvasGroup>();
+        CanvasGroup cg2 = _choiceBox._choiceB.transform.parent.GetComponent<CanvasGroup>();
+        cg1.alpha = 1;
+        cg2.alpha = 1;
+        _choiceBox._choiceA.transform.parent.transform.position = originalPos1;
+        _choiceBox._choiceB.transform.parent.transform.position = originalPos2;
+    }
     public void WriteDialog(int dialogIndex)
     {
         if (dialogIndex >= _dialogData.Count)
@@ -165,6 +193,7 @@ public class GameManager : MonoBehaviour
 
         if (_currentData.bIsChoice)
         {
+            wasChoice = true;
             _choiceBox.gameObject.SetActive(true);
             _choiceBox._choiceA.text = "";
             _choiceBox._choiceB.text = "";
@@ -210,7 +239,9 @@ public class GameManager : MonoBehaviour
 
         _currentCharacter.SetEmotion(_currentData.emotion);
         DialogsController.instance.playDialog(targetBox._dialogText, _currentData.dialog);
-        _choiceBox.gameObject.SetActive(false);
+        if (wasChoice) wasChoice = false;
+        else _choiceBox.gameObject.SetActive(false);
+
     }
 
     public void GoToCharacter(int characterIndex)
@@ -237,6 +268,7 @@ public class GameManager : MonoBehaviour
 
         _characterBox.gameObject.SetActive(false);
         _playerBox.gameObject.SetActive(false);
+        ResetTextbox();
         _choiceBox.gameObject.SetActive(false);
         _narratorBox.gameObject.SetActive(false);
         _endingScreen.gameObject.SetActive(false);
@@ -245,6 +277,7 @@ public class GameManager : MonoBehaviour
 
         _bIsPlayingAnim = true;
         _currentCharacter.transform.position = new Vector3(pos.x + 20, pos.y, pos.z);
+        _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
         _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() =>
         {
             _bIsPlayingAnim = false;

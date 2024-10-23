@@ -44,7 +44,6 @@ public static class CSVReader
                 Debug.LogWarning("Unclosed tag at " + ((i - lineOffset) - 1));
             }
 #endif
-
             if (lines[i].Contains('"'))
             {
                 string[] result = lines[i].Split('"');
@@ -117,8 +116,8 @@ public static class CSVReader
             {
                 Debug.LogWarning("\\n in " + ((i - lineOffset) - 1));
             }
-#endif
-
+#endif  
+            
             data.redirectIndex = collumns[3] != "" ? (int.Parse(collumns[3]) + lineOffset) : index;
 
             float.TryParse(collumns[4], out float floatRes);
