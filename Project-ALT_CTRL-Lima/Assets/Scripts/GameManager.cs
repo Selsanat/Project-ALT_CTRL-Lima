@@ -192,11 +192,15 @@ public class GameManager : MonoBehaviour
 
         if (_currentData.bToggleTimer)
         {
-            _timer.gameObject.SetActive(!_timer.gameObject.activeSelf);
+            if (_characterIndex != _tutorialIndex)
+            {
+                _timer.gameObject.SetActive(!_timer.gameObject.activeSelf);
+            }
+
             _timer.TogglePause();
         }
 
-        if (dialogIndex == _tutorialIndex)
+        if (_characterIndex == _tutorialIndex)
         {
             _timer.gameObject.SetActive(true);
         }
