@@ -12,24 +12,20 @@ Player,<textjump=0.5|1|5>I feel like there have been a lot of changes in our cit
 Golgot,"<textjump=0.2|2|5>Yes I've heard of stupid laws “No arms, no chocolates”<textpause=0.5>, “Blue people forbidden to go to the pool”<textspeed=1>...<textspeed=15> Our world goes<color=red><textrumble=0.1|-1|2><b> CRAZY</color></textrumble>!",,,,,Neutral
 Golgot,<textjump=0.2|2|10><textspeed=40>You know how difficult it is to see with only<color=red><b><textrumble=0.1|-1|2> TWO</color></b></textrumble> eyes aligned?,,,,,Irritated
 Player,"<textjump=0.5|1|5>Indeed it doesn't sound easy, let's start the<color=#6500c5></textjump><textjump=0.5|-1|5> hypnosis</color></textjump><textjump=0.5|1|5> shall we ?",,,,TRUE,
-Player,<textjump=0.5|1|5>Stare at my watch<color=#6500c5></textjump><textjump=0.5|-1|5> carefully</color></textjump><textjump=0.5|1|5><textspeed=1>...,TRUE,17,,,
-Player,<textjump=0.5|1|5>Concentrate on my <color=#6500c5></textjump><textjump=0.5|-1|5>voice,TRUE,18,,,
+Player,<textjump=0.5|1|5>Stare at my watch<color=#6500c5></textjump><textjump=0.5|-1|5> carefully</color></textjump><textjump=0.5|1|5><textspeed=1>...,TRUE,17,-20,,
+Player,<textjump=0.5|1|5>Concentrate on my <color=#6500c5></textjump><textjump=0.5|-1|5>voice,TRUE,18,20,,
 Golgot,<textjump=0.5|1|5>I can't see anything<textspeed=1>...<textspeed=15> You remember?,,19,,,Irritated
 Golgot,"<textjump=0.5|1|5>Ok, let's focus.",,,,,Neutral
-Player,<textjump=0.5|1|5>Close your third eye and you will see.,TRUE,21,,,
-Player,<textjump=0.5|1|5>Use a monocle in addition to your glasses.,TRUE,22,,,
+Player,<textjump=0.5|1|5>Close your third eye and you will see.,TRUE,21,-20,,
+Player,<textjump=0.5|1|5>Use a monocle in addition to your glasses.,TRUE,22,20,,
 Golgot,<textjump=0.2|2|10><textspeed=40>I<color=red><b><textrumble=0.1|-1|2> can't</color></b></textrumble> close it I told you! In my species the young ones are insomniac up to 12.,,24,,,Irritated
 Golgot,"<textjump=0.5|1|5>Yes its a good idea, but its still a shame toget at this kind of situation.",,,,,Passionnate
 Golgot,<textjump=0.5|1|5>Its useful for me but how do I sell two object separately at my clients rather than one?<textpause=0.5> They'll never<b> accept</b> it!,,,,,Neutral
 Player,"<textjump=0.5|1|5>Then let's try another way, another job.",,,,,
 Player,"<textjump=0.5|1|5>Think about the job of your</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> dreams</color><textspeed=15></b><cspace=0></textjump><textjump=0.5|1|5>, when you were a child you desired<textspeed=1>...",,,,,
-Player,<textjump=0.5|1|5>To be an</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> ophtalmologist</color><textspeed=15></b><cspace=0></textjump><textjump=0.5|1|5>.,TRUE,28,,,
-Player,<textjump=0.5|1|5>To be an</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> astronaut</color><textspeed=15></b><cspace=0></textjump><textjump=0.5|1|5>.,TRUE,30,,,
+Player,<textjump=0.5|1|5>To be an</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> ophtalmologist</color><textspeed=15></b><cspace=0></textjump><textjump=0.5|1|5>.,TRUE,28,-20,,
+Player,<textjump=0.5|1|5>To be an</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> astronaut</color><textspeed=15></b><cspace=0></textjump><textjump=0.5|1|5>.,TRUE,30,20,,
 Golgot,<textjump=0.2|2|10><textspeed=40>I'm not and do not desire to be an<color=red><b><textrumble=0.1|-1|2> ophtalmologist</color></b></textrumble>!,,,,,Irritated
-<<<<<<< HEAD
 Golgot,"<textjump=0.2|2|10><textspeed=40>You don't even<color=red><b><textrumble=0.1|-1|2> listen</color></b></textrumble> to me, I'm<color=red><b><textrumble=0.1|-1|2> leaving</color></b></textrumble>!",,,-9999,,Irritated
-=======
-Golgot,"<textjump=0.2|2|10><textspeed=40>You don't even<color=red><b><textrumble=0.1|-1|2> listen</color></b></textrumble> to me, I'm<color=red><b><textrumble=0.1|-1|2> leaving</color></b></textrumble>!",,-1,-9999,,Irritated
->>>>>>> origin/Melvin
 Golgot,<textjump=0.5|1|5>I'd like to be one yes. Since my childhood I'm</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> dreaming</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> of watching the</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> stars</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> more closely.,,,,,Hypnotized
 Player,<textjump=0.5|1|5>At my top you will have a<b> strong</b> desire to become an</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> astronaut</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> and will do</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> anything</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> to become one!</textjump><textjump=0.5|-1|5><color=#6500c5><b><textspeed=20> TOP</textjump><textjump=0.5|1|5></color></b><textspeed=15>!,,,,,

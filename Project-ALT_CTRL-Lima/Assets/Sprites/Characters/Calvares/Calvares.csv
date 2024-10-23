@@ -9,31 +9,23 @@ Player,What kind of trip?,TRUE,9,,,
 Calvares,The problem is that it is a trip to <textrumble=0.1|-1|2>France</textrumble=0.1|-1|2> and I don't speak any word of French!,,10,,,Impatient
 Calvares,"In addition, my students will be confronted against their will with a hostile environment filled with... <textspeed=2><textrumble=0.1|-1|2>french people.</textrumble=0.1|-1|2><textspeed=15>",,,,,Impatient
 Player,"Good, very good, I see that you are rather annoyed, let's start. Think about something that you enjoy, your favorite dish such as ...",,,,TRUE,
-Player,Fish & Chips,TRUE,16,,,
-Player,Frog legs,TRUE,15,,,
+Player,Fish & Chips,TRUE,16,20,,
+Player,Frog legs,TRUE,15,-20,,
 Calvares,The? What I like?,,,,,TakenAback
 Calvares,"<textpause=0.5>Definetly <textpause=0.5>not <textpause=0.5>frog <textpause=0.5>legs<textpause=0.5>, just thinking about it makes me want to puke!",,,,,Impatient
 Calvares,Yes it's true I pretty like the Fish & Chips.,,,,,Calm
 Player,"Now I want you to think about an animal, you see...",,,,,
-Player,A lion,TRUE,21,,,
-Player,A Rooster,TRUE,20,,,
-<<<<<<< HEAD
+Player,A lion,TRUE,21,20,,
+Player,A Rooster,TRUE,20,-20,,
 Calvares,"<textjump=0.5|2|5>No, I was thinking about a lion a symbol of our good <color=red>England</color> !",,,,,Neutral
-=======
-Calvares,"<textjump=0.5|2|5No, I was thinking about a lion a symbol of our good <color=red>England</color> !",,,,,Neutral
->>>>>>> origin/Melvin
 Calvares,"Yes it is, how did you guess?",,,,,TakenAback
 Player,Stare <textspeed=5><textjump=0.5|2|5><color=blue>deeply</color> <textspeed=15>at my watch.,,,,,
-Player,"Think about your high school students that you help everyday, surely they will be happy to make a trip like that.",TRUE,25,,,
-Player,You are<textspeed=5><textjump=0.5|2|5><color=blue> eager </color><textspeed=15>to be at the side of your students in this trial.,TRUE,26,,,
+Player,"Think about your high school students that you help everyday, surely they will be happy to make a trip like that.",TRUE,25,-20,,
+Player,You are<textspeed=5><textjump=0.5|2|5><color=blue> eager </color><textspeed=15>to be at the side of your students in this trial.,TRUE,26,20,,
 Calvares,"High school ? I'm an <b>elementary</b> school teacher ! I do not think they will be happy, they are way to young for that.",,,,,TakenAback
 Calvares,Yes... Of course I want to go with them to protect them...,,,,,Calm
-Player,"A trip will do you good, you will meet new people to<textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> discuss</textjump></color></b><cspace=0><textspeed=15> with.",TRUE,29,,,
-Player,You <b>will</b> introduce these young peoples to other cultures.,TRUE,30,,,
-<<<<<<< HEAD
+Player,"A trip will do you good, you will meet new people to<textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> discuss</textjump></color></b><cspace=0><textspeed=15> with.",TRUE,29,-20,,
+Player,You <b>will</b> introduce these young peoples to other cultures.,TRUE,30,20,,
 Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french!",,,-9999,,Impatient
-=======
-Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french!",,-1,-9999,,Impatient
->>>>>>> origin/Melvin
 Calvares,<textspeed = 5>Yes... <textspeed=8>Yes<textspeed=15> <b>YES</b> you are right.,,,,,Hypnosis
 Player,At my top you will no longer see any disadvantages in going to France and will even be glad to go there!  TOP!,,,,,
