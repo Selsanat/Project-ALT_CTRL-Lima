@@ -37,7 +37,7 @@ public class Timer : MonoBehaviour
 
         _slider.value -= Time.deltaTime * _timerFactor;
 
-        _volume.weight = _slider.value / _slider.maxValue;
+        _volume.weight = Mathf.Clamp(_slider.value / _slider.maxValue-0.5f, 0, 1);
 
         if (_slider.value == 0.0f)
         {
