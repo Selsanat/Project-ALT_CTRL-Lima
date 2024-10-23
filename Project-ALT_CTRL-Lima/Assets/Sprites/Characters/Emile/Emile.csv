@@ -2,7 +2,7 @@ characterName,text,choice,redirectTo,addedTimerValue,toggleTimer,emotion
 Emile,"<textjump=0.2|2|10><textspeed=40>Hello, I'm coming to see you because I have a problem, it's <textspeed=60><textrumble=0.1|-1|2><color=red><b><camerashake=1|0.5>INFURIATING</b></color></textrumble><textspeed=40>, I cannot even live that way!</textjump>",,,,,Neutral
 Player,<textjump=0.5|1|5>What is your problem?</textjump>,TRUE,7,20,,
 Player,<textjump=0.5|1|5>Take a chewing-gum Emile</textjump>,TRUE,5,-20,,
-Emile,"<textjump=0.5|1|5>Hum, I don't have<textspeed=1>...<textspeed=15>arms...</textjump>",,,,,Neutral
+Emile,"<textjump=0.5|1|5>Hum, I don't have<textspeed=7>...<textspeed=15>arms...</textjump>",,,,,Neutral
 Emile,<textjump=0.5|1|5>Anyway</textjump>,,,,,Neutral
 Emile,<textjump=0.5|1|5>I can't eat my<camerashake=0.2|0.3> Fa<textpause=0.5><camerashake=0.2|0.3>-vor<textpause=0.5><camerashake=0.2|0.3>-ite<textpause=0.5><camerashake=0.2|0.3> food anymore!</textjump>,,,,,Outraged
 Player,<textjump=0.5|1|5>What type of food?</textjump>,TRUE,10,,,

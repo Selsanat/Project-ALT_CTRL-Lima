@@ -123,6 +123,7 @@ public class Timer : MonoBehaviour
 
     private void UpdateVolume(float alpha)
     {
-        _volume.weight = Mathf.Clamp(alpha / _timerDuration-0.5f,0,1);
+        if (alpha == 0) _volume.weight = 0.75f;
+        else _volume.weight = Mathf.Clamp(alpha / _timerDuration-0.5f,0,1);
     }
 }
