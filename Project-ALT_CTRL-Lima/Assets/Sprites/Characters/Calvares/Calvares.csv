@@ -26,6 +26,6 @@ Calvares,"High school ? I'm an <b>elementary</b> school teacher ! I do not think
 Calvares,Yes... Of course I want to go with them to protect them...,,,,,Calm
 Player,"A trip will do you good, you will meet new people to<textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> discuss</textjump></color></b><cspace=0><textspeed=15> with.",TRUE,29,-20,,
 Player,You <b>will</b> introduce these young peoples to other cultures.,TRUE,30,20,,
-Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french!",,,-9999,,Impatient
+Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french!",,,-180,,Impatient
 Calvares,<textspeed = 5>Yes... <textspeed=8>Yes<textspeed=15> <b>YES</b> you are right.,,,,,Hypnosis
 Player,At my top you will no longer see any disadvantages in going to France and will even be glad to go there!  TOP!,,,,,
