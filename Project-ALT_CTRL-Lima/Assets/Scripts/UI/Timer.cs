@@ -25,22 +25,23 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private RectTransform _maskTransform;
 
-    private float MaxSize;
+    private float _maxSize;
 
     [SerializeField]
     private UnityEvent<float> _onValueUpdate;
 
-    private void Start()
+    private void Awake()
     {
         _volume = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
 
         _onValueUpdate.AddListener(UpdateMaskPos);
         _onValueUpdate.AddListener(UpdateVolume);
+    }
 
-        RestartTimer(false, _timerDuration);
+    private void Start()
+    {
         _timerFactor = _defaultFactor;
-
-        MaxSize = GetComponent<RectTransform>().sizeDelta.y;
+        _maxSize = GetComponent<RectTransform>().sizeDelta.y;
     }
 
     private void Update()
@@ -63,17 +64,16 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void RestartTimer(bool playTimer)
+    public void RestartTimer()
     {
         _value = _startValue * _timerDuration;
         _onValueUpdate.Invoke(_value);
-        PauseTimer(!playTimer);
     }
 
-    public void RestartTimer(bool playTimer, float _timerLength)
+    public void RestartTimer(float _timerLength)
     {
         _timerDuration = _timerLength;
-        RestartTimer(playTimer);
+        RestartTimer();
     }
 
     public void AddTime(float timeToAdd)
@@ -116,14 +116,13 @@ public class Timer : MonoBehaviour
     private void UpdateMaskPos(float alpha)
     {
         alpha = Mathf.InverseLerp(0.0f, _timerDuration, alpha);
-        float TargetPos = Mathf.Lerp(0.0f, MaxSize, alpha);
+        float TargetPos = Mathf.Lerp(0.0f, _maxSize, alpha);
 
         _maskTransform.anchoredPosition = new Vector2(_maskTransform.anchoredPosition.x, TargetPos);
     }
 
     private void UpdateVolume(float alpha)
     {
-        if (alpha == 0) _volume.weight = 0.75f;
-        else _volume.weight = Mathf.Clamp(alpha / _timerDuration-0.5f,0,1);
+        _volume.weight = Mathf.Clamp(alpha / _timerDuration-0.5f,0,1);
     }
 }

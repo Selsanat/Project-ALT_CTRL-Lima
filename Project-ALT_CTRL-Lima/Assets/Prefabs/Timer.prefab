@@ -68,8 +68,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _startValue: 0.5
   _value: 0
   _maskTransform: {fileID: 7193568799217790800}
+  _onValueUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2018010418144985784
 GameObject:
   m_ObjectHideFlags: 0

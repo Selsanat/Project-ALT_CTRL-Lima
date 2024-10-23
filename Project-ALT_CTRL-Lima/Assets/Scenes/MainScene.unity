@@ -156,6 +156,7 @@ Transform:
   - {fileID: 1423841579}
   - {fileID: 1343480013}
   - {fileID: 1772893742}
+  - {fileID: 1060060008}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217798134
@@ -736,6 +737,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3831de5fc37745342904c32a297d99ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1060060007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060060008}
+  - component: {fileID: 1060060009}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1060060008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060060007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 91891935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1060060009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060060007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a1f4df3f18eb44286e5f239dc9c484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixerGroup: {fileID: 0}
+  audioMixer: {fileID: 0}
+  sounds:
+  - name: Boop
+    clips: []
+    clip: {fileID: 8300000, guid: d7d81027ddaeff34885fdb49c0e2a489, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    Oneshot: 0
+    playeOnAwake: 0
+    playOneAfterAnother: 0
+    delay: 0
+    source: {fileID: 0}
+  bgMusics: []
 --- !u!1 &1126649516
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +985,7 @@ MonoBehaviour:
   _skipDialog: 32
   _choiceAInput: 276
   _choiceBInput: 275
-  _playerController: {fileID: 0}
+  _playerController: {fileID: 1423841581}
   _startCharacterIndex: 0
 --- !u!4 &1194646318
 Transform:

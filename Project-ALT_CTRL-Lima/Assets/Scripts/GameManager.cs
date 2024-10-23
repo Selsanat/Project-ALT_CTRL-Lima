@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
 
     private bool _bIsPlayingAnim;
 
+    [SerializeField]
+    private int _tutorialIndex = 0;
+
 #if UNITY_EDITOR
     [SerializeField] private int _startCharacterIndex = 0;
 #endif
@@ -67,14 +70,15 @@ public class GameManager : MonoBehaviour
         originalPos2 = _choiceBox._choiceB.transform.parent.transform.position;
         instance = this;
     }
+
     private IEnumerator Start()
     {
 
 #if UNITY_EDITOR
-        if (_characterBox == null) {Debug.LogError("_characterBox is missing in " + name); yield break;}
-        if (_choiceBox == null) {Debug.LogError("_choiceBox is missing in " + name); yield break;}
-        if (_playerBox == null) {Debug.LogError("_playerBox is missing in " + name); yield break;}
-        if (_timer == null) {Debug.LogError("_timer is missing in " + name); yield break;}
+        if (_characterBox == null) { Debug.LogError("_characterBox is missing in " + name); yield break; }
+        if (_choiceBox == null) { Debug.LogError("_choiceBox is missing in " + name); yield break; }
+        if (_playerBox == null) { Debug.LogError("_playerBox is missing in " + name); yield break; }
+        if (_timer == null) { Debug.LogError("_timer is missing in " + name); yield break;}
 #endif
 
         yield return new WaitForEndOfFrame();
@@ -167,7 +171,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetTextbox()
     {
-
         CanvasGroup cg1 = _choiceBox._choiceA.transform.parent.GetComponent<CanvasGroup>();
         CanvasGroup cg2 = _choiceBox._choiceB.transform.parent.GetComponent<CanvasGroup>();
         cg1.alpha = 1;
@@ -175,6 +178,7 @@ public class GameManager : MonoBehaviour
         _choiceBox._choiceA.transform.parent.transform.position = originalPos1;
         _choiceBox._choiceB.transform.parent.transform.position = originalPos2;
     }
+
     public void WriteDialog(int dialogIndex)
     {
         if (dialogIndex >= _dialogData.Count)
@@ -188,8 +192,16 @@ public class GameManager : MonoBehaviour
 
         if (_currentData.bToggleTimer)
         {
+            _timer.gameObject.SetActive(!_timer.gameObject.activeSelf);
             _timer.TogglePause();
         }
+
+        if (dialogIndex == _tutorialIndex)
+        {
+            _timer.gameObject.SetActive(true);
+        }
+
+        ResetTextbox();
 
         if (_currentData.bIsChoice)
         {
@@ -201,7 +213,6 @@ public class GameManager : MonoBehaviour
             _choiceBox.redirectChoiceA = _currentData.redirectIndex;
 
             _narratorBox.gameObject.SetActive(false);
-            _timer.PauseTimer(false);
             StartCoroutine(playSecondDialog(dialogIndex));
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
@@ -254,7 +265,6 @@ public class GameManager : MonoBehaviour
         }
 
         _playerController.ResetClock();
-        _timer.gameObject.SetActive(true);
 
         if (_currentCharacter != null)
         {
@@ -273,15 +283,15 @@ public class GameManager : MonoBehaviour
         _narratorBox.gameObject.SetActive(false);
         _endingScreen.gameObject.SetActive(false);
 
-        _timer.RestartTimer(false, _characterDatas[_characterIndex].CharacterTimerLenght);
+        _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
+        _timer.RestartTimer(_characterDatas[_characterIndex].CharacterTimerLenght);
+        _timer.gameObject.SetActive(false);
 
         _bIsPlayingAnim = true;
         _currentCharacter.transform.position = new Vector3(pos.x + 20, pos.y, pos.z);
-        _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
         _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() =>
         {
             _bIsPlayingAnim = false;
-            _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
 
             WriteDialog(0);
         });
