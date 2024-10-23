@@ -93,7 +93,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=68672356#gid=68672356
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=68672356
     filePath: Assets/Sprites/Characters/MrCostard/MrCostard.csv
-    lastFileHash: 5e93437c41da34a1537c7b2c85816414
+    lastFileHash: 5afa5feca739acf8b559ca4212582c28
     label: 
     sheetId: 68672356
     assetReference: {fileID: 4900000, guid: 6d52df8f13906a243b7aa7bfa03b31e2, type: 3}
