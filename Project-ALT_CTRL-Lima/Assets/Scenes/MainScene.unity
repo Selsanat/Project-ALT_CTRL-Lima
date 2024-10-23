@@ -986,6 +986,7 @@ MonoBehaviour:
   _choiceAInput: 276
   _choiceBInput: 275
   _playerController: {fileID: 1423841581}
+  _tutorialIndex: 0
   _startCharacterIndex: 0
 --- !u!4 &1194646318
 Transform:
@@ -1136,14 +1137,6 @@ PrefabInstance:
     - target: {fileID: 3507087720348134459, guid: ce807b41356a75647aed202bf3057355, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507087720348134459, guid: ce807b41356a75647aed202bf3057355, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 66.0423
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507087720348134459, guid: ce807b41356a75647aed202bf3057355, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 181.06
       objectReference: {fileID: 0}
     - target: {fileID: 3507087720348134459, guid: ce807b41356a75647aed202bf3057355, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2082,6 +2075,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1552663265}
     m_Modifications:
+    - target: {fileID: 249348290482847189, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}
+      propertyPath: _rotationSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4378660489982589970, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
