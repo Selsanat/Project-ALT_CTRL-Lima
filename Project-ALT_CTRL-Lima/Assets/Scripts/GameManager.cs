@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     private int _lastDialogIndex;
 
+    private bool _bIsPlayingAnim;
+
 #if UNITY_EDITOR
     [SerializeField] private int _startCharacterIndex = 0;
 #endif
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (_endingScreen.isActiveAndEnabled)
+        if (_endingScreen.isActiveAndEnabled || _bIsPlayingAnim)
         {
             return;
         }
@@ -89,17 +91,7 @@ public class GameManager : MonoBehaviour
         if(Input.mouseScrollDelta.y != 0)
         {
             int debugIndex = (int)(_lastDialogIndex - Input.mouseScrollDelta.y);
-
-            if (debugIndex < 0)
-            {
-                bool bIsAtStart = _characterIndex == 0;
-                _characterIndex -= 1;
-                _characterIndex = Mathf.Clamp(_characterIndex, 0, _characterDatas.Count - 1);
-
-                _currentCharacter.SetData(_characterDatas[_characterIndex]);
-                _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
-                debugIndex = bIsAtStart ? 0 : (_dialogData.Count - 1);
-            }
+            debugIndex = Mathf.Clamp(debugIndex, 0, _characterDatas.Count - 1);
 
             WriteDialog(debugIndex);
             return;
@@ -242,18 +234,23 @@ public class GameManager : MonoBehaviour
         _currentCharacter.transform.SetSiblingIndex(_characterHierachyIndex);
         _currentCharacter.SetData(_characterDatas[_characterIndex]);
         Vector3 pos = _currentCharacter.transform.position;
+
         _characterBox.gameObject.SetActive(false);
         _playerBox.gameObject.SetActive(false);
         _choiceBox.gameObject.SetActive(false);
+        _narratorBox.gameObject.SetActive(false);
+        _endingScreen.gameObject.SetActive(false);
+
+        _timer.RestartTimer(false, _characterDatas[_characterIndex].CharacterTimerLenght);
+
+        _bIsPlayingAnim = true;
         _currentCharacter.transform.position = new Vector3(pos.x + 20, pos.y, pos.z);
         _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() =>
         {
+            _bIsPlayingAnim = false;
             _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
-            _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
 
             WriteDialog(0);
-            _endingScreen.gameObject.SetActive(false);
-
         });
     }
 
