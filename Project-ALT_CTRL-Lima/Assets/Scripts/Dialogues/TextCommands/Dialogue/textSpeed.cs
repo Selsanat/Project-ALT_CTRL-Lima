@@ -19,6 +19,8 @@ public class textSpeed : TextCommand
     public override void OnEnter()
     {
         DialogsController.instance.SetCharacterPerSeconds((int)_speed);
+        DialogsController1.instance.SetCharacterPerSeconds((int)_speed);
+        DialogsController2.instance.SetCharacterPerSeconds((int)_speed);
     }
 
     public override void OnExit()

@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private CharacterBox _characterBox;
     [SerializeField] private ChoiceBox _choiceBox;
-    [SerializeField] private PlayerBox _playerBox;
+    [SerializeField] private DialogBox _playerBox;
+    [SerializeField] private DialogBox _narratorBox;
 
     [SerializeField] private Timer _timer;
 
@@ -45,10 +46,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private KeyCode _choiceAInput = KeyCode.LeftArrow;
     [SerializeField] private KeyCode _choiceBInput = KeyCode.RightArrow;
 
-#if UNITY_EDITOR
-    [SerializeField] private int _startCharacterIndex = 0;
+    [SerializeField] private PlayerController _playerController;
 
     private int _lastDialogIndex;
+
+#if UNITY_EDITOR
+    [SerializeField] private int _startCharacterIndex = 0;
 #endif
 
     private IEnumerator Start()
@@ -72,7 +75,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
         if (_endingScreen.isActiveAndEnabled)
         {
             return;
@@ -110,22 +112,26 @@ public class GameManager : MonoBehaviour
         }
 
         int targetIndex = -1;
+        int addIndex = -1;
 
         if (_currentData.bIsChoice)
         {
             if (Input.GetKeyDown(_choiceAInput))
             {
+                addIndex = _lastDialogIndex;
                 targetIndex = _choiceBox.redirectChoiceA;
             }
 
             else if (Input.GetKeyDown(_choiceBInput))
             {
+                addIndex = _lastDialogIndex + 1;
                 targetIndex = _choiceBox.redirectChoiceB;
             }
         }
 
         else if (Input.GetKeyDown(_skipDialog))
         {
+            addIndex = _lastDialogIndex;
             targetIndex = _currentData.redirectIndex;
         }
 
@@ -135,6 +141,7 @@ public class GameManager : MonoBehaviour
         }
 
         WriteDialog(targetIndex);
+        _timer.AddTime(_dialogData[addIndex].addedTimerValue);
     }
 
     public IEnumerator playSecondDialog(int dialogIndex)
@@ -151,11 +158,13 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-#if UNITY_EDITOR
         _lastDialogIndex = dialogIndex;
-#endif
-
         _currentData = _dialogData[dialogIndex];
+
+        if (_currentData.bToggleTimer)
+        {
+            _timer.TogglePause();
+        }
 
         if (_currentData.bIsChoice)
         {
@@ -165,8 +174,9 @@ public class GameManager : MonoBehaviour
             DialogsController.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
             _choiceBox.redirectChoiceA = _currentData.redirectIndex;
 
-            StartCoroutine(playSecondDialog(dialogIndex));
+            _narratorBox.gameObject.SetActive(false);
             _timer.PauseTimer(false);
+            StartCoroutine(playSecondDialog(dialogIndex));
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
             return;
@@ -181,16 +191,24 @@ public class GameManager : MonoBehaviour
 
             _characterBox.gameObject.SetActive(true);
             _playerBox.gameObject.SetActive(false);
+            _narratorBox.gameObject.SetActive(false);
         }
         else
         {
-            targetBox = _playerBox;
-            _playerBox.SetDialogBox(_currentData.type);
-
-            _timer.PauseTimer(_currentData.type == CharacterType.Narrator);
-
             _characterBox.gameObject.SetActive(false);
-            _playerBox.gameObject.SetActive(true);
+
+            if(_currentData.type == CharacterType.Narrator)
+            {
+                _playerBox.gameObject.SetActive(false);
+                _narratorBox.gameObject.SetActive(true);
+                targetBox = _narratorBox;
+            }
+            else
+            {
+                _playerBox.gameObject.SetActive(true);
+                _narratorBox.gameObject.SetActive(false);
+                targetBox = _playerBox;
+            }
         }
 
         _currentCharacter.SetEmotion(_currentData.emotion);
@@ -206,6 +224,9 @@ public class GameManager : MonoBehaviour
             _onFinishedAllCharacters.Invoke();
             return;
         }
+
+        _playerController.ResetClock();
+        _timer.gameObject.SetActive(true);
 
         if (_currentCharacter != null)
         {
@@ -224,9 +245,8 @@ public class GameManager : MonoBehaviour
             _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
             _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
 
-            _endingScreen.gameObject.SetActive(false);
             WriteDialog(0);
-        });
+            _endingScreen.gameObject.SetActive(false);
 
     }
 
@@ -246,6 +266,12 @@ public class GameManager : MonoBehaviour
         {
             _currency += _timer.GetTimerValueInPercent();
         }
+
+        _characterBox.gameObject.SetActive(false);
+        _playerBox.gameObject.SetActive(false);
+        _choiceBox.gameObject.SetActive(false);
+        _timer.gameObject.SetActive(false);
+        _narratorBox.gameObject.SetActive(false);
 
         _endingScreen.gameObject.SetActive(true);
         _endingScreen.DisplayResults(bVictory, _currency);

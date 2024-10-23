@@ -11,6 +11,8 @@ public struct DialogData
     public int redirectIndex;
     public Emotion emotion;
     public CharacterType type;
+    public bool bToggleTimer;
+    public float addedTimerValue;
 }
 
 public static class CSVReader
@@ -32,6 +34,16 @@ public static class CSVReader
         {
             DialogData data = new DialogData();
             string[] collumns = new string[collumnCount];
+
+#if UNITY_EDITOR
+            string[] a = lines[i].Split('<');
+            string[] b = lines[i].Split('>');
+
+            if (a.Length != b.Length)
+            {
+                Debug.LogWarning("Unclosed tag at " + ((i - lineOffset) - 1));
+            }
+#endif
 
             if (lines[i].Contains('"'))
             {
@@ -73,7 +85,9 @@ public static class CSVReader
             // collumn 1: text
             // collumn 2: choice
             // collumn 3: redirectTo
-            // collumn 4: emotion
+            // collumn 4: addedTimerValue
+            // collumn 5: bToggleTimer
+            // collumn 6: emotion
             data.name = collumns[0] == "" ? lastName : collumns[0];
             lastName = data.name;
 
@@ -97,9 +111,22 @@ public static class CSVReader
 #endif
 
             index++;
+
+#if UNITY_EDITOR
+            if(collumns[3] == null)
+            {
+                Debug.LogWarning("\\n in " + ((i - lineOffset) - 1));
+            }
+#endif
+
             data.redirectIndex = collumns[3] != "" ? (int.Parse(collumns[3]) + lineOffset) : index;
 
-            bool bFindEmotion = Enum.TryParse<Emotion>(collumns[4], out Emotion emotion);
+            float.TryParse(collumns[4], out float floatRes);
+            data.addedTimerValue = floatRes;
+
+            data.bToggleTimer = collumns[5] != "";
+
+            bool bFindEmotion = Enum.TryParse<Emotion>(collumns[6], out Emotion emotion);
             data.emotion = bFindEmotion ? emotion : Emotion.None;
 
             dialogsData.Add(data);

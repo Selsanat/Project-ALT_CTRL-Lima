@@ -18,14 +18,17 @@ public class PendulumMovement : MonoBehaviour
 
     private float _alpha;
 
+    private float currentZRotation;
+    public float TargetRotation => currentZRotation;
+
     private void Update()
     {
         _alpha += (Time.deltaTime * _rotationSpeed * _rotationDirection);
         _alpha = Mathf.Clamp(_alpha, 0.0f, 1.0f);
 
-        float targetZRotation = Mathf.Lerp(-_maxRotation, _maxRotation, _rotationCurve.Evaluate(_alpha));
+        currentZRotation = Mathf.Lerp(-_maxRotation, _maxRotation, _rotationCurve.Evaluate(_alpha));
 
-        _pendulum.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, targetZRotation);
+        _pendulum.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, currentZRotation);
 
         if(_alpha == 0.0f || _alpha == 1.0f)
         {

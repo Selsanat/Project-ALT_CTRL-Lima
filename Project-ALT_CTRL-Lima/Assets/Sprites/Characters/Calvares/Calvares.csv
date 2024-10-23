@@ -17,7 +17,11 @@ Calvares,Yes it's true I pretty like the Fish & Chips.,,,,,Calm
 Player,"Now I want you to think about an animal, you see...",,,,,
 Player,A lion,TRUE,21,,,
 Player,A Rooster,TRUE,20,,,
+<<<<<<< HEAD
 Calvares,"<textjump=0.5|2|5>No, I was thinking about a lion a symbol of our good <color=red>England</color> !",,,,,Neutral
+=======
+Calvares,"<textjump=0.5|2|5No, I was thinking about a lion a symbol of our good <color=red>England</color> !",,,,,Neutral
+>>>>>>> origin/Melvin
 Calvares,"Yes it is, how did you guess?",,,,,TakenAback
 Player,Stare <textspeed=5><textjump=0.5|2|5><color=blue>deeply</color> <textspeed=15>at my watch.,,,,,
 Player,"Think about your high school students that you help everyday, surely they will be happy to make a trip like that.",TRUE,25,,,
@@ -26,6 +30,10 @@ Calvares,"High school ? I'm an <b>elementary</b> school teacher ! I do not think
 Calvares,Yes... Of course I want to go with them to protect them...,,,,,Calm
 Player,"A trip will do you good, you will meet new people to<textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> discuss</textjump></color></b><cspace=0><textspeed=15> with.",TRUE,29,,,
 Player,You <b>will</b> introduce these young peoples to other cultures.,TRUE,30,,,
+<<<<<<< HEAD
 Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french!",,,-9999,,Impatient
+=======
+Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french!",,-1,-9999,,Impatient
+>>>>>>> origin/Melvin
 Calvares,<textspeed = 5>Yes... <textspeed=8>Yes<textspeed=15> <b>YES</b> you are right.,,,,,Hypnosis
 Player,At my top you will no longer see any disadvantages in going to France and will even be glad to go there!  TOP!,,,,,

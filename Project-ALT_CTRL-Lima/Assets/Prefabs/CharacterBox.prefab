@@ -77,8 +77,8 @@ MonoBehaviour:
     posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum.
     Maecenas adipiscing ante non diam sodales hendrerit.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb0e9d06ba3edcb4db419c992ab569e8, type: 2}
+  m_sharedMaterial: {fileID: -1620302087480316428, guid: cb0e9d06ba3edcb4db419c992ab569e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -305,8 +305,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb0e9d06ba3edcb4db419c992ab569e8, type: 2}
+  m_sharedMaterial: {fileID: -1620302087480316428, guid: cb0e9d06ba3edcb4db419c992ab569e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

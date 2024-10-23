@@ -35,5 +35,9 @@ Player,<textjump=0.5|1|5>Chococo,TRUE,36,,,
 Player,<textjump=0.5|1|5>Wonka,TRUE,37,,,
 Emile,"<textjump=0.5|1|5>I feel</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> relaxed</color><textspeed=15></b><cspace=0></textjump><textjump=0.5|1|5>, I think I<textspeed=2>......",,39,,,Hypnotized
 Emile,"<textspeed=40><textjump=0.2|2|10>Whatever, you don't even<color=red><textrumble=0.1|-1|2><b> listen</color></textrumble><textjump=0.2|2|10></b> to me!",,,,,Outraged
+<<<<<<< HEAD
 Emile,"<textspeed=40><textjump=0.2|2|10>You are a<color=red><textrumble=0.1|-1|2><b> charlatan</color></textrumble><textjump=0.2|2|10></b>, I'm leaving!",,,-9999,,Outraged
+=======
+Emile,"<textspeed=40><textjump=0.2|2|10>You are a<color=red><textrumble=0.1|-1|2><b> charlatan</color></textrumble><textjump=0.2|2|10></b>, I'm leaving!",,-1,-9999,,Outraged
+>>>>>>> origin/Melvin
 Player,"<textjump=0.5|-1|5><color=#6500c5>Your eyelids are heavy, you seem to fall and let go of all your problems<textspeed=1>......",,,,,

@@ -19,6 +19,7 @@ public enum Emotion
     Happy,
     Outraged,
     Irritated,
+    Haughty,
 }
 
 [Serializable]

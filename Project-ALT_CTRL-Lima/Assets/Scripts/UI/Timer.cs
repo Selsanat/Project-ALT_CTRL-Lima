@@ -1,12 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private Slider _slider;
-
     private float _timerDuration;
 
     [SerializeField] private float _succeedFactor = 0.5f;
@@ -18,13 +15,32 @@ public class Timer : MonoBehaviour
 
     private bool _bPauseTimer = true;
 
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    [Tooltip("Percentage")]
+    private float _startValue = 0.5f;
+
+    public float _value;
+
+    [SerializeField]
+    private RectTransform _maskTransform;
+
+    private float MaxSize;
+
+    [SerializeField]
+    private UnityEvent<float> _onValueUpdate;
+
     private void Start()
     {
-        _slider = GetComponent<Slider>();
-        RestartTimer(false, _timerDuration);
-
         _volume = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
+
+        _onValueUpdate.AddListener(UpdateMaskPos);
+        _onValueUpdate.AddListener(UpdateVolume);
+
+        RestartTimer(false, _timerDuration);
         _timerFactor = _defaultFactor;
+
+        MaxSize = GetComponent<RectTransform>().sizeDelta.y;
     }
 
     private void Update()
@@ -35,11 +51,14 @@ public class Timer : MonoBehaviour
             return;
         }
 
-        _slider.value -= Time.deltaTime * _timerFactor;
+        _value -= Time.deltaTime * _timerFactor;
+        _value = Mathf.Clamp(_value, 0.0f, _timerDuration);
 
-        _volume.weight = Mathf.Clamp(_slider.value / _slider.maxValue-0.5f, 0, 1);
+        _onValueUpdate.Invoke(_value);
 
-        if (_slider.value == 0.0f)
+        _volume.weight = _value / _timerDuration;
+
+        if (_value == 0.0f)
         {
             _onTimerFinished?.Invoke();
         }
@@ -47,21 +66,27 @@ public class Timer : MonoBehaviour
 
     public void RestartTimer(bool playTimer)
     {
-        _slider.value = _timerDuration/2;
+        _value = _startValue * _timerDuration;
+        _onValueUpdate.Invoke(_value);
         PauseTimer(!playTimer);
     }
 
     public void RestartTimer(bool playTimer, float _timerLength)
     {
         _timerDuration = _timerLength;
-        _slider.maxValue = _timerDuration;
         RestartTimer(playTimer);
     }
 
     public void AddTime(float timeToAdd)
     {
-        _slider.value += timeToAdd;
-        _slider.value = Mathf.Clamp(_slider.value, 0.0f, _timerDuration);
+        _value += timeToAdd;
+        _value = Mathf.Clamp(_value, 0.0f, _timerDuration);
+        _onValueUpdate.Invoke(_value);
+
+        if (_value == 0.0f)
+        {
+            _onTimerFinished?.Invoke();
+        }
     }
 
     public void AddTimeInPercent(float percentToAdd)
@@ -79,8 +104,26 @@ public class Timer : MonoBehaviour
         _bPauseTimer = bPause;
     }
 
+    public void TogglePause()
+    {
+        _bPauseTimer = !_bPauseTimer;
+    }
+
     public float GetTimerValueInPercent()
     {
-        return _slider.value * 100.0f / _timerDuration;
+        return _value * 100.0f / _timerDuration;
+    }
+
+    private void UpdateMaskPos(float alpha)
+    {
+        alpha = Mathf.InverseLerp(0.0f, _timerDuration, alpha);
+        float TargetPos = Mathf.Lerp(0.0f, MaxSize, alpha);
+
+        _maskTransform.anchoredPosition = new Vector2(_maskTransform.anchoredPosition.x, TargetPos);
+    }
+
+    private void UpdateVolume(float alpha)
+    {
+        _volume.weight = alpha / _timerDuration;
     }
 }

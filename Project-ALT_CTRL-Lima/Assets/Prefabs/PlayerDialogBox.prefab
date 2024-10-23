@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8714957555774556589}
   - component: {fileID: 4979461548328910073}
   - component: {fileID: 3289048487745825236}
-  - component: {fileID: 5129006948746046519}
+  - component: {fileID: 7366072779014530051}
   m_Layer: 5
   m_Name: PlayerDialogBox
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5129006948746046519
+--- !u!114 &7366072779014530051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,13 +86,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535190629505531529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a29a3d4961c4b6941be37b590298e5c1, type: 3}
+  m_Script: {fileID: 11500000, guid: f57659bdec8cead4ba496e55abd4155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogText: {fileID: 8957685621090635465}
-  _playerDialogueBox: {fileID: 21300000, guid: 6282ea09bf12e6e4592ed7338469937b, type: 3}
-  _narratorDialogueBox: {fileID: 21300000, guid: 5b78db370cf2aa14f9548f4753f4e9e4, type: 3}
-  _dialogueBoxImage: {fileID: 3289048487745825236}
 --- !u!1 &8675129856480301285
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,8 +157,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb0e9d06ba3edcb4db419c992ab569e8, type: 2}
+  m_sharedMaterial: {fileID: -1620302087480316428, guid: cb0e9d06ba3edcb4db419c992ab569e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -185,7 +182,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65.45
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

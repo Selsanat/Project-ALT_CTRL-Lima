@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 100.0f)]
     private float _addedTimerInPercent = 50.0f;
 
+    private bool _bCanAddTime = true;
+
+    [SerializeField]
+    private string _titleScreenSceneName = "TitleScreen";
+
     private void Start()
     {
         if (JoyconManager.Instance.j.Count == 0)
@@ -23,14 +28,32 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneFunctions.OpenLevel(_titleScreenSceneName);
+            return;
+        }
+
         if(_joycon == null)
+        {
+            return;
+        }
+
+        if (!_bCanAddTime)
         {
             return;
         }
 
         if (_joycon.GetButtonDown(Joycon.Button.SHOULDER_1))
         {
-            _timer.AddTimeInPercent(_addedTimerInPercent);
+            // disable for now
+            //_timer.AddTimeInPercent(_addedTimerInPercent);
         }
+    }
+
+    public void ResetClock()
+    {
+        _bCanAddTime = true;
     }
 }

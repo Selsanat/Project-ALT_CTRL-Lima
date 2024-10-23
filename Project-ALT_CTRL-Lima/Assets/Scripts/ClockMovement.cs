@@ -8,14 +8,8 @@ public class ClockMovement : MonoBehaviour
     private Joycon _joycon;
 
     [SerializeField]
-    private float[] _targetsPos = new float[3] {40.0f, 0, -40.0f};
-
-    [SerializeField]
     [Range(0.0f, 50.0f)]
     private float _floatTollerance = 0.1f;
-
-    private int _currentIndex = 0;
-    private int _direction = 1;
 
     [SerializeField]
     [Tooltip("Timer in seconds")]
@@ -32,7 +26,21 @@ public class ClockMovement : MonoBehaviour
     private float _resetDuration = 60.0f;
     private float _recenterTimer;
 
-    private List<Quaternion> _joyconRotations = new List<Quaternion>();
+    [SerializeField]
+    [Tooltip("Timer in seconds")]
+    private float _accelerationDelay = 1.0f;
+    private float _accelerationTimer;
+
+    private bool _bIsMoving = false;
+
+    [SerializeField]
+    private PendulumMovement _pendulum;
+
+    [SerializeField]
+    private float _maxDistance = 5.0f;
+
+    [SerializeField]
+    private float _targetAcceleration = 1.5f;
 
 #if UNITY_EDITOR
     [SerializeField]
@@ -71,19 +79,9 @@ public class ClockMovement : MonoBehaviour
             _recenterTimer = 0;
         }
 
-        Quaternion joyconRotation = _joycon.GetVector();
-
-        _joyconRotations.Add(joyconRotation);
-
-        if (_joyconRotations.Count > 10) {
-            _joyconRotations.RemoveAt(0);
-        }
-
-        float rotationAngle = joyconRotation.eulerAngles.y + 180.0f;
+        float rotationAngle = _joycon.GetVector().eulerAngles.y + 180.0f;
 
 #if UNITY_EDITOR
-        _debugRotation = rotationAngle;
-
         if (_debugGameObject != null)
         {
             _debugGameObject.rotation = Quaternion.Euler(0.0f, 0.0f, rotationAngle);
@@ -100,11 +98,55 @@ public class ClockMovement : MonoBehaviour
             rotationAngle += 360.0f;
         }
 
+#if UNITY_EDITOR
+        _debugRotation = rotationAngle;
+#endif
 
-        if (MathFunc.EqualFloats(rotationAngle, _targetsPos[_currentIndex], _floatTollerance))
+        if (_bIsSuceeding)
         {
-            _currentIndex += _direction;
+            _succeedTimer += Time.deltaTime;
 
+            if (_succeedTimer >= _succeedMaxDuration)
+            {
+                _bIsSuceeding = false;
+                _onMovementFailed.Invoke();
+            }
+        }
+
+        _accelerationTimer += Time.deltaTime;
+
+        if (_joycon.GetAccel().x >= _targetAcceleration)
+        {
+            _bIsMoving = true;
+            _accelerationTimer = 0;
+        }
+
+        else if (_accelerationTimer > _accelerationDelay)
+        {
+            _bIsMoving = false;
+            _accelerationTimer = 0;
+        }
+
+        if (!_bIsMoving)
+        {
+            return;
+        }
+
+        float distance = Mathf.Abs(rotationAngle - _pendulum.TargetRotation);
+
+        if (distance > _maxDistance)
+        {
+            if (_bIsSuceeding)
+            {
+                _bIsSuceeding = false;
+                _onMovementFailed.Invoke();
+            }
+
+            return;
+        }
+
+        if (distance <= _floatTollerance)
+        {
             if (!_bIsSuceeding)
             {
                 _bIsSuceeding = true;
@@ -112,47 +154,12 @@ public class ClockMovement : MonoBehaviour
             }
 
             _succeedTimer = 0;
-
-            if (_currentIndex == 0 || _currentIndex == _targetsPos.Length - 1)
-            {
-                _direction *= -1;
-            }
         }
-
-        if (!_bIsSuceeding)
-        {
-            return;
-        }
-
-        _succeedTimer += Time.deltaTime;
-
-        if(_succeedTimer >= _succeedMaxDuration)
-        {
-            _bIsSuceeding = false;
-            _onMovementFailed.Invoke();
-        }
-    }
-
-    private bool IsJoyconMoving() {
-        for (int i = 0; i < _joyconRotations.Count; i++)
-        {
-            if (i + 1 == _joyconRotations.Count)
-            {
-                break;
-            }
-
-            if (!MathFunc.EqualQuaternions(_joyconRotations[i], _joyconRotations[i + 1], 0.1f))
-            {
-                return true;
-            }
-
-        }
-
-        return false;
     }
 
 #if UNITY_EDITOR
-    private void OnGUI() {
+    private void OnGUI()
+    {
         GUILayout.TextArea("Succeed: " + _bIsSuceeding.ToString());
     }
 #endif
