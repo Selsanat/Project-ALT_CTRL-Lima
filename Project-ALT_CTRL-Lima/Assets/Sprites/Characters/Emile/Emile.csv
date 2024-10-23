@@ -1,7 +1,7 @@
 characterName,text,choice,redirectTo,addedTimerValue,toggleTimer,emotion
 Emile,"<textjump=0.2|2|10><textspeed=40>Hello, I'm coming to see you because I have a problem, it's <textspeed=60><textrumble=0.1|-1|2><color=red><b><camerashake=1|0.5>INFURIATING</b></color></textrumble><textspeed=40>, I cannot even live that way!</textjump>",,,,,Neutral
-Player,<textjump=0.5|1|5>What is your problem?</textjump>,TRUE,7,,,
-Player,<textjump=0.5|1|5>Take a chewing-gum Emile</textjump>,TRUE,5,,,
+Player,<textjump=0.5|1|5>What is your problem?</textjump>,TRUE,7,20,,
+Player,<textjump=0.5|1|5>Take a chewing-gum Emile</textjump>,TRUE,5,-20,,
 Emile,"<textjump=0.5|1|5>Hum, I don't have<textspeed=1>...<textspeed=15>arms...</textjump>",,,,,Neutral
 Emile,<textjump=0.5|1|5>Anyway</textjump>,,,,,Neutral
 Emile,<textjump=0.5|1|5>I can't eat my<camerashake=0.2|0.3> Fa<textpause=0.5><camerashake=0.2|0.3>-vor<textpause=0.5><camerashake=0.2|0.3>-ite<textpause=0.5><camerashake=0.2|0.3> food anymore!</textjump>,,,,,Outraged
@@ -11,8 +11,8 @@ Emile,"<textjump=0.5|1|5><b><textspeed=60>Chocolate</b><textspeed=15>, what else
 Player,<textjump=0.5|1|5>What's stopping you from eating it?</textjump>,TRUE,13,,,
 Player,<textjump=0.5|1|5>Obviously how could anyone think of something else...</textjump>,TRUE,13,,,
 Emile,<textjump=0.5|1|5>It's<textspeed=60> Un<textpause=0.15>-ac<textpause=0.15>-cep<textpause=0.15>-ta<textpause=0.15>-ble<textpause=0.15>!<textspeed=15> Yesterday I was walking with my </textjump><textjump=0.5|-1|5><b><color=red>precious</color></b></textjump><textjump=0.5|1|5> chocolate and the police arrested me! You'll never know why!?,,,,,Outraged
-Player,<textjump=0.5|1|5>Because of chocolate?</textjump>,TRUE,16,,,
-Player,"<textjump=0.5|1|5>It's not that serious,<textspeed=5> this is just chocolate Emile.</textjump>",TRUE,17,,,
+Player,<textjump=0.5|1|5>Because of chocolate?</textjump>,TRUE,16,20,,
+Player,"<textjump=0.5|1|5>It's not that serious,<textspeed=5> this is just chocolate Emile.</textjump>",TRUE,17,-20,,
 Emile,<textjump=0.5|1|5>But... <b>yes!</b> How did you guess?</textjump>,,18,,,Neutral
 Emile,<textjump=0.5|1|5>What?!<b><color=red> Not<textspeed=30></textjump><textjump=0.3|-1|5> THAT</textjump><textjump=0.5|1|5><textspeed=15><textpause=0.5><b></color> serious? The chocolate? But my whole life<color=red><textspeed=30></textjump><textjump=0.3|-1|5> IS</textjump><textjump=0.5|1|5><textspeed=15><textpause=0.5><b></color> chocolate!</textjump>,,,,,Outraged
 Emile,<textjump=0.5|1|5>When I was a kid my plushie was a<color=#ffafc1><textspeed=10> chocolate bar</color>!</textjump>,,,,,Passionate
@@ -20,24 +20,20 @@ Emile,"<textjump=0.5|1|5>All my life I went to festivals where<color=red> Chococ
 Emile,<textjump=0.5|1|5>Do you know what my wife was<textjump=0.5|-1|5><color=#6500c5><b> covered</textjump><textjump=0.5|1|5></color></b> in on the most </textjump><textjump=0.5|-1|5><color=#6500c5><b>magical</color></b></textjump> evening of my life ?</textjump> ,,,,,Passionate
 Player,<textjump=0.5|1|5>I think I have it<textspeed=5>...</textjump>,,,,,
 Player,<textjump=0.5|1|5>Let's start</textjump><textjump=0.5|-1|5><b><color=#6500c5> Hypnosis</color></textjump><textjump=0.5|1|5>!,,,,TRUE,
-Player,<textjump=0.5|1|5>Think about the chocolate you love and</textjump><textjump=0.5|-1|5><color=#6500c5><b> focus</color></textjump><textjump=0.5|1|5></b> on my</textjump><textjump=0.5|-1|5><color=#6500c5><b> watch<textspeed=1>...</color></textjump></b>,TRUE,25,,,
-Player,<textjump=0.5|1|5>Think about the candy you love and</textjump><textjump=0.5|-1|5><color=#6500c5><b> focus</color></textjump><textjump=0.5|1|5></b> on my</textjump><textjump=0.5|-1|5><color=#6500c5><b> watch<textspeed=1>...</color></textjump></b>,TRUE,26,,,
+Player,<textjump=0.5|1|5>Think about the chocolate you love and</textjump><textjump=0.5|-1|5><color=#6500c5><b> focus</color></textjump><textjump=0.5|1|5></b> on my</textjump><textjump=0.5|-1|5><color=#6500c5><b> watch<textspeed=1>...</color></textjump></b>,TRUE,25,20,,
+Player,<textjump=0.5|1|5>Think about the candy you love and</textjump><textjump=0.5|-1|5><color=#6500c5><b> focus</color></textjump><textjump=0.5|1|5></b> on my</textjump><textjump=0.5|-1|5><color=#6500c5><b> watch<textspeed=1>...</color></textjump></b>,TRUE,26,-20,,
 Emile,"<textjump=0.5|1|5>Ohh,</textjump><textjump=0.5|-1|5><color=#6500c5><b> chocolate</color></textjump><textjump=0.5|1|5></b>... you are gifted...",,27,,,Hypnotized
 Emile,<textspeed=40><textjump=0.2|2|10>Who do you take me for? I'm not a<textrumble=0.1|-1|2><color=red><camerashake=1|0.2> KID</color></textrumble>!!,,,,,Outraged
 Player,"<textjump=0.5|1|5>Now think about somebody you love, who</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> relaxes</color></b></cspace><textspeed=15></textjump><textjump=0.5|1|5> you.",,,,,
 Emile,<textjump=0.5|1|5>Who?,,,,,Neutral
-Player,<textjump=0.5|1|5>Your parents that you</textjump><textjump=0.5|-1|5><b><color=#6500c5> love,TRUE,31,,,
-Player,<textjump=0.5|1|5>The most</textjump><textjump=0.5|-1|5><b><color=#6500c5> cocoa-like</textjump><textjump=0.5|1|5></b></color> mascot,TRUE,33,,,
+Player,<textjump=0.5|1|5>Your parents that you</textjump><textjump=0.5|-1|5><b><color=#6500c5> love,TRUE,31,-20,,
+Player,<textjump=0.5|1|5>The most</textjump><textjump=0.5|-1|5><b><color=#6500c5> cocoa-like</textjump><textjump=0.5|1|5></b></color> mascot,TRUE,33,20,,
 Emile,<textspeed=40><textjump=0.2|2|10>I<color=red><textrumble=0.1|-1|2> hate</textrumble><textjump=0.2|2|10></color> my parents<textspeed=30> I don't want to talk about it!,,,,,Outraged
 Emile,"<textjump=0.5|1|5>No, to appease me talk about the</textjump><textjump=0.5|-1|5><color=#6500c5><b> cocoa-like mascot</color></b></textjump><textjump=0.5|1|5>, say his name.",,34,,,Passionate
 Emile,"<textjump=0.5|1|5>Oh yes, say his name to</textjump><textjump=0.5|-1|5><color=#6500c5><cspace=10><textspeed=5><b> appease</color><textspeed=15></cspace></b></textjump><textjump=0.5|1|5> me...",,,,,Passionate
-Player,<textjump=0.5|1|5>Chococo,TRUE,36,,,
-Player,<textjump=0.5|1|5>Wonka,TRUE,37,,,
+Player,<textjump=0.5|1|5>Chococo,TRUE,36,20,,
+Player,<textjump=0.5|1|5>Wonka,TRUE,37,-20,,
 Emile,"<textjump=0.5|1|5>I feel</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> relaxed</color><textspeed=15></b><cspace=0></textjump><textjump=0.5|1|5>, I think I<textspeed=2>......",,39,,,Hypnotized
 Emile,"<textspeed=40><textjump=0.2|2|10>Whatever, you don't even<color=red><textrumble=0.1|-1|2><b> listen</color></textrumble><textjump=0.2|2|10></b> to me!",,,,,Outraged
-<<<<<<< HEAD
 Emile,"<textspeed=40><textjump=0.2|2|10>You are a<color=red><textrumble=0.1|-1|2><b> charlatan</color></textrumble><textjump=0.2|2|10></b>, I'm leaving!",,,-9999,,Outraged
-=======
-Emile,"<textspeed=40><textjump=0.2|2|10>You are a<color=red><textrumble=0.1|-1|2><b> charlatan</color></textrumble><textjump=0.2|2|10></b>, I'm leaving!",,-1,-9999,,Outraged
->>>>>>> origin/Melvin
 Player,"<textjump=0.5|-1|5><color=#6500c5>Your eyelids are heavy, you seem to fall and let go of all your problems<textspeed=1>......",,,,,

@@ -952,8 +952,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1343480013}
   - component: {fileID: 1343480014}
-  - component: {fileID: 1343480016}
-  - component: {fileID: 1343480015}
   m_Layer: 0
   m_Name: DialogController
   m_TagString: Untagged
@@ -994,30 +992,6 @@ MonoBehaviour:
   _dialogText: {fileID: 0}
   isReadingText: 0
   characterSoundDelay: 0.15
---- !u!114 &1343480015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343480012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8fa56043bad2324fa758952ba835cc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1343480016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343480012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdb659f3045df3488e0bb583e701d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1406808234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4378660489982589970, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}
@@ -1257,7 +1231,7 @@ MonoBehaviour:
         m_CallState: 2
   _resetDuration: 5
   _accelerationDelay: 1
-  _pendulum: {fileID: 0}
+  _pendulum: {fileID: 1864483956}
   _maxDistance: 5
   _targetAcceleration: 1.5
   _debugGameObject: {fileID: 0}
@@ -1581,6 +1555,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+--- !u!114 &1864483956 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 249348290482847189, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}
+  m_PrefabInstance: {fileID: 7198591517189701943}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366a2afdb7f78c848a90a9fbb67eaeee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1935333954 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4533423798660723429, guid: 49e06461d6cea1c4abcd06789e9dcfa1, type: 3}

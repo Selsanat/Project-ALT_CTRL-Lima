@@ -246,14 +246,13 @@ public class GameManager : MonoBehaviour
         _playerBox.gameObject.SetActive(false);
         _choiceBox.gameObject.SetActive(false);
         _currentCharacter.transform.position = new Vector3(pos.x + 20, pos.y, pos.z);
+        _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
         _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() =>
         {
             _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
             _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
-
             WriteDialog(0);
             _endingScreen.gameObject.SetActive(false);
-
         });
     }
 
