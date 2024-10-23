@@ -1,19 +1,19 @@
 characterName,text,choice,redirectTo,emotion
-Fluffles,<textjump=0.25|2|5>Hello! Today I'm here with you because <color=red><b>I cannot do my work anymore</b></color>in my current state.</textjump>,,,Neutral
-Narrator,"To start hypnosis, swing your <b><color=red> pendulum !",,,
-Narrator,You have a<b><color=red>limited ammount of time</b></color> to hypnotise your customers !,,,
-Narrator,"If this <b><color=red>time is up</b></color>, ils <b><color=red>customers will lose their trust in you and go without paying!</b></color>",,,
+Fluffles,<textjump=0.25|2|5>Hello! Today I'm here with you because <color=red><b>I cannot do my work anymore</b></color> in my current state.</textjump>,,,Neutral
+Narrator,"To start hypnosis, swing your <b><color=red> pendulum !</color></b>",,,
+Narrator,You have a <b><color=red>limited ammount of time</b></color> to hypnotise your customers !</b></color>,,,
+Narrator,"If this <b><color=red>time is up</b></color>, ils <b><color=red> customers will lose their trust in you and go without paying!</b></color>",,,
 Narrator,Your <b><color=red>pendulum</b></color> can make this  <b><color=red>time go slower.</b></color>.,,,
 Narrator,Talk with your customers <b><color=red>to keep their trust</b></color> and <b><color=red>find how to hypnotise them !,,,
 Player,What's the matter ?,TRUE,10,Neutral
 Player,Take a chewing gum. ,TRUE,10,Neutral
-Player,<textjump=0.25|2|5>People </textjump><textspeed=10>...<textspeed=20> keep<textpause=0.5> coming<textpause=0.5> to me<textpause=0.5> <textspeed=5>asking <uppercase><size=50><textspeed=50><textrumble=0.25|2|15>for crap,,,Exhausted
-Player,"<textjump=0.25|2|5>All day long, it's a real pain in the ass!",,,Exhausted
-Narrator,"Watch out! Most of your customers will talk to you about useless topics, try to avoid them as much as possible so you won't lose time!",,,
+Fluffles,People <textspeed=10>...<textspeed=20> keep<textpause=0.5> coming<textpause=0.5> to me<textpause=0.5> <textspeed=5>asking <uppercase><size=50><textspeed=50><textrumble=0.1|2|5>for crap,,,Exhausted
+Fluffles,"<textspeed=20>All day long,<textpause=0.5>... <textpause=0.5><uppercase><size=50><textspeed=5><textrumble=0.1|2|5> it's a real pain in the ass!",,,Exhausted
+Narrator,"Watch out! Most of your customers will talk to you about <b>useless topics</b>, try to avoid them as much as possible so you won't lose time!",,,
 Narrator,It's up to you to choose the best answers and questions to gain the maximum amount of time!,,,
 Player,What kind of requests ?,TRUE,16,
 Player,And that's the problem here ?,TRUE,16,
-Fluffles,A chocolatier complains all the time! A father wants me to solve his family problems! I have to organize school trips. Opticians won't stop bothering me with their stupid problems.,,,Exhausted
+Fluffles,<b>A chocolatier complains</b> all the time! A <color=#FF0000><b>father</b></color> wants me to solve his <b>family problems</b>! I <b>have to organize school trips</b>. <color=#FF0000><b>Opticians</b></color> won't stop bothering me with their <b>stupid problems</b>,,,Exhausted
 Player,Yeah in fact it sounds bothering.,TRUE,19,
 Player,Did you consider moving to a different place ?,TRUE,19,
 Fluffles,"I beg you please, hypnotise me so I can finally deal with it! I want to break free!",,,Sad

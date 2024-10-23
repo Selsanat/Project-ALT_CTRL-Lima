@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public enum CharacterType
 {
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private Character _currentCharacter;
 
-    public List<DialogData> _dialogData;
+    private List<DialogData> _dialogData;
     private DialogData _currentData;
 
     [SerializeField] private CharacterBox _characterBox;
@@ -43,8 +44,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private KeyCode _skipDialog = KeyCode.Space;
     [SerializeField] private KeyCode _choiceAInput = KeyCode.LeftArrow;
     [SerializeField] private KeyCode _choiceBInput = KeyCode.RightArrow;
-
-    [SerializeField] private PlayerController _playerController;
 
 #if UNITY_EDITOR
     [SerializeField] private int _startCharacterIndex = 0;
@@ -73,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
         if (_endingScreen.isActiveAndEnabled)
         {
             return;
@@ -137,6 +137,12 @@ public class GameManager : MonoBehaviour
         WriteDialog(targetIndex);
     }
 
+    public IEnumerator playSecondDialog(int dialogIndex)
+    {
+        yield return new WaitUntil(() => !DialogsController.instance.isReadingText);
+        DialogsController.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
+        _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
+    }
     public void WriteDialog(int dialogIndex)
     {
         if (dialogIndex >= _dialogData.Count)
@@ -151,22 +157,16 @@ public class GameManager : MonoBehaviour
 
         _currentData = _dialogData[dialogIndex];
 
-        if (_currentData.bToggleTimer)
-        {
-            _timer.TogglePause();
-        }
-
         if (_currentData.bIsChoice)
         {
             _choiceBox.gameObject.SetActive(true);
-
-            DialogsController1.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
+            _choiceBox._choiceA.text = "";
+            _choiceBox._choiceB.text = "";
+            DialogsController.instance.playDialog(_choiceBox._choiceA, _currentData.dialog);
             _choiceBox.redirectChoiceA = _currentData.redirectIndex;
 
-            DialogsController2.instance.playDialog(_choiceBox._choiceB, _dialogData[dialogIndex + 1].dialog);
-            _choiceBox.redirectChoiceB = _dialogData[dialogIndex + 1].redirectIndex;
-
-            //_timer.PauseTimer(false);
+            StartCoroutine(playSecondDialog(dialogIndex));
+            _timer.PauseTimer(false);
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(false);
             return;
@@ -187,6 +187,8 @@ public class GameManager : MonoBehaviour
             targetBox = _playerBox;
             _playerBox.SetDialogBox(_currentData.type);
 
+            _timer.PauseTimer(_currentData.type == CharacterType.Narrator);
+
             _characterBox.gameObject.SetActive(false);
             _playerBox.gameObject.SetActive(true);
         }
@@ -205,32 +207,27 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        _playerController.ResetClock();
-
         if (_currentCharacter != null)
         {
             Destroy(_currentCharacter.gameObject);
         }
-
         _currentCharacter = Instantiate(_characterDatas[_characterIndex].Character, _worldUI.transform);
         _currentCharacter.transform.SetSiblingIndex(_characterHierachyIndex);
         _currentCharacter.SetData(_characterDatas[_characterIndex]);
-
-#if UNITY_EDITOR
-        _lastDialogIndex = 0;
-
-        if (_characterDatas[_characterIndex].Dialog == null)
+        Vector3 pos = _currentCharacter.transform.position;
+        _characterBox.gameObject.SetActive(false);
+        _playerBox.gameObject.SetActive(false);
+        _choiceBox.gameObject.SetActive(false);
+        _currentCharacter.transform.position = new Vector3(pos.x+20, pos.y, pos.z);
+        _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() => 
         {
-            Debug.LogWarning(_characterDatas[_characterIndex].name + " has null dialog data");
-            return;
-        }
-#endif
+            _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
+            _timer.RestartTimer(true, _characterDatas[_characterIndex].CharacterTimerLenght);
 
-        _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
-        _timer.RestartTimer(false, _characterDatas[_characterIndex].CharacterTimerLenght);
+            _endingScreen.gameObject.SetActive(false);
+            WriteDialog(0);
+        });
 
-        _endingScreen.gameObject.SetActive(false);
-        WriteDialog(0);
     }
 
     public void ResetCurrentCharacter()

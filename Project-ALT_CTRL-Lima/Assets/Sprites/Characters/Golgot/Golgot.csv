@@ -1,8 +1,8 @@
 characterName,text,choice,redirectTo,emotion
-Golgot,"Hello, I come to see you, well so to speak since I don't see a thing anymore.",,,Neutral
-Player,What do you mean you can't see a thing? What is going on ?,TRUE,5,
-Player,Shouldn't you be able to see better than the average person?,TRUE,5,
-Golgot,"Well no, i don't see a thing anymore, you see I am myopic, recently I have not been able to find glasses that fit my body shape!",,,Irritated
+Golgot,"<textjump=0.5|1|5>Hello, I come to see you, well so to speak since I don't see a thing anymore.",,,Neutral
+Player,<textjump=0.5|1|5>What do you mean you can't see a thing?<textpause=0.5> What is going on?,TRUE,5,
+Player,<textjump=0.5|1|5>Shouldn't you be able to see better than the average person?,TRUE,5,
+Golgot,"<textjump=0.5|1|5>Well no, i don't see a thing anymore, you see I am myopic, recently I have not been able to find glasses that fit my body shape!",,,Irritated
 Golgot,There is some poeple who says to simply close my third eye but my species cannot.,,,Irritated
 Player,"But why this, the triclope glasses have become widespread these last years?",TRUE,9,
 Player,Standard glasses can't do the trick ?,TRUE,9,
