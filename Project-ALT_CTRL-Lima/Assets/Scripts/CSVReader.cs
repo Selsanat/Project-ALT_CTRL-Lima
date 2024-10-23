@@ -35,6 +35,16 @@ public static class CSVReader
             DialogData data = new DialogData();
             string[] collumns = new string[collumnCount];
 
+#if UNITY_EDITOR
+            string[] a = lines[i].Split('<');
+            string[] b = lines[i].Split('>');
+
+            if (a.Length != b.Length)
+            {
+                Debug.LogWarning("Unclosed tag at " + ((i - lineOffset) - 1));
+            }
+#endif
+
             if (lines[i].Contains('"'))
             {
                 string[] result = lines[i].Split('"');
@@ -101,6 +111,14 @@ public static class CSVReader
 #endif
 
             index++;
+
+#if UNITY_EDITOR
+            if(collumns[3] == null)
+            {
+                Debug.LogWarning("\\n in " + ((i - lineOffset) - 1));
+            }
+#endif
+
             data.redirectIndex = collumns[3] != "" ? (int.Parse(collumns[3]) + lineOffset) : index;
 
             float.TryParse(collumns[4], out float floatRes);
