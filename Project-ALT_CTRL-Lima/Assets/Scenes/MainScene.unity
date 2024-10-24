@@ -429,6 +429,20 @@ MonoBehaviour:
     playOneAfterAnother: 1
     delay: 0
     source: {fileID: 0}
+  - name: foret
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 371bcf220da1a624c9b44c59302d31a1, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
   bgMusics: []
 --- !u!1 &656678282
 GameObject:
@@ -1024,8 +1038,7 @@ MonoBehaviour:
   _skipDialog: 32
   _choiceAInput: 276
   _choiceBInput: 275
-  _playerController: {fileID: 1423841581}
-  _startCharacterIndex: 0
+  _startCharacterIndex: 1
 --- !u!4 &1194646318
 Transform:
   m_ObjectHideFlags: 0
