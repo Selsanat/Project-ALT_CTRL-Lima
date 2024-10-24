@@ -429,6 +429,118 @@ MonoBehaviour:
     playOneAfterAnother: 1
     delay: 0
     source: {fileID: 0}
+  - name: good_choice
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 36b226d0c125e68458589541d344e00d, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: wrong_choice
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: aea91db61d1b5a343992ba49dd9a653c, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: mission_succes
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 3631c2335b8d2e440b64f058363ef2a9, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: mission_fail
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: e1d647fd3bb9f7a469b0945ede387ab0, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: hypnosis_bar_empty
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 5fb503ce809c6a242a62625b0c02954e, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: hypnosis_ambiance
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 25be70f09a9dfd8479cfceed83e91e4f, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: close_to_hypnose
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: a59b51355584d594e98e298d6c768c23, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: bells
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: d5470ac042c8e8c4a8a0144318b8792e, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
   - name: foret
     clips:
     - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
