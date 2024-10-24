@@ -35,6 +35,8 @@ public class EndingScreen : MenuManager
     [SerializeField] private Image _charlatanSprite;
     [SerializeField] private float _translationSpeed = 10.0f;
 
+    [SerializeField] private RectTransform _returnContainer;
+
     private float _spriteHeight;
 
     private bool _bVictory;
@@ -71,14 +73,26 @@ public class EndingScreen : MenuManager
         }
     }
 
-    public void DisplayResults(bool bVictory, float currency)
+    public void DisplayResults(bool bVictory, float currency, bool bIsLastChar)
     {
         _bVictory = bVictory;
         _stateText.text = _bVictory ? _victoryText : _failedText;
         _stateText.color = _bVictory ? _hypnotizedColor : _charlatanColor;
 
-        _continueDisplay.text = _bVictory ? _continueText : _retryText;
-        _continueImage.sprite = _bVictory ? _continueSprite : _retrySprite;
+        if (!bIsLastChar)
+        {
+            _continueDisplay.text = _bVictory ? _continueText : _retryText;
+            _continueImage.sprite = _bVictory ? _continueSprite : _retrySprite;
+        }
+        else
+        {
+            _continueDisplay.gameObject.SetActive(false);
+            _continueImage.gameObject.SetActive(false);
+
+            float targetX = ((RectTransform)_returnContainer.parent).sizeDelta.x/2;
+
+            _returnContainer.anchoredPosition = new Vector2(targetX, _returnContainer.anchoredPosition.y);
+        }
 
         _hypnotizedSprite.gameObject.SetActive(_bVictory);
         _charlatanSprite.gameObject.SetActive(!_bVictory);

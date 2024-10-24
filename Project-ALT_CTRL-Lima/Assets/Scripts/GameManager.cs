@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
         _playerBox.gameObject.SetActive(false);
         _choiceBox.gameObject.SetActive(false);
         _narratorBox.gameObject.SetActive(false);
-       // _endingScreen.gameObject.SetActive(false);
         _timer.gameObject.SetActive(false);
 
         yield return new WaitForEndOfFrame();
