@@ -39,8 +39,8 @@ Fluffles,<textjump=0.5|2|1>Such as ? ,,,,,Neutral
 Player,<textjump=0.5|2|1>A school trip! ,TRUE,41,-5,,
 Player,<textjump=0.5|2|1>A birthday party! ,TRUE,43,5,,
 Fluffles,<textjump=0.5|2|1><playsound=wrong_choice>A school trip? <textpause=1> With all its organisation? <textspeed=8> No It's making me think about <color=red><b><textjump=0.0001|-1|2>work. ,,,,,Sad
-Fluffles,"<textjump=0.5|2|1>You don't <playsound=hypnosis_fail> <size=24>listen</size> and you don't <size=24>understand me</size> at all, you are nothing but a <color=red><b><textjump=0.0001|-1|2>fraud!</size>",,46,-180,,Sad
+Fluffles,"<textjump=0.5|2|1>You don't <playsound=hypnosis_fail> <size=24>listen</size> and you don't <size=24>understand me</size> at all, you are nothing but a <color=red><b><textjump=0.0001|-1|2>fraud!</size>",,45,,,Sad
 Fluffles,"<textjump=0.5|2|1><playsound=good_choice>Oh! It works, I feel <textjump=0.1|-1|2><color=purple>floating! <playsound=close_to_hypnosis> ",,44,,,Hypnotized
-Player,"<textjump=0.5|2|1><playsound=hypnosis_complete>At my signal, all your problems will appear insignificant to you. <textjump=0.1|-1|2><b><color=purple> NOW!  ",,,,,
-Narrator,<textjump=0.5|2|1><playsound=mission_succes><i>Congratulations ! You are now a real <textjump=0.1|-1|2><b><color=purple>psycho-hypnotist! ,,,,TRUE,
-Narrator,"<textjump=0.5|2|1> It's ok, try again!",,38,,,
+Player,"<textjump=0.5|2|1><playsound=hypnosis_complete>At my signal, all your problems will appear insignificant to you. <textjump=0.1|-1|2><b><color=purple> NOW!  ",,46,,,
+Narrator,"<textjump=0.5|2|1>It's ok, i'll give you another chance, try again!",,38,,TRUE,
+Narrator,<textjump=0.5|2|1><playsound=mission_succes><i>Congratulations ! You are now a real <textjump=0.1|-1|2><b><color=purple>psycho-hypnotist! ,,,,,

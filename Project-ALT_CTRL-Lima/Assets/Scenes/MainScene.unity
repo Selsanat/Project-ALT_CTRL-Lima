@@ -611,6 +611,34 @@ MonoBehaviour:
     playOneAfterAnother: 1
     delay: 0
     source: {fileID: 0}
+  - name: main_music
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 5484c89633062b54c9c7e99bc91949f4, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: main_music2
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: d4b9ae56eba669d4d9d5a7b9fd7afaf2, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
   bgMusics: []
 --- !u!1 &656678282
 GameObject:
