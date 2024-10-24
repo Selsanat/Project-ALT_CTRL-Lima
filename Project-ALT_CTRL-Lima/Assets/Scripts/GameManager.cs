@@ -81,6 +81,13 @@ public class GameManager : MonoBehaviour
         if (_timer == null) { Debug.LogError("_timer is missing in " + name); yield break;}
 #endif
 
+        _characterBox.gameObject.SetActive(false);
+        _playerBox.gameObject.SetActive(false);
+        _choiceBox.gameObject.SetActive(false);
+        _narratorBox.gameObject.SetActive(false);
+        _endingScreen.gameObject.SetActive(false);
+        _timer.gameObject.SetActive(false);
+
         yield return new WaitForEndOfFrame();
 
 #if UNITY_EDITOR
@@ -313,9 +320,10 @@ public class GameManager : MonoBehaviour
 
     public void EndClient(bool bVictory)
     {
+        _currency = 0;
         if (bVictory)
         {
-            _currency += _timer.GetTimerValueInPercent();
+            _currency = _timer.GetTimerValueInPercent();
         }
 
         _characterBox.gameObject.SetActive(false);

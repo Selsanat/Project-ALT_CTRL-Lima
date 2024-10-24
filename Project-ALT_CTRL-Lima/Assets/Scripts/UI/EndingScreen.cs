@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,8 +6,11 @@ using UnityEngine.UI;
 public class EndingScreen : MenuManager
 {
     [SerializeField] private TextMeshProUGUI _stateText;
-    [SerializeField] private TextMeshProUGUI _currencyDisplay;
     [SerializeField] private TextMeshProUGUI _continueDisplay;
+
+    [SerializeField] private HorizontalLayoutGroup _starContainer;
+    [SerializeField] private Image _starImage;
+    [SerializeField] private int _numberForStars = 5;
 
     [SerializeField] private GameManager _gameManager;
 
@@ -79,8 +83,19 @@ public class EndingScreen : MenuManager
         _hypnotizedSprite.gameObject.SetActive(_bVictory);
         _charlatanSprite.gameObject.SetActive(!_bVictory);
 
-        _currencyDisplay.text = Mathf.CeilToInt(currency).ToString();
-        _currencyDisplay.color = _bVictory ? _textHypnotizedColor : _textcharlatanColor;
+        List<Transform> childs = new List<Transform>();
+        _starContainer.GetComponentsInChildren<Transform>(true, childs);
+        childs.Remove(_starContainer.transform);
+
+        foreach (Transform child in childs)
+        {
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < currency/ (100 / _numberForStars); i++)
+        {
+            Instantiate(_starImage, _starContainer.transform);
+        }
     }
 
     public void Continue()
