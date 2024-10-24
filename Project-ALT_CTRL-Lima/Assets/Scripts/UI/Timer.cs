@@ -13,12 +13,23 @@ public class Timer : MonoBehaviour
     private Volume _volume;
     [SerializeField] private UnityEvent _onTimerFinished;
 
+#if UNITY_EDITOR
+    [SerializeField]
+    [Tooltip("SerializeField only in editor")]
+#endif
     private bool _bPauseTimer = true;
 
     [SerializeField]
     [Range(0.0f, 1.0f)]
     [Tooltip("Percentage")]
     private float _startValue = 0.5f;
+
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    private float _postProcessAffectation = 0.5f;
+
+    [SerializeField]
+    private bool _bInvertEffect = true;
 
     public float _value;
 
@@ -55,8 +66,6 @@ public class Timer : MonoBehaviour
         _value = Mathf.Clamp(_value, 0.0f, _timerDuration);
 
         _onValueUpdate.Invoke(_value);
-
-        _volume.weight = _value / _timerDuration;
 
         if (_value == 0.0f)
         {
@@ -123,6 +132,7 @@ public class Timer : MonoBehaviour
 
     private void UpdateVolume(float alpha)
     {
-        _volume.weight = Mathf.Clamp(alpha / _timerDuration-0.5f,0,1);
+        alpha = Mathf.InverseLerp(0.0f, _timerDuration * _postProcessAffectation, alpha);
+        _volume.weight = _bInvertEffect ? 1 - alpha : alpha;
     }
 }

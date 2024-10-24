@@ -73,6 +73,18 @@ public class ClockMovement : MonoBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            JoyconManager.Instance.Connect(false);
+            _joycon = JoyconManager.Instance.j[0];
+            _joycon.Recenter();
+        }
+
+        if (_joycon.GetAccel() == Vector3.zero)
+        {
+            Debug.LogWarning("joyCon disconnected");
+        }
+
         _recenterTimer += Time.deltaTime;
 
         if(_recenterTimer >= _resetDuration)
@@ -162,7 +174,19 @@ public class ClockMovement : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
+        if(_joycon == null)
+        {
+            return;
+        }
+
         GUILayout.TextArea("Succeed: " + _bIsSuceeding.ToString());
+        GUILayout.Space(5);
+        GUILayout.TextArea(_debugRotation.ToString());
+        GUILayout.TextArea(_pendulum.TargetRotation.ToString());
+        GUILayout.Space(5);
+        GUILayout.TextArea(_joycon.GetAccel().ToString());
+        GUILayout.Space(5);
+        GUILayout.TextArea(_bIsMoving.ToString());
     }
 #endif
 }

@@ -29,6 +29,11 @@ public class JoyconManager: MonoBehaviour
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
+		Connect(true);
+    }
+
+	public void Connect(bool bAwake = false)
+	{
 		int i = 0;
 
 		j = new List<Joycon>();
@@ -70,19 +75,31 @@ public class JoyconManager: MonoBehaviour
 				ptr = enumerate.next;
 			}
 		HIDapi.hid_free_enumeration (top_ptr);
+
+		if (bAwake)
+		{
+			return;
+		}
+
+		Connect();
+    }
+
+	private void Connect()
+	{
+        for (int i = 0; i < j.Count; ++i)
+		{
+            Debug.Log(i);
+            Joycon jc = j[i];
+            byte LEDs = 0x0;
+            LEDs |= (byte)(0x1 << i);
+            jc.Attach(leds_: LEDs);
+            jc.Begin();
+        }
     }
 
     void Start()
     {
-		for (int i = 0; i < j.Count; ++i)
-		{
-			Debug.Log (i);
-			Joycon jc = j [i];
-			byte LEDs = 0x0;
-			LEDs |= (byte)(0x1 << i);
-			jc.Attach (leds_: LEDs);
-			jc.Begin ();
-		}
+		Connect();
     }
 
     void Update()
