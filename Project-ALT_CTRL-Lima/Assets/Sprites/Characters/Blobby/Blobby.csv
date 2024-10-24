@@ -25,7 +25,7 @@ Player,<textjump=0.5|2|1>Anything else recently bothering you? ,,,,,
 Player,<textjump=0.5|2|1>Why do you wanna get<color=#6500c5></textjump><textjump=0.5|-1|5> hypnotised</color></textjump><textjump=0.5|2|1>? ,,,,,
 Blobby,<textjump=0.5|2|1>I don't think so. ,,,,,Livid
 Blobby,"<textjump=0.2|2|10><textspeed=40>Please, make me confident so I can finally<color=red><b><textrumble=0.1|-1|2> stood up</color></b></textrumble> to her and make her go! ",,,,,Livid
-Player,<textjump=0.5|2|1>Ok let's start! ,,,,TRUE,
+Player,<textjump=0.5|2|1>Ok let's start! <playsound=bells>,,,,TRUE,
 Player,<textjump=0.5|2|1>Focus on my</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> watch</textjump><textjump=0.5|2|1></color></b><textspeed=1>... ,,,,,
 Player,<textjump=0.5|2|1>Try remembering a<b> good</b> memory. ,,,,,
 Blobby,<textjump=0.5|2|1>Like watching a movie? ,,,,,Livid
