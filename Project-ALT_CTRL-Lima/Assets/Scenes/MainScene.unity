@@ -1161,7 +1161,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2a16cdbaf6b74624491298b8289de7ab, type: 2}
   - {fileID: 11400000, guid: 1618a71035728df4dbd633169fd1dc6e, type: 2}
   _worldUI: {fileID: 1552663264}
-  _characterHierachyIndex: 1
   _characterBox: {fileID: 841973408}
   _choiceBox: {fileID: 690735731}
   _playerBox: {fileID: 4912104999946927239}

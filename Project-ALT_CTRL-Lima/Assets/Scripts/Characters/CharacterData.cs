@@ -36,9 +36,11 @@ public class CharacterData : ScriptableObject
     [SerializeField] private List<EmotionStruct> _emotions;
     [SerializeField] private TextAsset _dialog;
     [SerializeField] private float _characterTimerLenght = 50.0f;
+    [SerializeField] [Range(0, 2)] private int _hierachyIndex = 1;
 
     public Character Character { get => _character; }
     public List<EmotionStruct> Emotions { get => _emotions; }
     public TextAsset Dialog { get => _dialog; }
     public float CharacterTimerLenght { get => _characterTimerLenght; }
+    public int HierachyIndex { get => _hierachyIndex;}
 }
