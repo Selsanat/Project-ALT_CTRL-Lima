@@ -33,7 +33,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=1910723476#gid=1910723476
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=1910723476
     filePath: Assets/Sprites/Characters/Golgot/Golgot.csv
-    lastFileHash: 11df64d6112b84762de5806ae5f7ee41
+    lastFileHash: 704b050d310009e30c86cbb85060563e
     label: 
     sheetId: 1910723476
     assetReference: {fileID: 4900000, guid: 410a0f4fd685e0442a4e6f647d77db1c, type: 3}
@@ -45,7 +45,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=1458734347#gid=1458734347
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=1458734347
     filePath: Assets/Sprites/Characters/Flipper/Flipper.csv
-    lastFileHash: cda371d5cc4e8117dce38e897ad1ab6d
+    lastFileHash: 20592254b21d1d2258ca4eac63fb41c2
     label: 
     sheetId: 1458734347
     assetReference: {fileID: 4900000, guid: 055b8ca465b0b2f49a79c773a8a27ea2, type: 3}
@@ -57,7 +57,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=2103985092#gid=2103985092
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=2103985092
     filePath: Assets/Sprites/Characters/Calvares/Calvares.csv
-    lastFileHash: b8f503755ed7e23c63d274ed2ac9a166
+    lastFileHash: 1fa2eb6d99e07b035dc9e856c1f588da
     label: 
     sheetId: 2103985092
     assetReference: {fileID: 4900000, guid: abe24aa0d4918b04ebd1ed6289ca10d9, type: 3}
@@ -69,7 +69,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=1156551904#gid=1156551904
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=1156551904
     filePath: Assets/Sprites/Characters/Emile/Emile.csv
-    lastFileHash: 16a2926b071635dc3be1e28bd47967a3
+    lastFileHash: 61ad44656794924067c7363a80a42722
     label: 
     sheetId: 1156551904
     assetReference: {fileID: 4900000, guid: 7c15fe27303278c42bce884d728af6bf, type: 3}
@@ -81,7 +81,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=522392182#gid=522392182
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=522392182
     filePath: Assets/Sprites/Characters/Blobby/Blobby.csv
-    lastFileHash: bf7ec5f3ed125c8e56ec63d5ada0f27f
+    lastFileHash: 3b011500d9ffccc2bc908e7b9d51b300
     label: 
     sheetId: 522392182
     assetReference: {fileID: 4900000, guid: 18637647c2f99bd49877ad7405c7249b, type: 3}
@@ -93,7 +93,7 @@ MonoBehaviour:
     initUrl: https://docs.google.com/spreadsheets/d/1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo/edit?gid=68672356#gid=68672356
     url: https://docs.google.com/spreadsheets/export?format=csv&id=1G6XZwWZ5NupDEg8Ypgk4Bm28mTZUlBabsYCkVcC5ffo&gid=68672356
     filePath: Assets/Sprites/Characters/MrCostard/MrCostard.csv
-    lastFileHash: d3b33d793e8548d20f3d0b633166fb46
+    lastFileHash: 4bd796fd3f4486b93779412275edf941
     label: 
     sheetId: 68672356
     assetReference: {fileID: 4900000, guid: 6d52df8f13906a243b7aa7bfa03b31e2, type: 3}

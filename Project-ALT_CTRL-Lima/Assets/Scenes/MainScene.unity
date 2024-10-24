@@ -463,7 +463,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
     - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
     clip: {fileID: 8300000, guid: 3631c2335b8d2e440b64f058363ef2a9, type: 3}
-    volume: 0.632
+    volume: 0.555
     pitch: 1
     loop: 0
     Oneshot: 1
@@ -505,7 +505,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
     - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
     clip: {fileID: 8300000, guid: 25be70f09a9dfd8479cfceed83e91e4f, type: 3}
-    volume: 0.632
+    volume: 0.518
     pitch: 1
     loop: 0
     Oneshot: 1
@@ -519,7 +519,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
     - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
     clip: {fileID: 8300000, guid: a59b51355584d594e98e298d6c768c23, type: 3}
-    volume: 0.632
+    volume: 0.689
     pitch: 1
     loop: 0
     Oneshot: 1
@@ -547,7 +547,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
     - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
     clip: {fileID: 8300000, guid: 84b6c13ae34093d4e813b54436d38063, type: 3}
-    volume: 0.632
+    volume: 0.762
     pitch: 1
     loop: 0
     Oneshot: 1
@@ -575,7 +575,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
     - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
     clip: {fileID: 8300000, guid: 05153a246d9c79b40b60343105c2771b, type: 3}
-    volume: 0.632
+    volume: 0.372
     pitch: 1
     loop: 0
     Oneshot: 1
@@ -583,13 +583,13 @@ MonoBehaviour:
     playOneAfterAnother: 1
     delay: 0
     source: {fileID: 0}
-  - name: chewing-gum
+  - name: chewing_gum
     clips:
     - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
     - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
     - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
     clip: {fileID: 8300000, guid: 6c08c993df7dbad478c76aeeac0cf1b6, type: 3}
-    volume: 0.632
+    volume: 0.451
     pitch: 1
     loop: 0
     Oneshot: 1
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   _skipDialog: 32
   _choiceAInput: 276
   _choiceBInput: 275
-  _startCharacterIndex: 1
+  _startCharacterIndex: 0
 --- !u!4 &1194646318
 Transform:
   m_ObjectHideFlags: 0
