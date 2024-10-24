@@ -103,6 +103,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            _timer.TogglePause();
+        }
+#endif
+
         if (_endingScreen.isActiveAndEnabled || _bIsPlayingAnim)
         {
             return;
