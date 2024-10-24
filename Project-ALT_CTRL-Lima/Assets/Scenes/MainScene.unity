@@ -541,6 +541,62 @@ MonoBehaviour:
     playOneAfterAnother: 1
     delay: 0
     source: {fileID: 0}
+  - name: hypnosis_complete
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 84b6c13ae34093d4e813b54436d38063, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: hypnosis_fail
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: dc7ade4dea9c0a242a750e8c8d613f34, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: hypnosis_rise
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 05153a246d9c79b40b60343105c2771b, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: chewing-gum
+    clips:
+    - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
+    - {fileID: 8300000, guid: efa6e52fe8585ec458bde3fb4ae270a5, type: 3}
+    - {fileID: 8300000, guid: 584e513c8385d944f9521535b0e1dee6, type: 3}
+    clip: {fileID: 8300000, guid: 6c08c993df7dbad478c76aeeac0cf1b6, type: 3}
+    volume: 0.632
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
   - name: foret
     clips:
     - {fileID: 8300000, guid: 8930b38cd28702b49af6869b0f6106d9, type: 3}
