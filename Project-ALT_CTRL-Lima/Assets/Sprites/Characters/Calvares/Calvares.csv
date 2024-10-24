@@ -12,20 +12,20 @@ Player,"Good, very good, I see that you are rather annoyed, let's start. Think a
 Player,Fish & Chips,TRUE,16,5,,
 Player,Frog legs,TRUE,15,-5,,
 Calvares,The? What I like?,,,,,TakenAback
-Calvares,"<textpause=0.5>Definetly <textpause=0.5>not <textpause=0.5>frog <textpause=0.5>legs<textpause=0.5>, just thinking about it makes me want to puke!",,,,,Impatient
+Calvares,"<playsound=wrong_choice> <textpause=0.5>Definetly <textpause=0.5>not <textpause=0.5>frog <textpause=0.5>legs<textpause=0.5>, just thinking about it makes me want to puke!",,,,,Impatient
 Calvares,Yes it's true I pretty like the Fish & Chips.,,,,,Calm
 Player,"Now I want you to think about an animal, you see...",,,,,
 Player,A lion,TRUE,21,5,,
 Player,A Rooster,TRUE,20,-5,,
-Calvares,"<textjump=0.5|2|5>No, I was thinking about a lion a symbol of our good <color=red>England</color> !",,,,,Neutral
+Calvares,"<playsound=wrong_choice> <textjump=0.5|2|5>No, I was thinking about a lion a symbol of our good <color=red>England</color> !",,,,,Neutral
 Calvares,"Yes it is, how did you guess?",,,,,TakenAback
 Player,Stare <textspeed=5><textjump=0.5|2|5><color=blue>deeply</color> <textspeed=15>at my watch.,,,,,
 Player,"Think about your high school students that you help everyday, surely they will be happy to make a trip like that.",TRUE,25,-5,,
 Player,You are<textspeed=5><textjump=0.5|2|5><color=blue> eager </color><textspeed=15>to be at the side of your students in this trial.,TRUE,26,5,,
-Calvares,"High school ? I'm an <b>elementary</b> school teacher ! I do not think they will be happy, they are way to young for that.",,,,,TakenAback
+Calvares,"<playsound=wrong_choice> High school ? I'm an <b>elementary</b> school teacher ! I do not think they will be happy, they are way to young for that.",,,,,TakenAback
 Calvares,Yes... Of course I want to go with them to protect them...,,,,,Calm
 Player,"A trip will do you good, you will meet new people to<textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> discuss</textjump></color></b><cspace=0><textspeed=15> with.",TRUE,29,-5,,
-Player,You <b>will</b> introduce these young peoples to other cultures.,TRUE,30,5,,
-Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french!",,,-180,,Impatient
+Player,<playsound=wrong_choice> You <b>will</b> introduce these young peoples to other cultures.,TRUE,30,5,,
+Calvares,"I wont discuss any further, I <color=red><b>told you</b></corlor> I don't speak french !  <playsound=mission_fail>",,,-180,,Impatient
 Calvares,<textspeed = 5>Yes... <textspeed=8>Yes<textspeed=15> <b>YES</b> you are right.,,,,,Hypnosis
-Player,At my top you will no longer see any disadvantages in going to France and will even be glad to go there!  TOP!,,,,,
+Player,At my top you will no longer see any disadvantages in going to France and will even be glad to go there!  TOP! <playsound=mission_succes>,,,,,

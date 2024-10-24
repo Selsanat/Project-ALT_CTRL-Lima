@@ -93,6 +93,7 @@ public class Timer : MonoBehaviour
 
         if (_value == 0.0f)
         {
+            print("Timer event calling");
             _onTimerFinished?.Invoke();
         }
     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
-using static UnityEditor.PlayerSettings;
 
 public enum CharacterType
 {
@@ -171,16 +170,31 @@ public class GameManager : MonoBehaviour
 
     public void ResetTextbox()
     {
+
         CanvasGroup cg1 = _choiceBox._choiceA.transform.parent.GetComponent<CanvasGroup>();
         CanvasGroup cg2 = _choiceBox._choiceB.transform.parent.GetComponent<CanvasGroup>();
+
         cg1.alpha = 1;
         cg2.alpha = 1;
         _choiceBox._choiceA.transform.parent.transform.position = originalPos1;
         _choiceBox._choiceB.transform.parent.transform.position = originalPos2;
     }
 
+    public void KillTweens()
+    {
+        CanvasGroup cg1 = _choiceBox._choiceA.transform.parent.GetComponent<CanvasGroup>();
+        CanvasGroup cg2 = _choiceBox._choiceB.transform.parent.GetComponent<CanvasGroup>();
+
+        DOTween.Kill(cg1);
+        DOTween.Kill(cg2);
+        DOTween.Kill(_choiceBox._choiceA.transform.parent);
+        DOTween.Kill(_choiceBox._choiceB.transform.parent);
+        _choiceBox._choiceA.transform.parent.transform.position = originalPos1;
+        _choiceBox._choiceB.transform.parent.transform.position = originalPos2;
+    }
     public void WriteDialog(int dialogIndex)
     {
+        SoundManager.instance.PlayClip("Click");
         if (dialogIndex >= _dialogData.Count)
         {
             _onDialogFinished.Invoke();
@@ -209,6 +223,7 @@ public class GameManager : MonoBehaviour
 
         if (_currentData.bIsChoice)
         {
+            KillTweens();
             wasChoice = true;
             _choiceBox.gameObject.SetActive(true);
             _choiceBox._choiceA.text = "";
@@ -254,7 +269,7 @@ public class GameManager : MonoBehaviour
 
         _currentCharacter.SetEmotion(_currentData.emotion);
         DialogsController.instance.playDialog(targetBox._dialogText, _currentData.dialog);
-        if (wasChoice) wasChoice = false;
+        if (wasChoice && _currentData.type != CharacterType.Player) wasChoice = false;
         else _choiceBox.gameObject.SetActive(false);
 
     }
@@ -293,14 +308,23 @@ public class GameManager : MonoBehaviour
 
         _bIsPlayingAnim = true;
         _currentCharacter.transform.position = new Vector3(pos.x + 20, pos.y, pos.z);
-        _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.InSine).OnComplete(() =>
+        StartCoroutine(playFootSteps());
+        _currentCharacter.transform.DOJump(pos, 1, 6, 3).SetEase(Ease.Linear).OnComplete(() =>
         {
             _bIsPlayingAnim = false;
-
             WriteDialog(0);
         });
     }
 
+    private IEnumerator playFootSteps()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            yield return new WaitForSeconds(0.25f);
+            SoundManager.instance.PlayClip("FootStep");
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
     public void ResetCurrentCharacter()
     {
         GoToCharacter(_characterIndex);
@@ -324,6 +348,7 @@ public class GameManager : MonoBehaviour
         _timer.gameObject.SetActive(false);
         _narratorBox.gameObject.SetActive(false);
 
+        print(_endingScreen);
         _endingScreen.gameObject.SetActive(true);
         _endingScreen.DisplayResults(bVictory, _currency);
     }

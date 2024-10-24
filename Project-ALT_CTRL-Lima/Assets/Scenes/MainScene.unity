@@ -757,16 +757,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2732156342853029399, guid: 02e199bf69cbebe4ba6ff23cef427767, type: 3}
       propertyPath: m_text
-      value: "Bonjour, si je viens vous voir aujourd\u2019hui c\u2019est parce que
-        je ne suis plus capable de faire mon travail dans mon \xE9tat actuel."
+      value: '<textjump=0.5|2|1><b>A <color=red>chocolatier</color> complains</b>
+        all the time! A <color=red><b>father</b></color> wants me to solve his <b>family
+        problems</b>! I <color=red><b>have to organize school trips</b></color>.<color=red><b>
+        Opticians</b></color> won''t stop bothering me with their <b><color=red>stupid
+        problems!</b> '
       objectReference: {fileID: 0}
     - target: {fileID: 2732156342853029399, guid: 02e199bf69cbebe4ba6ff23cef427767, type: 3}
       propertyPath: m_fontSize
-      value: 15.5
+      value: 12.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732156342853029399, guid: 02e199bf69cbebe4ba6ff23cef427767, type: 3}
+      propertyPath: m_margin.z
+      value: 30.36088
       objectReference: {fileID: 0}
     - target: {fileID: 2732156342853029399, guid: 02e199bf69cbebe4ba6ff23cef427767, type: 3}
       propertyPath: m_fontSizeMin
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2732156342853029399, guid: 02e199bf69cbebe4ba6ff23cef427767, type: 3}
       propertyPath: m_fontSizeBase
@@ -971,13 +978,24 @@ MonoBehaviour:
     loop: 0
     Oneshot: 0
     playeOnAwake: 0
-    playOneAfterAnother: 0
+    playOneAfterAnother: 1
     delay: 0
     source: {fileID: 0}
   - name: Click
     clips: []
     clip: {fileID: 8300000, guid: f754b28a6cfbaa34e8ad9ec4f143a01b, type: 3}
     volume: 0.5
+    pitch: 1
+    loop: 0
+    Oneshot: 0
+    playeOnAwake: 0
+    playOneAfterAnother: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: FootStep
+    clips: []
+    clip: {fileID: 8300000, guid: 6744cb4c76a235547ac349ad781c72db, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     Oneshot: 0

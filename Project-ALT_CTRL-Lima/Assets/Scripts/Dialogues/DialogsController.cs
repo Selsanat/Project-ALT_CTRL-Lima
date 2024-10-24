@@ -54,7 +54,7 @@ public class DialogsController : MonoBehaviour
         if (isReadingText)
         {
             
-            if (Time.time- time> characterSoundDelay)
+            if (Time.time- time> characterSoundDelay && pauseTime<0.1f)
             {
                 time = Time.time;
                 StartCoroutine(PlayTextSound());
