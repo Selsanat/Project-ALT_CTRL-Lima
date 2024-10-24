@@ -175,13 +175,13 @@ public class SoundManager : MonoBehaviour
     {
         if (name == "")
         {
-            yield return null;
+            yield break;
         }
         Sounds s = Array.Find(sounds, sound => sound.name == name);
         if (s == null || s.clip == null)
         {
             Debug.LogWarning("The clip " + name + " doesn't exist !");
-            yield return null;
+            yield break;
         }
         if (s.delay > 0) yield return new WaitForSeconds(s.delay);
         if (s.Oneshot) s.source.PlayOneShot(s.clip);

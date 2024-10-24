@@ -46,7 +46,6 @@ public class DialogsController : MonoBehaviour
     }
     private void Update()
     {
-        print(textSound);
         if (isReadingText)
         {
             

@@ -1071,7 +1071,7 @@ MonoBehaviour:
   _choiceBInput: 275
   _playerController: {fileID: 1423841581}
   _tutorialIndex: 0
-  _startCharacterIndex: 5
+  _startCharacterIndex: 0
   _debugDialogData: []
 --- !u!4 &1194646318
 Transform:
