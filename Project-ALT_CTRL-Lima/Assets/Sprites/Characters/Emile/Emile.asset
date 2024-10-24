@@ -23,4 +23,4 @@ MonoBehaviour:
   - emotion: 2
     sprite: {fileID: 21300000, guid: 0099f151f798b3a4b86f6c39ca2818bb, type: 3}
   _dialog: {fileID: 4900000, guid: 7c15fe27303278c42bce884d728af6bf, type: 3}
-  _characterTimerLenght: 60
+  _characterTimerLenght: 20
