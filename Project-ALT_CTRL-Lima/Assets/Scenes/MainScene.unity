@@ -988,6 +988,7 @@ MonoBehaviour:
   _playerController: {fileID: 1423841581}
   _tutorialIndex: 0
   _startCharacterIndex: 0
+  _debugDialogData: []
 --- !u!4 &1194646318
 Transform:
   m_ObjectHideFlags: 0
@@ -1172,7 +1173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3507087720348134459, guid: ce807b41356a75647aed202bf3057355, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 197
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 3507087720348134459, guid: ce807b41356a75647aed202bf3057355, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1254,8 +1255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da06a9ff2accb734e8496526157d2f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _floatTollerance: 2.5
-  _succeedMaxDuration: 1
   _onMovementSucceed:
     m_PersistentCalls:
       m_Calls:
@@ -1286,14 +1285,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _resetDuration: 5
+  _floatTollerance: 2.5
+  _succeedMaxDuration: 1
   _accelerationDelay: 1
-  _pendulum: {fileID: 1864483956}
   _maxDistance: 50
   _targetAcceleration: 1.2
-  _bInvertJoyCon: 1
+  _recenterDuration: 60
   _resetCount: 100
+  _bInvertJoyCon: 1
+  _pendulum: {fileID: 1864483956}
   _debugGameObject: {fileID: 0}
+  _bFullDebug: 0
 --- !u!4 &1423841579
 Transform:
   m_ObjectHideFlags: 0
