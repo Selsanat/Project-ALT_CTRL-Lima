@@ -18,7 +18,6 @@ public class playSound : TextCommand
 
     public override void OnEnter()
     {
-        MonoBehaviour.print(_sound);
         SoundManager.instance.PlayClip(_sound);
     }
 
