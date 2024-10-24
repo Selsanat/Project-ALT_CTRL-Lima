@@ -370,6 +370,6 @@ public class GameManager : MonoBehaviour
         _narratorBox.gameObject.SetActive(false);
 
         _endingScreen.gameObject.SetActive(true);
-        _endingScreen.DisplayResults(bVictory, _currency);
+        _endingScreen.DisplayResults(bVictory, _currency, (_characterIndex + 1 == _characterDatas.Count));
     }
 }
