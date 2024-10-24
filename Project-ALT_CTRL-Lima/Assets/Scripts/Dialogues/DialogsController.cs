@@ -19,7 +19,8 @@ public class DialogsController : MonoBehaviour
     public static DialogsController subTextboxInstance2;
     private float pauseTime = 0;
     private float time = 0;
-    [SerializeField] private float characterSoundDelay = 0.15f;
+    public string textSound = "Boop";
+    [SerializeField] public float characterSoundDelay = 0.15f;
 
     public bool bIsReadingText { get => isReadingText; }
 
@@ -45,6 +46,7 @@ public class DialogsController : MonoBehaviour
     }
     private void Update()
     {
+        print(textSound);
         if (isReadingText)
         {
             
@@ -59,7 +61,7 @@ public class DialogsController : MonoBehaviour
     private IEnumerator PlayTextSound()
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(0.0f, characterSoundDelay/3));
-        SoundManager.instance.PlayClip("Boop");
+        SoundManager.instance.PlayClip(textSound);
     }
 
     public void SkipAnimation()

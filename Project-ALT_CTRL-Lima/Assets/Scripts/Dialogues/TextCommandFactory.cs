@@ -10,6 +10,7 @@ public class TextCommandsFactory
             case "textspeed": return new textSpeed();
             case "textpause": return new textPause();
             case "playsound": return new playSound();
+            case "textsound": return new textSound();
         }
 
         return null;

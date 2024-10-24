@@ -701,7 +701,18 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 0}
   audioMixer: {fileID: 0}
   sounds:
-  - name: quack
+  - name: bells
+    clips: []
+    clip: {fileID: 8300000, guid: f754b28a6cfbaa34e8ad9ec4f143a01b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    Oneshot: 1
+    playeOnAwake: 0
+    playOneAfterAnother: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Quack
     clips: []
     clip: {fileID: 8300000, guid: 2dc2b27733256424f94f565fc3b42717, type: 3}
     volume: 0.5
@@ -1180,7 +1191,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogInput: {fileID: 2117087154}
   BASE_CHAR_PER_SEC: 15
+  charactersPerSecond: 50
   _dialogText: {fileID: 1356846992}
+  isReadingText: 0
+  textSound: Boop
+  characterSoundDelay: 0.15
 --- !u!1 &1746677076
 GameObject:
   m_ObjectHideFlags: 0

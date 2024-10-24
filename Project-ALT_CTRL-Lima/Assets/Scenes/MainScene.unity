@@ -1003,6 +1003,61 @@ MonoBehaviour:
     playOneAfterAnother: 0
     delay: 0
     source: {fileID: 0}
+  - name: choco
+    clips: []
+    clip: {fileID: 8300000, guid: 90d0c8432e1022040aafaa5f886409c9, type: 3}
+    volume: 1
+    pitch: 0.9
+    loop: 0
+    Oneshot: 0
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: Quack
+    clips: []
+    clip: {fileID: 8300000, guid: 2dc2b27733256424f94f565fc3b42717, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    Oneshot: 0
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: blob
+    clips: []
+    clip: {fileID: 8300000, guid: ecdb153e941b60a4089930bcb145e630, type: 3}
+    volume: 1
+    pitch: 0.9
+    loop: 0
+    Oneshot: 0
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: creek
+    clips: []
+    clip: {fileID: 8300000, guid: 889ee36e9c3a1554585c92854a04517f, type: 3}
+    volume: 0.25
+    pitch: 0.3
+    loop: 0
+    Oneshot: 0
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: lama
+    clips: []
+    clip: {fileID: 8300000, guid: 8ac59755561f73045a416af4559a5876, type: 3}
+    volume: 0.25
+    pitch: 0.75
+    loop: 0
+    Oneshot: 0
+    playeOnAwake: 0
+    playOneAfterAnother: 1
+    delay: 0
+    source: {fileID: 0}
   bgMusics: []
 --- !u!1 &1126649516
 GameObject:
@@ -1195,7 +1250,7 @@ MonoBehaviour:
   _choiceBInput: 275
   _playerController: {fileID: 1423841581}
   _tutorialIndex: 0
-  _startCharacterIndex: 0
+  _startCharacterIndex: 5
   _debugDialogData: []
 --- !u!4 &1194646318
 Transform:
@@ -1261,7 +1316,8 @@ MonoBehaviour:
   charactersPerSecond: 50
   _dialogText: {fileID: 0}
   isReadingText: 0
-  characterSoundDelay: 0.15
+  textSound: 
+  characterSoundDelay: 0
 --- !u!224 &1406808234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4378660489982589970, guid: c6e716b9d3dbfe646a7d30356cd0d4ee, type: 3}

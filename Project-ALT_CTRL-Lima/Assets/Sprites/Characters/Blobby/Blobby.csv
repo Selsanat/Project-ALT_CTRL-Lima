@@ -1,90 +1,57 @@
 characterName,text,choice,redirectTo,addedTimerValue,toggleTimer,emotion
-Blobby,"<textjump=0.5|2|1>Hello, I'll explain, since a while I feel bad.",,,,,Livid
-Blobby,<textjump=0.5|2|1>I was<textspeed=30> recommended<textspeed=15> your services so here I am !,,,,,Livid
-Player,<textjump=0.5|2|1>You have a<textspeed=1>...,TRUE,6,,,
-Player,<textjump=0.5|2|1>Take a<color=#6500c5> chewing-gum</color>.,TRUE,7,,,
-Blobby,<textjump=0.5|2|1>It's been months that I live with my husband and everything is perfect !,,,,,Livid
-Blobby,"<textjump=0.5|2|1>It's happiness, he understands me, he supports me and he's always there to listen to me.",,,,,Livid
-Blobby,"<textjump=0.2|2|5>However, it's been<color=red><b><textrumble=0.1|-1|2> HELL</color></b></textrumble> since my step-mother came to live at<textpause=0.3><textspeed=30><b> OUR<textpause=0.3></b><textspeed=15> place.",,,,,Livid
-Blobby,<textjump=0.5|2|1>I suspect<textpause=0.3> she doesn't see our relation as a good thing.,,,,,Livid
-Player,<textjump=0.5|2|1>What makes you believe that?,TRUE,12,,,
-Player,"<textjump=0.5|2|1>I think you catch something, please continue",TRUE,13,,,
-Blobby,"<textjump=0.5|2|1>Yes, she keeps throwing some<color=black><b> dark</color></b> looks at me, it's<b> hard</b> for me.",,,,,Livid
-Blobby,<textjump=0.5|2|1>She criticizes my<b><textpause=0.3> every</b> move. She won't stop saying I'm slack.,,,,,Livid
-Blobby,"<textjump=0.5|2|1>I don't find my words, she's the<b><textspeed=30> snake</b><textspeed=15> in my boot, the<b><textspeed=30> fox</b><textspeed=15> in the chicken coop, the<b><textspeed=30> iceberg</b><textspeed=15> in my Titanic.",,,,,Livid
-Player,"<textjump=0.5|2|1>Just asking but, did you<color=#6500c5> lost</color> a knife recently?",,,,,
-Blobby,<textjump=0.5|2|1>Yes but how do you know?,,,,,Surprised but livid
-Player,<textjump=0.5|2|1>An intuition<textspeed=1>...,TRUE,19,,,
-Player,<textjump=0.5|2|1>15 years of work make you feel those things.,TRUE,19,,,
-Blobby,<textjump=0.5|2|1>It's</textjump><textjump=0.2|-1|5><color=#6500c5><b><cspace=10><textspeed=20> crazy</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> what you are capable of!,,,,,Surprised but livid
-Blobby,<textjump=0.5|2|1>You think there's a link<b> between</b> my step-mother<textspeed=10> and<textspeed=15> the knife?,,,,,Surprised but livid
-Player,<textjump=0.5|2|1>I'll just suggest you to hide your knife while she stays at your home<textspeed=1>...,,,,,
-Blobby,"<textjump=0.2|2|5>She’s a<b><color=red></textjump><textjump=0.2|2|15><textspeed=30> thief</b></color><textspeed=15></textjump><textjump=0.2|2|5> as well as a pain in the ass, you think?",,,,,Surprised but livid
-Player,<textjump=0.5|2|1>Not exactly what... I was thinking but<textspeed=1>...<textspeed=15>  let's get back to you!,,,,,
-Player,<textjump=0.5|2|1>Anything else recently bothering you?,,,,,
-Player,<textjump=0.5|2|1>Why do you wanna get<color=#6500c5></textjump><textjump=0.5|-1|5> hypnotised</color></textjump><textjump=0.5|2|1>?,,,,,
-Blobby,<textjump=0.5|2|1>I don't think so.,,,,,Livid
-Blobby,"<textjump=0.2|2|10><textspeed=40>Please, make me confident so I can finally<color=red><b><textrumble=0.1|-1|2> stood up</color></b></textrumble> to her and make her go!",,,,,Livid
-<<<<<<< HEAD
-Player,<textjump=0.5|2|1>Ok let's start!,,,,TRUE,
-Player,<textjump=0.5|2|1>Focus on my</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> watch</textjump><textjump=0.5|2|1></color></b><textspeed=1>...,,,,,
-Player,<textjump=0.5|2|1>Try remembering a<b> good</b> memory.,,,,,
-Blobby,<textjump=0.5|2|1>Like watching a movie?,,,,,Livid
-Blobby,<textjump=0.5|2|1>Oh yes a good movie!,,,,,Livid
-Blobby,<textjump=0.5|2|1>But which one?,,,,,Livid
-Player,<textjump=0.5|2|1>The Lion King.,TRUE,36,5,,
-Player,<textjump=0.5|2|1>Titanic.,TRUE,38,-5,,
-Blobby,<textjump=0.5|2|1>Oh yes that was my</textjump><textjump=0.5|-1|5><color=#6500c5><b> favorite</textjump><textjump=0.5|2|1></color=></b> movie as a child!,,,,,Happy
+Blobby," <textsound=blob|0.2> <textjump=0.5|2|1>Hello, I'll explain, since a while I feel bad. ",,,,,Livid
+Blobby,<textjump=0.5|2|1>I was<textspeed=30> recommended<textspeed=15> your services so here I am ! ,,,,,Livid
+Player,<textjump=0.5|2|1>You have a<textspeed=1>... ,TRUE,6,,,
+Player,<textjump=0.5|2|1>Take a<color=#6500c5> chewing-gum</color>. ,TRUE,7,,,
+Blobby,<textjump=0.5|2|1>It's been months that I live with my husband and everything is perfect ! ,,,,,Livid
+Blobby,"<textjump=0.5|2|1>It's happiness, he understands me, he supports me and he's always there to listen to me. ",,,,,Livid
+Blobby,"<textjump=0.2|2|5>However, it's been<color=red><b><textrumble=0.1|-1|2> HELL</color></b></textrumble> since my step-mother came to live at<textpause=0.3><textspeed=30><b> OUR<textpause=0.3></b><textspeed=15> place. ",,,,,Livid
+Blobby,<textjump=0.5|2|1>I suspect<textpause=0.3> she doesn't see our relation as a good thing. ,,,,,Livid
+Player,<textjump=0.5|2|1>What makes you believe that? ,TRUE,12,,,
+Player,"<textjump=0.5|2|1>I think you catch something, please continue ",TRUE,13,,,
+Blobby,"<textjump=0.5|2|1>Yes, she keeps throwing some<color=black><b> dark</color></b> looks at me, it's<b> hard</b> for me. ",,,,,Livid
+Blobby,<textjump=0.5|2|1>She criticizes my<b><textpause=0.3> every</b> move. She won't stop saying I'm slack. ,,,,,Livid
+Blobby,"<textjump=0.5|2|1>I don't find my words, she's the<b><textspeed=30> snake</b><textspeed=15> in my boot, the<b><textspeed=30> fox</b><textspeed=15> in the chicken coop, the<b><textspeed=30> iceberg</b><textspeed=15> in my Titanic. ",,,,,Livid
+Player,"<textjump=0.5|2|1>Just asking but, did you<color=#6500c5> lost</color> a knife recently? ",,,,,
+Blobby,<textjump=0.5|2|1>Yes but how do you know? ,,,,,Surprised but livid
+Player,<textjump=0.5|2|1>An intuition<textspeed=1>... ,TRUE,19,,,
+Player,<textjump=0.5|2|1>15 years of work make you feel those things. ,TRUE,19,,,
+Blobby,<textjump=0.5|2|1>It's</textjump><textjump=0.2|-1|5><color=#6500c5><b><cspace=10><textspeed=20> crazy</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> what you are capable of! ,,,,,Surprised but livid
+Blobby,<textjump=0.5|2|1>You think there's a link<b> between</b> my step-mother<textspeed=10> and<textspeed=15> the knife? ,,,,,Surprised but livid
+Player,<textjump=0.5|2|1>I'll just suggest you to hide your knife while she stays at your home<textspeed=1>... ,,,,,
+Blobby,"<textjump=0.2|2|5>She’s a<b><color=red></textjump><textjump=0.2|2|15><textspeed=30> thief</b></color><textspeed=15></textjump><textjump=0.2|2|5> as well as a pain in the ass, you think? ",,,,,Surprised but livid
+Player,<textjump=0.5|2|1>Not exactly what... I was thinking but<textspeed=1>...<textspeed=15>  let's get back to you! ,,,,,
+Player,<textjump=0.5|2|1>Anything else recently bothering you? ,,,,,
+Player,<textjump=0.5|2|1>Why do you wanna get<color=#6500c5></textjump><textjump=0.5|-1|5> hypnotised</color></textjump><textjump=0.5|2|1>? ,,,,,
+Blobby,<textjump=0.5|2|1>I don't think so. ,,,,,Livid
+Blobby,"<textjump=0.2|2|10><textspeed=40>Please, make me confident so I can finally<color=red><b><textrumble=0.1|-1|2> stood up</color></b></textrumble> to her and make her go! ",,,,,Livid
+Player,<textjump=0.5|2|1>Ok let's start! ,,,,TRUE,
+Player,<textjump=0.5|2|1>Focus on my</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> watch</textjump><textjump=0.5|2|1></color></b><textspeed=1>... ,,,,,
+Player,<textjump=0.5|2|1>Try remembering a<b> good</b> memory. ,,,,,
+Blobby,<textjump=0.5|2|1>Like watching a movie? ,,,,,Livid
+Blobby,<textjump=0.5|2|1>Oh yes a good movie! ,,,,,Livid
+Blobby,<textjump=0.5|2|1>But which one? ,,,,,Livid
+Player,<textjump=0.5|2|1>The Lion King. ,TRUE,36,5,,
+Player,<textjump=0.5|2|1>Titanic. ,TRUE,38,-5,,
+Blobby,<playsound=good_choice> <textjump=0.5|2|1>Oh yes that was my</textjump><textjump=0.5|-1|5><color=#6500c5><b> favorite</textjump><textjump=0.5|2|1></color=></b> movie as a child!,,,,,Happy
 Blobby,<textjump=0.5|2|1>Thanks for making me<b> remember</b> it!,,40,,,Happy
 Blobby,"<playsound=wrong_choice> <textjump=0.5|2|1>Oh no! not<b> Titanic</b>, the iceberg is as cold as my step-mother and it's crushing our relationship<b> like the boat!",,,,,Surprised but livid
-Blobby,<textjump=0.5|2|1>I think the Lion King were my favorite movie as a child!,,,,,Livid
-Player,<textjump=0.5|2|1>Now think of a place you can</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> relax</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> to.,,,,,
-Blobby,<textjump=0.5|2|1>Somewhere that makes me feel good?,,,,,Livid
-Blobby,<textjump=0.5|2|1>Like at home?,,,,,Livid
-Player,<textjump=0.5|2|1>Like the kitchen!,TRUE,45,-5,,
-Player,<textjump=0.5|2|1>Like your bathroom!,TRUE,46,5,,
-Blobby,"<playsound=wrong_choice> <textjump=0.2|2|10><textspeed=40>Not the<color=red><b><textrumble=0.1|-1|2> kitchen</color></b></textrumble>, step-mother always<color=red><b><textrumble=0.1|-1|2> criticize</color></b></textrumble> my food and she even<b> stole</b> our knifes!",,,,,Surprised but livid
-Blobby,<textjump=0.5|2|1>Oh yes! A</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> warm</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> bath is</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> perfect</textjump><textjump=0.5|2|1></color><b></cspace=0><textspeed=15>!,,,,,Happy
-Blobby,<textjump=0.5|2|1>You are great at this!,,,,,Happy
-Player,"<textjump=0.5|2|1>Finally, think of something or someone making you feel</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> good</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15>!",,,,,
-Blobby,"<textjump=0.5|2|1>I don't really feel good lately, any idea  ?",,,,,Livid
-Player,<textjump=0.5|2|1>Your husband.,TRUE,52,5,,
-Player,<textjump=0.5|2|1>Your step-mother.,TRUE,53,-5,,
-Blobby,"<textjump=0.5|2|1>My</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> husband</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> yes, thinking of him feels</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> good</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15>!",,55,,,Happy
-Blobby,<playsound=wrong_choice> <textjump=0.2|2|10><textspeed=40>Not my<color=red><b><textrumble=0.1|-1|2> step-mother</color></b></textrumble> she is the<color=red><b><textrumble=0.1|-1|2> OPPOSITE</color></b></textrumble> of a good thing! ,,,,,Surprised but livid
+Blobby,<textjump=0.5|2|1>I think the Lion King were my favorite movie as a child! ,,,,,Livid
+Player,<textjump=0.5|2|1>Now think of a place you can</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> relax</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> to. ,,,,,
+Blobby,<textjump=0.5|2|1>Somewhere that makes me feel good? ,,,,,Livid
+Blobby,<textjump=0.5|2|1>Like at home? ,,,,,Livid
+Player,<textjump=0.5|2|1>Like the kitchen! ,TRUE,45,-5,,
+Player,<textjump=0.5|2|1>Like your bathroom! ,TRUE,46,5,,
+Blobby,"<playsound=wrong_choice> <textjump=0.2|2|10><textspeed=40>Not the<color=red><b><textrumble=0.1|-1|2> kitchen</color></b></textrumble>, step-mother always<color=red><b><textrumble=0.1|-1|2> criticize</color></b></textrumble> my food and she even<b> stole</b> our knifes! ",,,,,Surprised but livid
+Blobby,<playsound=good_choice> <textjump=0.5|2|1>Oh yes! A</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> warm</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> bath is</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> perfect</textjump><textjump=0.5|2|1></color><b></cspace=0><textspeed=15>! ,,,,,Happy
+Blobby,<textjump=0.5|2|1>You are great at this! ,,,,,Happy
+Player,"<textjump=0.5|2|1>Finally, think of something or someone making you feel</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> good</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15>! ",,,,,
+Blobby,"<textjump=0.5|2|1>I don't really feel good lately, any idea ? ",,,,,Livid
+Player,<textjump=0.5|2|1>Your husband. ,TRUE,52,5,,
+Player,<textjump=0.5|2|1>Your step-mother. ,TRUE,53,-5,,
+Blobby,"<playsound=good_choice> <textjump=0.5|2|1>My</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> husband</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> yes, thinking of him feels</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> good</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15>! ",,55,,,Happy
+Blobby,<playsound=wrong_choice> <textjump=0.2|2|10><textspeed=40>Not my<color=red><b><textrumble=0.1|-1|2> step-mother</color></b></textrumble> she is the<color=red><b><textrumble=0.1|-1|2> OPPOSITE</color></b></textrumble> of a good thing!  ,,,,,Surprised but livid
 Blobby,<textjump=0.2|2|10><textspeed=40>You ain't<color=red><b><textrumble=0.1|-1|2> LISTENING</color></b></textrumble> to what I'm saying. You're a<color=red><b><textrumble=0.1|-1|2> FRAUD</color></b></textrumble> I'm leaving! <playsound=mission_fail> ,,,-180,,Livid
 Blobby,"<textjump=0.5|2|1>Yes, i'm feeling</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> floating</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15>! ",,,,,Hypnotized
 Player,<textjump=0.5|2|1>At my</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> signal</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> you will now be capable to</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> stand up</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15> to your</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> step-mother</textjump><textjump=0.5|2|1></color></b><cspace=0><textspeed=15>! ,,,,,
 Player,<textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5>NOW! </textjump></color></b><cspace=0><textspeed=15><playsound=mission_succes> ,,,,,
-=======
-Player,<textjump=0.5|1|5>Ok let's start!,,,,TRUE,
-Player,<textjump=0.5|1|5>Focus on my</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> watch</textjump><textjump=0.5|1|5></color></b><textspeed=1>...,,,,,
-Player,<textjump=0.5|1|5>Try remembering a<b> good</b> memory.,,,,,
-Blobby,<textjump=0.5|1|5>Like watching a movie?,,,,,Livid
-Blobby,<textjump=0.5|1|5>Oh yes a good movie!,,,,,Livid
-Blobby,<textjump=0.5|1|5>But which one?,,,,,Livid
-Player,<textjump=0.5|1|5>The Lion King.,TRUE,36,5,,
-Player,<textjump=0.5|1|5>Titanic.,TRUE,38,-5,,
-Blobby,<textjump=0.5|1|5>Oh yes that was my</textjump><textjump=0.5|-1|5><color=#6500c5><b> favorite</textjump><textjump=0.5|1|5></color=></b> movie as a child!,,,,,Happy
-Blobby,<textjump=0.5|1|5>Thanks for making me<b> remember</b> it!,,40,,,Happy
-Blobby,"<textjump=0.5|1|5>Oh no! not<b> Titanic</b>, the iceberg is as cold as my step-mother and it's crushing our relationship<b> like the boat!",,,,,Surprised but livid
-Blobby,<textjump=0.5|1|5>I think the Lion King were my favorite movie as a child!,,,,,Livid
-Player,<textjump=0.5|1|5>Now think of a place you can</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> relax</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> to.,,,,,
-Blobby,<textjump=0.5|1|5>Somewhere that makes me feel good?,,,,,Livid
-Blobby,<textjump=0.5|1|5>Like at home?,,,,,Livid
-Player,<textjump=0.5|1|5>Like the kitchen!,TRUE,45,-5,,
-Player,<textjump=0.5|1|5>Like your bathroom!,TRUE,46,5,,
-Blobby,"<textjump=0.2|2|10><textspeed=40>Not the<color=red><b><textrumble=0.1|-1|2> kitchen</color></b></textrumble>, step-mother always<color=red><b><textrumble=0.1|-1|2> criticize</color></b></textrumble> my food and she even<b> stole</b> our knifes!",,,,,Surprised but livid
-Blobby,<textjump=0.5|1|5>Oh yes! A</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> warm</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> bath is</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> perfect</textjump><textjump=0.5|1|5></color><b></cspace=0><textspeed=15>!,,,,,Happy
-Blobby,<textjump=0.5|1|5>You are great at this!,,,,,Happy
-Player,"<textjump=0.5|1|5>Finally, think of something or someone making you feel</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> good</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15>!",,,,,
-Blobby,"<textjump=0.5|1|5>I don't really feel good lately, any idea  ?",,,,,Livid
-Player,<textjump=0.5|1|5>Your husband.,TRUE,52,5,,
-Player,<textjump=0.5|1|5>Your step-mother.,TRUE,53,-5,,
-Blobby,"<textjump=0.5|1|5>My</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> husband</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> yes, thinking of him feels</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> good</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15>!",,55,,,Happy
-Blobby,<textjump=0.2|2|10><textspeed=40>Not my<color=red><b><textrumble=0.1|-1|2> step-mother</color></b></textrumble> she is the<color=red><b><textrumble=0.1|-1|2> OPPOSITE</color></b></textrumble> of a good thing!,,,,,Surprised but livid
-Blobby,<textjump=0.2|2|10><textspeed=40>You ain't<color=red><b><textrumble=0.1|-1|2> LISTENING</color></b></textrumble> to what I'm saying. You're a<color=red><b><textrumble=0.1|-1|2> FRAUD</color></b></textrumble> I'm leaving!,,,-180,,Livid
-Blobby,"<textjump=0.5|1|5>Yes, i'm feeling</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> floating</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15>!",,,,,Hypnotized
-Player,<textjump=0.5|1|5>At my</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> signal</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> you will now be capable to</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> stand up</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15> to your</textjump><textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5> step-mother</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15>!,,,,,
-Player,<textjump=0.5|-1|5><color=#6500c5><b><cspace=10><textspeed=5>NOW!</textjump><textjump=0.5|1|5></color></b><cspace=0><textspeed=15>,,,,,
->>>>>>> origin/Melvin
