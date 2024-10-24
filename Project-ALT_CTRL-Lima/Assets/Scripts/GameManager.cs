@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
-using static UnityEditor.PlayerSettings;
 
 public enum CharacterType
 {
@@ -103,17 +102,6 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-
-#if UNITY_EDITOR
-        if(Input.mouseScrollDelta.y != 0)
-        {
-            int debugIndex = (int)(_lastDialogIndex - Input.mouseScrollDelta.y);
-            debugIndex = Mathf.Clamp(debugIndex, 0, _characterDatas.Count - 1);
-
-            WriteDialog(debugIndex);
-            return;
-        }
-#endif
 
         if (DialogsController.instance.bIsReadingText)
         {
