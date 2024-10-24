@@ -17,7 +17,7 @@ Calvares,<playsound=good_choice> Yes it's true I pretty like the Fish & Chips. ,
 Player,"Now I want you to think about an animal, you see... ",,,,,
 Player,A lion ,TRUE,21,5,,
 Player,A Rooster ,TRUE,20,-5,,
-Calvares,"<playsound=wrong_choice> <textjump=0.5|2|5>No, I was thinking about a lion a symbol of our good <color=red>England</color> ! ",,22,,,Neutral
+Calvares,"<playsound=wrong_choice> <textjump=0.5|2|5>No, I was thinking about a lion a symbol of our good <color=red>England</color> ! ",,22,,,Calm
 Calvares,"<playsound=good_choice> Yes it is, how did you guess? ",,,,,TakenAback
 Player,Stare <textspeed=5><textjump=0.5|2|5><color=blue>deeply</color> <textspeed=15>at my watch. ,,,,,
 Player,"Think about your high school students that you help everyday, surely they will be happy to make a trip like that. ",TRUE,25,-5,,

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 5523580481739998711, guid: 8c71b869fe3a1cf4b99f1892e56dc887, type: 3}
   _emotions:
-  - emotion: 1
+  - emotion: 8
     sprite: {fileID: 21300000, guid: 65d45756db36a884e9055f035e13db98, type: 3}
   - emotion: 9
     sprite: {fileID: 21300000, guid: ffda37cbfca6de74c9979a6c8211073d, type: 3}

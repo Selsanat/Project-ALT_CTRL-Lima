@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject _worldUI;
 
+    [SerializeField]
+    private int _characterHierachyIndex = 1;
+
     private Character _currentCharacter;
 
     private List<DialogData> _dialogData;
@@ -310,7 +313,12 @@ public class GameManager : MonoBehaviour
         }
 
         _currentCharacter = Instantiate(_characterDatas[_characterIndex].Character, _worldUI.transform);
-        _currentCharacter.transform.SetSiblingIndex(_characterDatas[_characterIndex].HierachyIndex);
+
+        if (!_characterDatas[_characterIndex].ForegroundLayer)
+        {
+            _currentCharacter.transform.SetSiblingIndex(_characterHierachyIndex);
+        }
+
         _currentCharacter.SetData(_characterDatas[_characterIndex]);
         Vector3 pos = _currentCharacter.transform.position;
 
