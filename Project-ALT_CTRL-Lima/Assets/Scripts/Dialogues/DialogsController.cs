@@ -2,12 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using DG.Tweening;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
-using System;
-using System.Text.RegularExpressions;
-using UnityEngine.Windows;
 
 public class DialogsController : MonoBehaviour
 {
@@ -78,6 +72,7 @@ public class DialogsController : MonoBehaviour
     {
         isReadingText = false;
     }
+
     private void _UpdateReadText()
     {
         if (!isReadingText) return;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using TMPro;
 
 public enum CharacterType
 {
@@ -59,8 +60,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int _tutorialIndex = 0;
 
+    Tween _choiceAnim;
+
 #if UNITY_EDITOR
+    [Header("Debug")]
+
     [SerializeField] private int _startCharacterIndex = 0;
+    [SerializeField] private List<DialogData> _debugDialogData;
 #endif
 
     private void Awake()
@@ -80,6 +86,13 @@ public class GameManager : MonoBehaviour
         if (_timer == null) { Debug.LogError("_timer is missing in " + name); yield break;}
 #endif
 
+        _characterBox.gameObject.SetActive(false);
+        _playerBox.gameObject.SetActive(false);
+        _choiceBox.gameObject.SetActive(false);
+        _narratorBox.gameObject.SetActive(false);
+        _endingScreen.gameObject.SetActive(false);
+        _timer.gameObject.SetActive(false);
+
         yield return new WaitForEndOfFrame();
 
 #if UNITY_EDITOR
@@ -95,17 +108,6 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-
-#if UNITY_EDITOR
-        if(Input.mouseScrollDelta.y != 0)
-        {
-            int debugIndex = (int)(_lastDialogIndex - Input.mouseScrollDelta.y);
-            debugIndex = Mathf.Clamp(debugIndex, 0, _characterDatas.Count - 1);
-
-            WriteDialog(debugIndex);
-            return;
-        }
-#endif
 
         if (DialogsController.instance.bIsReadingText)
         {
@@ -124,12 +126,15 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(_choiceAInput))
             {
-                CanvasGroup cg =   _choiceBox._choiceB.transform.parent.GetComponent<CanvasGroup>();
-                cg.DOFade(0, 0.5f).OnComplete(() =>
+                CanvasGroup cg = _choiceBox._choiceB.transform.parent.GetComponent<CanvasGroup>();
+                _bIsPlayingAnim = true;
+
+                _choiceAnim = cg.DOFade(0, 0.5f);
+                _choiceAnim.Play().OnComplete(() =>
                 {
-                    Vector3 pos = _choiceBox._choiceA.transform.parent.transform.position;
-                    _choiceBox._choiceA.transform.parent.transform.DOMove(new Vector3(Screen.width / 2, pos.y, pos.z), 0.5f);
+                    ChoiceAnim(_choiceBox._choiceA);
                 });
+
                 addIndex = _lastDialogIndex;
                 targetIndex = _choiceBox.redirectChoiceA;
             }
@@ -137,10 +142,14 @@ public class GameManager : MonoBehaviour
             else if (Input.GetKeyDown(_choiceBInput))
             {
                 CanvasGroup cg = _choiceBox._choiceA.transform.parent.GetComponent<CanvasGroup>();
-                cg.DOFade(0, 0.5f).OnComplete(() => {
-                    Vector3 pos = _choiceBox._choiceB.transform.parent.transform.position;
-                    _choiceBox._choiceB.transform.parent.transform.DOMove(new Vector3(Screen.width / 2, pos.y, pos.z), 0.5f);
+                _bIsPlayingAnim = true;
+
+                _choiceAnim = cg.DOFade(0, 0.5f);
+                _choiceAnim.Play().OnComplete(() => 
+                {
+                    ChoiceAnim(_choiceBox._choiceB);
                 });
+
                 addIndex = _lastDialogIndex + 1;
                 targetIndex = _choiceBox.redirectChoiceB;
             }
@@ -159,6 +168,13 @@ public class GameManager : MonoBehaviour
 
         WriteDialog(targetIndex);
         _timer.AddTime(_dialogData[addIndex].addedTimerValue);
+    }
+
+    private void ChoiceAnim(TextMeshProUGUI box)
+    {
+        _bIsPlayingAnim = false;
+        Vector3 pos = box.transform.parent.transform.position;
+        box.transform.parent.transform.DOMove(new Vector3(Screen.width / 2, pos.y, pos.z), 0.5f);
     }
 
     public IEnumerator playSecondDialog(int dialogIndex)
@@ -303,6 +319,11 @@ public class GameManager : MonoBehaviour
         _endingScreen.gameObject.SetActive(false);
 
         _dialogData = CSVReader.MakeDialogData(_characterDatas[_characterIndex].Dialog);
+
+#if UNITY_EDITOR
+        _debugDialogData = _dialogData;
+#endif
+
         _timer.RestartTimer(_characterDatas[_characterIndex].CharacterTimerLenght);
         _timer.gameObject.SetActive(false);
 
@@ -337,9 +358,10 @@ public class GameManager : MonoBehaviour
 
     public void EndClient(bool bVictory)
     {
+        _currency = 0;
         if (bVictory)
         {
-            _currency += _timer.GetTimerValueInPercent();
+            _currency = _timer.GetTimerValueInPercent();
         }
 
         _characterBox.gameObject.SetActive(false);
