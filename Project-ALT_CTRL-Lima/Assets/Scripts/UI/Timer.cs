@@ -103,9 +103,14 @@ public class Timer : MonoBehaviour
         AddTime(percentToAdd * 100.0f / _timerDuration);
     }
 
-    public void ToggleTimerFactor()
+    public void SetAsDefaultFactor()
     {
-        _timerFactor = _timerFactor == _defaultFactor ? _succeedFactor : _defaultFactor;
+        _timerFactor = _defaultFactor;
+    }
+
+    public void SetAsSucceedFactor()
+    {
+        _timerFactor = _succeedFactor;
     }
 
     public void PauseTimer(bool bPause)

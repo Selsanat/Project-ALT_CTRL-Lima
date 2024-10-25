@@ -1492,7 +1492,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1416930984}
         m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: ToggleTimerFactor
+        m_MethodName: SetAsSucceedFactor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1519,7 +1519,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1416930984}
         m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: ToggleTimerFactor
+        m_MethodName: SetAsDefaultFactor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
